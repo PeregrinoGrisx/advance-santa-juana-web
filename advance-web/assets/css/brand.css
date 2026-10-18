@@ -962,3 +962,15 @@ textarea:focus-visible {
   .adv-esq--ii path { d: path("M1 1 V148 A11 11 0 0 0 12 159 H239"); }
   .adv-esq--id path { d: path("M239 1 V148 A11 11 0 0 1 228 159 H1"); }
 }
+
+/* --- Ficha de especialidad ------------------------------------------------ */
+/* El template sube la foto 371px para montarla sobre el hero. Ese hero sólo
+   traía titular y bajada; el nuestro suma los botones, así que hay que
+   reservarle ese alto o la foto se come las llamadas a la acción. */
+
+.section-hero.v1.adv-hero--ficha .content-wrap { padding-bottom: 400px; }
+
+@media (max-width: 767px) {
+  /* En celular el template deja de montar la foto tan arriba. */
+  .section-hero.v1.adv-hero--ficha .content-wrap { padding-bottom: 140px; }
+}
