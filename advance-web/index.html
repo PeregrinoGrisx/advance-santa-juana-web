@@ -156,32 +156,39 @@
         <!-- Hero Banner -->
         <div class="section-hero adv-hero" id="contenido">
             <div class="hero-image"></div>
-
-            <!-- Trazado que se ramifica desde el centro, con un pulso recorriéndolo.
-                 Va detrás de todo y no toca el texto. -->
-            <svg class="adv-circuito d-none d-lg-block" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-                <g class="adv-circuito__trazos" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path pathLength="1000" d="M80 300 H1120"/>
-                    <path pathLength="1000" d="M600 300 H424 Q400 300 400 276 V152 Q400 128 376 128 H150"/>
-                    <path pathLength="1000" d="M600 300 H464 Q440 300 440 324 V452 Q440 476 416 476 H210"/>
-                    <path pathLength="1000" d="M600 300 H776 Q800 300 800 276 V168 Q800 144 824 144 H1050"/>
-                    <path pathLength="1000" d="M600 300 H736 Q760 300 760 324 V436 Q760 460 784 460 H1010"/>
-                </g>
-                <g class="adv-circuito__pulsos" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path pathLength="1000" d="M80 300 H1120"/>
-                    <path pathLength="1000" d="M600 300 H424 Q400 300 400 276 V152 Q400 128 376 128 H150"/>
-                    <path pathLength="1000" d="M600 300 H464 Q440 300 440 324 V452 Q440 476 416 476 H210"/>
-                    <path pathLength="1000" d="M600 300 H776 Q800 300 800 276 V168 Q800 144 824 144 H1050"/>
-                    <path pathLength="1000" d="M600 300 H736 Q760 300 760 324 V436 Q760 460 784 460 H1010"/>
-                </g>
-                <g class="adv-circuito__nodos">
-                    <circle cx="600" cy="300" r="5"/>
-                    <circle cx="150" cy="128" r="4"/>
-                    <circle cx="210" cy="476" r="4"/>
-                    <circle cx="1050" cy="144" r="4"/>
-                    <circle cx="1010" cy="460" r="4"/>
-                </g>
-            </svg>
+            <!-- Escuadras que siguen el radio real del borde del hero. El trazo va
+                 a escala 1:1 y el contenedor lo recorta, así el arco calza igual en
+                 pantalla grande que en el celular. -->
+            <div class="adv-esquinas" aria-hidden="true">
+                <span class="adv-esq adv-esq--si">
+                    <svg viewBox="0 0 240 160" width="240" height="160" fill="none" aria-hidden="true">
+                        <path class="adv-esq__base" d="M1 159 V40 A39 39 0 0 1 40 1 H239"/>
+                        <path class="adv-esq__pulso" pathLength="1000" d="M1 159 V40 A39 39 0 0 1 40 1 H239"/>
+                        <circle class="adv-esq__nodo" cx="239" cy="1" r="3.5"/>
+                    </svg>
+                </span>
+                <span class="adv-esq adv-esq--sd">
+                    <svg viewBox="0 0 240 160" width="240" height="160" fill="none" aria-hidden="true">
+                        <path class="adv-esq__base" d="M1 1 H200 A39 39 0 0 1 239 40 V159"/>
+                        <path class="adv-esq__pulso" pathLength="1000" d="M1 1 H200 A39 39 0 0 1 239 40 V159"/>
+                        <circle class="adv-esq__nodo" cx="1" cy="1" r="3.5"/>
+                    </svg>
+                </span>
+                <span class="adv-esq adv-esq--ii">
+                    <svg viewBox="0 0 240 160" width="240" height="160" fill="none" aria-hidden="true">
+                        <path class="adv-esq__base" d="M1 1 V120 A39 39 0 0 0 40 159 H239"/>
+                        <path class="adv-esq__pulso" pathLength="1000" d="M1 1 V120 A39 39 0 0 0 40 159 H239"/>
+                        <circle class="adv-esq__nodo" cx="239" cy="159" r="3.5"/>
+                    </svg>
+                </span>
+                <span class="adv-esq adv-esq--id">
+                    <svg viewBox="0 0 240 160" width="240" height="160" fill="none" aria-hidden="true">
+                        <path class="adv-esq__base" d="M239 1 V120 A39 39 0 0 1 200 159 H1"/>
+                        <path class="adv-esq__pulso" pathLength="1000" d="M239 1 V120 A39 39 0 0 1 200 159 H1"/>
+                        <circle class="adv-esq__nodo" cx="1" cy="159" r="3.5"/>
+                    </svg>
+                </span>
+            </div>
 
             <div class="container">
                 <div class="content-wrap text-center">

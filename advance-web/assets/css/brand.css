@@ -764,48 +764,6 @@ textarea:focus-visible {
 @media (max-width: 1199px) { .adv-tools__pill { transform: translateX(-50%) scale(.66); bottom: 5%; } }
 
 
-/* --- Hero: trazado ramificado con pulso ----------------------------------- */
-/* Sale del centro del hero hacia los lados. Va en la capa de más atrás, así que
-   no interfiere con el titular, la figura ni las tarjetitas.                  */
-
-.adv-circuito {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 16%;
-  height: 68%;
-  width: 100%;
-  z-index: 0;
-  pointer-events: none;
-  overflow: visible;
-}
-
-.adv-circuito__trazos path {
-  stroke: rgba(11, 61, 66, .11);
-  stroke-width: 1.4;
-}
-
-.adv-circuito__nodos circle {
-  fill: rgba(0, 143, 150, .28);
-}
-.adv-circuito__nodos circle:first-child { fill: rgba(0, 143, 150, .45); }
-
-.adv-circuito__pulsos path {
-  stroke: var(--adv-turquesa);
-  stroke-width: 2.4;
-  stroke-dasharray: 34 1000;
-  stroke-dashoffset: 1034;
-  animation: advPulso 5.6s linear infinite;
-  opacity: .75;
-}
-.adv-circuito__pulsos path:nth-child(1) { animation-duration: 7.4s; opacity: .5; }
-.adv-circuito__pulsos path:nth-child(2) { animation-delay: 1.1s; }
-.adv-circuito__pulsos path:nth-child(3) { animation-delay: 2.4s; }
-.adv-circuito__pulsos path:nth-child(4) { animation-delay: .5s; }
-.adv-circuito__pulsos path:nth-child(5) { animation-delay: 3.2s; }
-
-@keyframes advPulso {
-  to { stroke-dashoffset: 0; }
 }
 
 /* La nota al pie de los valores necesita aire: pegada al bloque se lee como
@@ -930,4 +888,75 @@ textarea:focus-visible {
     scrollbar-width: thin;
     scrollbar-color: #008F96 rgba(207, 230, 231, .55);
   }
+}
+
+/* --- Hero: escuadras en las esquinas -------------------------------------- */
+/* El trazo sigue el radio real del borde del hero (40px). Por eso el dibujo va
+   siempre a escala 1:1 y lo que cambia entre pantallas es cuánto se recorta,
+   no el tamaño del arco: si se escalara, el arco dejaría de calzar.          */
+
+.adv-esquinas {
+  position: absolute;
+  inset: 16px 16px 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.adv-esq {
+  position: absolute;
+  display: block;
+  width: 190px;
+  height: 128px;
+  overflow: hidden;
+}
+.adv-esq svg { position: absolute; display: block; }
+
+.adv-esq--si { top: 0; left: 0; }
+.adv-esq--si svg { top: 0; left: 0; }
+.adv-esq--sd { top: 0; right: 0; }
+.adv-esq--sd svg { top: 0; right: 0; }
+.adv-esq--ii { bottom: 0; left: 0; }
+.adv-esq--ii svg { bottom: 0; left: 0; }
+.adv-esq--id { bottom: 0; right: 0; }
+.adv-esq--id svg { bottom: 0; right: 0; }
+
+.adv-esq__base {
+  stroke: rgba(11, 61, 66, .13);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+.adv-esq__nodo { fill: rgba(0, 143, 150, .3); }
+
+.adv-esq__pulso {
+  stroke: var(--adv-turquesa);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 46 1000;
+  stroke-dashoffset: 1046;
+  animation: advEsqPulso 5.4s linear infinite;
+  opacity: .8;
+}
+.adv-esq--sd .adv-esq__pulso { animation-delay: 1.3s; }
+.adv-esq--id .adv-esq__pulso { animation-delay: 2.6s; }
+.adv-esq--ii .adv-esq__pulso { animation-delay: 3.9s; }
+
+@keyframes advEsqPulso {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 991px) {
+  .adv-esq { width: 140px; height: 100px; }
+}
+@media (max-width: 575px) {
+  .adv-esq { width: 104px; height: 82px; }
+}
+
+/* El template baja el radio del hero a 24px bajo 767px, así que el arco de las
+   escuadras se redibuja para seguir calzando. Si el navegador no admite 'd' en
+   CSS, queda el trazo de 40px del atributo, que es el caso de escritorio. */
+@media (max-width: 767px) {
+  .adv-esq--si path { d: path("M1 159 V24 A23 23 0 0 1 24 1 H239"); }
+  .adv-esq--sd path { d: path("M1 1 H216 A23 23 0 0 1 239 24 V159"); }
+  .adv-esq--ii path { d: path("M1 1 V136 A23 23 0 0 0 24 159 H239"); }
+  .adv-esq--id path { d: path("M239 1 V136 A23 23 0 0 1 216 159 H1"); }
 }
