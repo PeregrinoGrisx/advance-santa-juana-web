@@ -18,6 +18,18 @@ Luego abrir <http://localhost:5473>.
 Para publicarlo basta con subir la carpeta completa a cualquier hosting
 estático (Netlify, Cloudflare Pages, Vercel, o el hosting actual del dominio).
 
+### Al publicar un cambio
+
+Los CSS y JS propios se enlazan con `?v=` y la fecha
+(`brand.css?v=202610181503`). **Hay que subir ese número en las ocho páginas
+cada vez que se publique un cambio de estilos o de comportamiento**, o el
+navegador y el CDN seguirán sirviendo la copia vieja:
+
+```bash
+V=$(date +%Y%m%d%H%M)
+cd advance-web && perl -pi -e "s/\?v=\d+/?v=$V/g" *.html
+```
+
 ## Páginas
 
 | Archivo | Qué es |
