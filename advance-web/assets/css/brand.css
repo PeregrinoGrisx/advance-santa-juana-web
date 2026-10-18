@@ -1,0 +1,818 @@
+/* ---------------------------------------------------------------------------
+   Advance · Centro de salud Santa Juana
+   Capa de marca sobre el template base. Punto Gris — puntogris.cl
+   Paleta tomada del logotipo (#008F96) y del diagnóstico de Thomas.
+--------------------------------------------------------------------------- */
+
+:root {
+  --adv-turquesa: #008F96;   /* color exacto del logotipo */
+  --adv-turquesa-claro: #00A3AB;
+  --adv-teal-profundo: #006B70;
+  --adv-tinta: #0B3D42;      /* fondos oscuros */
+  --adv-tinta-900: #072227;
+  --adv-agua: #CFE6E7;
+  --adv-nieve: #EDF5F5;
+  --adv-ambar: #F2B33D;      /* acento FONASA */
+  --adv-naranja: #F7941D;    /* naranja de la paleta actual, documentado por Thomas */
+  --adv-celeste: #8DB9DF;    /* celeste de la paleta actual */
+  --adv-azul: #3E689A;       /* azul de la paleta actual */
+  --adv-marino: #242F5A;     /* azul marino de la paleta actual */
+  --adv-verde: #1E7F46;      /* confirmaciones */
+  --adv-whatsapp: #1E7F46;
+}
+
+/* --- Logotipo ------------------------------------------------------------ */
+/* El logotipo original es vertical (isotipo sobre la palabra). Para barras y
+   pies se recorta por sprite en una versión horizontal, sin redibujarlo.     */
+
+.adv-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+
+.adv-mark {
+  display: block;
+  flex-shrink: 0;
+  background-image: url(../images/logo/advance-logo.png);
+  background-repeat: no-repeat;
+}
+
+.adv-mark--iso {
+  --k: 0.096;
+  width: calc(319px * var(--k));
+  height: calc(314px * var(--k));
+  background-size: calc(1726px * var(--k)) calc(924px * var(--k));
+  background-position: calc(-721px * var(--k)) calc(-20px * var(--k));
+}
+
+.adv-mark--word {
+  --k: 0.068;
+  width: calc(1687px * var(--k));
+  height: calc(311px * var(--k));
+  background-size: calc(1726px * var(--k)) calc(924px * var(--k));
+  background-position: calc(-18px * var(--k)) calc(-413px * var(--k));
+}
+
+.adv-mark--tag {
+  --k: 0.07;
+  width: calc(1567px * var(--k));
+  height: calc(109px * var(--k));
+  background-size: calc(1726px * var(--k)) calc(924px * var(--k));
+  background-position: calc(-78px * var(--k)) calc(-796px * var(--k));
+}
+
+.adv-logo__text { display: flex; flex-direction: column; gap: 4px; }
+
+/* Sobre fondos oscuros el logotipo va en blanco */
+.adv-logo--light .adv-mark { filter: brightness(0) invert(1); }
+
+.adv-logo--lg { gap: 16px; }
+.adv-logo--lg .adv-mark--iso  { --k: 0.19; }
+.adv-logo--lg .adv-mark--word { --k: 0.115; }
+.adv-logo--lg .adv-mark--tag  { --k: 0.1; }
+
+@media (max-width: 575px) {
+  .adv-mark--iso  { --k: 0.082; }
+  .adv-mark--word { --k: 0.05; }
+  .adv-mark--tag  { --k: 0.053; }
+}
+
+/* --- Encabezado ---------------------------------------------------------- */
+/* El logotipo horizontal y los rótulos en español necesitan más ancho que el
+   del template, que estaba pensado para seis palabras en inglés.            */
+
+.tf-header.header2 .header-inner { max-width: 1104px; }
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .tf-header.header2 .header-inner { max-width: calc(100vw - 48px); }
+  .nav-menu-main { gap: 16px; }
+}
+
+/* --- Hero ---------------------------------------------------------------- */
+/* El template trae el hero como un campo de color plano, no como fotografía:
+   se mantiene así, cambiando el azul grisáceo por el turquesa de la marca.   */
+
+/* Degradado de malla: base azul claro de la paleta, con zonas de violeta y
+   turquesa. El turquesa es el del logotipo y evita que el violeta quede solo. */
+.section-hero .hero-image {
+  background-image: none;
+  background-color: #D7E6F6;
+  background:
+    radial-gradient(46% 50% at 80% 12%, rgba(0, 163, 171, 0.46) 0%, rgba(0, 163, 171, 0) 64%),
+    radial-gradient(40% 46% at 18% 80%, rgba(0, 163, 171, 0.62) 0%, rgba(0, 163, 171, 0) 64%),
+    radial-gradient(50% 54% at 100% 92%, rgba(62, 104, 154, 0.58) 0%, rgba(62, 104, 154, 0) 66%),
+    radial-gradient(42% 46% at 2% 2%, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0) 62%),
+    linear-gradient(140deg, #EAF3FA 0%, #D7E6F6 42%, #C6DBF1 72%, #B4CFEC 100%);
+}
+
+/* Grano fino, como en la referencia */
+.section-hero .hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  pointer-events: none;
+  opacity: .40;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+.section-hero .content-wrap .text { color: var(--neutral-700); }
+
+/* --- Hero con figura ------------------------------------------------------ */
+/* Se conserva la composición y las animaciones del template; sólo se reparte
+   en dos columnas para que entre la fotografía recortada.                    */
+
+@media (min-width: 992px) {
+  .adv-hero .content-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    align-items: center;
+    gap: 32px;
+    text-align: left !important;
+    padding: 196px 0 120px;
+  }
+  /* más aire entre bloques: el titular no debe quedar pegado al menú */
+  .adv-hero .content-wrap .sub { margin-bottom: 34px; }
+  .adv-hero .content-wrap .title { margin-bottom: 44px; }
+  .adv-hero .content-wrap .text { margin-bottom: 46px; }
+  .adv-hero .adv-badges { margin-top: 38px; }
+  .adv-hero .content-wrap .sub { margin-left: 0; margin-right: auto; }
+  .adv-hero .content-wrap .title2 { justify-content: flex-start !important; }
+  .adv-hero .content-wrap .text { margin-left: 0; }
+  .adv-hero .content-wrap .bot-btns { justify-content: flex-start; }
+  .adv-hero .adv-badges { justify-content: flex-start; }
+}
+
+.adv-hero__figure {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: min(56vh, 530px);
+}
+
+/* La animación del titular del template, recolocada bajo la figura */
+.adv-hero__pill {
+  position: absolute;
+  left: 12%;
+  bottom: -6%;
+  z-index: 1;
+  width: 255px;
+  transform: scale(.78);
+  transform-origin: left bottom;
+  pointer-events: none;
+}
+
+@media (max-width: 1399px) { .adv-hero__pill { left: 8%;  transform: scale(.68); } }
+@media (max-width: 991px)  { .adv-hero__pill { left: 4%;  bottom: -10%; transform: scale(.58); } }
+@media (max-width: 575px)  { .adv-hero__pill { display: none; } }
+
+/* halo suave detrás, como el círculo de la referencia */
+.adv-hero__blob {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  width: 86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 34%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.35) 42%, rgba(255, 255, 255, 0) 70%);
+}
+
+.adv-hero__person {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  /* el corte en diagonal: la figura parece salir de la pantalla */
+  clip-path: polygon(0 0, 100% 0, 100% 74%, 0 97%);
+  filter: drop-shadow(0 26px 40px rgba(11, 61, 66, 0.22));
+}
+
+/* --- Piezas flotantes ----------------------------------------------------- */
+
+.adv-float { position: absolute; z-index: 3; display: block; }
+
+.adv-float--tri {
+  width: 74px; height: 64px;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  background: linear-gradient(180deg, #00A3AB 0%, #006B70 100%);
+  box-shadow: 0 14px 26px rgba(0, 143, 150, .34);
+}
+.adv-float--tri-2 {
+  width: 56px; height: 48px;
+  clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
+  background: linear-gradient(180deg, #A9D6DA 0%, #6FB4BA 100%);
+  box-shadow: 0 14px 26px rgba(0, 143, 150, .28);
+}
+.adv-float--dot {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, rgba(255,255,255,.75), rgba(141,185,223,.55) 46%, rgba(62,104,154,.45) 100%);
+  backdrop-filter: blur(6px);
+}
+.adv-float--ring {
+  width: 120px; height: 120px; border-radius: 50%;
+  border: 2px dashed rgba(11, 61, 66, .22);
+}
+
+.adv-float--a { top: 4%;  right: 2%; }
+.adv-float--b { top: 26%; left: -2%; }
+.adv-float--c { bottom: 26%; right: -1%; }
+.adv-float--d { top: 10%; left: 10%; }
+
+/* tarjetitas de interfaz */
+.adv-tarjeta {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 34px rgba(11, 61, 66, .16);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--adv-tinta);
+  white-space: nowrap;
+}
+.adv-tarjeta small { display: block; font-size: 11px; font-weight: 500; color: var(--neutral-500); }
+.adv-tarjeta .ic {
+  width: 30px; height: 30px; border-radius: 10px; flex-shrink: 0;
+  display: grid; place-items: center; color: #fff; font-size: 13px;
+  background: linear-gradient(180deg, #00A3AB, #006B70);
+}
+.adv-tarjeta .ic.ambar { background: linear-gradient(180deg, #F7C96A, #F2B33D); color: #4A3407; }
+.adv-tarjeta--1 { top: 16%; left: -6%; }
+.adv-tarjeta--2 { bottom: 20%; right: -8%; }
+
+@media (max-width: 1399px) {
+  .adv-tarjeta--1 { left: -2%; }
+  .adv-tarjeta--2 { right: -2%; }
+}
+
+@media (max-width: 991px) {
+  .adv-hero__figure { height: 360px; margin-top: 36px; }
+  /* las tarjetitas se mantienen bajo la línea de la cara */
+  .adv-tarjeta--1 { top: auto; bottom: 36%; left: -2%; }
+  .adv-tarjeta--2 { bottom: 8%; right: -2%; }
+  .adv-float--b, .adv-float--d { display: none; }
+}
+
+@media (max-width: 575px) {
+  .adv-hero__figure { height: 280px; }
+  /* el distintivo del template usa width:max-content y se sale en el celular */
+  .section-hero .content-wrap .sub {
+    width: auto;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  .adv-tarjeta { font-size: 12px; padding: 9px 13px; }
+  .adv-float--tri { width: 54px; height: 46px; }
+  .adv-float--dot { width: 66px; height: 66px; }
+}
+
+/* El botón de volver arriba no debe quedar bajo el de WhatsApp. */
+#goTop { bottom: 92px; }
+@media (max-width: 575px) { #goTop { bottom: 86px; right: 26px; } }
+
+/* --- Ajustes de legibilidad sobre el template ---------------------------- */
+/* El degradado original deja la segunda línea casi invisible. Se mantiene el
+   efecto, pero partiendo de un 30 % de opacidad en vez de cero.             */
+
+.text-gradient-2 {
+  background: linear-gradient(360deg, rgba(11, 61, 66, 0.32) 0%, #0B3D42 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* El titular en español ocupa una línea más que el del template, que se
+   solapaba con la tarjeta siguiente por un margen negativo. */
+.section-about-us .heading-section { margin-bottom: 16px; }
+
+/* El adorno del titular estorba en pantallas chicas */
+@media (max-width: 767px) {
+  .section-hero .content-wrap .title .title-icon { display: none; }
+}
+
+/* Cifras largas en español: el template estaba pensado para "230K". */
+.section-about-us .review-box .counter { font-size: 104px; line-height: 104px; }
+.section-about-us .review-box .counter .adv-unit {
+  font-size: 30px;
+  letter-spacing: 0;
+  margin-left: 6px;
+}
+@media (max-width: 1199px) {
+  .section-about-us .review-box .counter { font-size: 76px; line-height: 76px; }
+  .section-about-us .review-box .counter .adv-unit { font-size: 24px; }
+}
+@media (max-width: 767px) {
+  .section-about-us .review-box .counter { font-size: 58px; line-height: 58px; }
+}
+
+.section-statistic .swiper .statistic-number { font-size: 150px; line-height: 160px; }
+.section-statistic .swiper .statistic-number .prefix { font-size: 140px; }
+@media (max-width: 1399px) {
+  .section-statistic .swiper .statistic-number { font-size: 112px; line-height: 122px; }
+  .section-statistic .swiper .statistic-number .prefix { font-size: 104px; }
+}
+@media (max-width: 767px) {
+  .section-statistic .swiper .statistic-number { font-size: 62px; line-height: 70px; }
+  .section-statistic .swiper .statistic-number .prefix { font-size: 56px; }
+}
+
+/* Mismo campo de color para la cabecera de las páginas de noticias. */
+.section-page-title {
+  background-image: none;
+  background:
+    radial-gradient(62% 70% at 50% -10%, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(152deg, #EAF3FA 0%, #CBDFF1 38%, #8DB9DF 76%, #3E689A 100%);
+}
+
+/* --- Formularios ---------------------------------------------------------- */
+/* El template no usa <select> y deja una regla heredada que pinta de negro el
+   desplegable nativo. */
+
+select option,
+.adv-booking select option {
+  background-color: #fff;
+  color: var(--primary);
+}
+
+/* --- Distintivos (SEREMI · FONASA · online) ------------------------------ */
+
+.adv-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.adv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--adv-tinta);
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+}
+
+.adv-badge .icon { font-size: 16px; color: var(--adv-turquesa); }
+
+.adv-badge--fonasa {
+  background: var(--adv-ambar);
+  border-color: var(--adv-ambar);
+  color: #3B2A06;
+}
+.adv-badge--fonasa .icon { color: #3B2A06; }
+
+.adv-badge--dark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+.adv-badge--dark .icon { color: var(--adv-turquesa-claro); }
+
+/* --- Cinta de aviso sobre el encabezado ---------------------------------- */
+
+.adv-topbar {
+  background: var(--adv-tinta);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  text-align: center;
+}
+.adv-topbar a { color: var(--adv-turquesa-claro); font-weight: 600; text-decoration: none; }
+.adv-topbar a:hover { text-decoration: underline; }
+.adv-topbar .sep { opacity: .35; margin: 0 10px; }
+@media (max-width: 767px) { .adv-topbar .adv-topbar__opt { display: none; } }
+
+/* --- Botón flotante de WhatsApp ------------------------------------------ */
+
+.adv-whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 58px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: var(--adv-whatsapp);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(30, 127, 70, .36);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.adv-whatsapp:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(30, 127, 70, .48); }
+.adv-whatsapp svg { width: 26px; height: 26px; flex-shrink: 0; }
+@media (max-width: 575px) {
+  .adv-whatsapp { padding: 0; width: 58px; justify-content: center; right: 16px; bottom: 16px; }
+  .adv-whatsapp span { display: none; }
+}
+
+/* --- Reserva de hora ------------------------------------------------------ */
+
+.adv-booking__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 575px) { .adv-booking__row { grid-template-columns: 1fr; } }
+
+.adv-booking select {
+  width: 100%;
+  height: 56px;
+  border-radius: 999px;
+  border: 1px solid var(--neutral-200);
+  background-color: #fff;
+  padding: 0 22px;
+  font-size: 16px;
+  color: var(--primary);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'><path d='M1 1L7 7L13 1' stroke='%23008F96' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 22px center;
+}
+.adv-booking select:focus { outline: none; border-color: var(--adv-turquesa); }
+
+.adv-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.adv-chip {
+  border: 1px solid var(--neutral-200);
+  background: #fff;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.adv-chip:hover { border-color: var(--adv-turquesa); }
+.adv-chip.is-active { background: var(--adv-turquesa); border-color: var(--adv-turquesa); color: #fff; }
+
+.adv-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--neutral-600);
+}
+.adv-note .icon { color: var(--adv-turquesa); font-size: 16px; margin-top: 2px; }
+
+/* --- Valores y copago ----------------------------------------------------- */
+
+.adv-price-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(242, 179, 61, .18);
+  color: #7A5505;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* --- Horario -------------------------------------------------------------- */
+
+.adv-hours { display: grid; gap: 2px; list-style: none; padding: 0; margin: 0; }
+.adv-hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--neutral-200);
+  font-size: 17px;
+}
+.adv-hours li:last-child { border-bottom: 0; }
+.adv-hours .d { color: var(--neutral-600); }
+.adv-hours .h { font-weight: 600; color: var(--primary); }
+
+/* Sobre fondo oscuro */
+.box-black .adv-hours li,
+.adv-hours--dark li { border-bottom-color: rgba(255, 255, 255, .12); }
+.box-black .adv-hours .d,
+.adv-hours--dark .d { color: var(--neutral-400); }
+.box-black .adv-hours .h,
+.adv-hours--dark .h { color: #fff; }
+
+/* --- Accesibilidad -------------------------------------------------------- */
+/* El sitio actual bloquea el zoom y usa cuerpos muy pequeños: aquí se corrige. */
+
+.adv-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  background: var(--adv-turquesa);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 0 0 12px 0;
+  font-weight: 600;
+}
+.adv-skip-link:focus { left: 0; color: #fff; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--adv-turquesa);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* El mapa embebido respeta el radio del template */
+.adv-map {
+  width: 100%;
+  min-height: 420px;
+  border: 0;
+  border-radius: 40px;
+  display: block;
+}
+
+/* --- El violeta como acento del sistema ----------------------------------- */
+/* El turquesa sigue siendo la marca (es el logotipo). El violeta #A47CFB
+   aparece de forma consistente en el botón secundario, en los antetítulos y
+   en las secciones de tecnología, equipo y valores.                          */
+
+:root {
+  --adv-violeta: #A47CFB;
+  --adv-violeta-claro: #B99EF8;
+  --adv-violeta-oscuro: #7C53D6;
+}
+
+/* Botón secundario: está en todos los pares de llamada a la acción */
+.tf-btn-2 {
+  color: var(--adv-violeta-oscuro);
+  background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%),
+              linear-gradient(0deg, #F3EEFE, #F7F3FF);
+  box-shadow: 0px -3px 0px 0px #E2D6FB inset,
+              0px 1px 0px 0px rgba(255, 255, 255, 0.70) inset,
+              0px 2.77px 2.21px 0px rgba(124, 83, 214, 0.14),
+              0px 3px 3px 0px rgba(124, 83, 214, 0.16);
+}
+.tf-btn-2:hover {
+  color: #fff;
+  background: linear-gradient(180deg, var(--adv-violeta-claro) 0%, var(--adv-violeta) 100%);
+  box-shadow: 0px 10px 24px rgba(164, 124, 251, .40);
+}
+
+/* El punto de cada antetítulo */
+.heading-section .heading-sub::before { background-color: var(--adv-violeta); }
+.heading-section .heading-sub.style-1::before { background-color: #fff; }
+
+/* Tecnología · turquesa de la marca, que es el que rinde sobre fondo claro */
+.section-tools {
+  border-radius: 40px;
+  margin: 0 16px;
+  background:
+    radial-gradient(52% 58% at 84% 14%, rgba(0, 163, 171, 0.42) 0%, rgba(0, 163, 171, 0) 64%),
+    radial-gradient(46% 52% at 12% 86%, rgba(0, 107, 112, 0.26) 0%, rgba(0, 107, 112, 0) 64%),
+    linear-gradient(140deg, #F2FAFA 0%, #E3F3F4 46%, #D3EBEC 100%);
+}
+
+/* Zona oscura: equipo, cifras, acreditaciones y testimonios */
+.box-black::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42% 32% at 88% 6%, rgba(164, 124, 251, 0.34) 0%, rgba(164, 124, 251, 0) 66%),
+    radial-gradient(38% 30% at 8% 96%, rgba(164, 124, 251, 0.20) 0%, rgba(164, 124, 251, 0) 66%);
+}
+.box-black > * { position: relative; z-index: 1; }
+
+
+
+/* Iconos de las tarjetas: una progresión con tres colores de la paleta,
+   todos con el mismo peso para que no se peleen entre sí. */
+.process-slide .swiper-slide:nth-child(2) .process-card .icon {
+  background: linear-gradient(180deg, #A47CFB 0%, #7C53D6 100%);
+  box-shadow: 0 22px 37px rgba(124, 83, 214, .20),
+              0 14px 34px rgba(124, 83, 214, .24),
+              0 -3px 0 0 rgba(0, 0, 0, .06) inset,
+              0 1px 0 0 rgba(255, 255, 255, .55) inset;
+}
+.process-slide .swiper-slide:nth-child(3) .process-card .icon {
+  background: linear-gradient(180deg, #4E7AAE 0%, #3E689A 100%);
+  box-shadow: 0 22px 37px rgba(62, 104, 154, .20),
+              0 14px 34px rgba(62, 104, 154, .24),
+              0 -3px 0 0 rgba(0, 0, 0, .06) inset,
+              0 1px 0 0 rgba(255, 255, 255, .55) inset;
+}
+
+/* Etiquetas de las especialidades */
+.list-tags .tags-item:nth-child(even):hover {
+  border-color: var(--adv-violeta);
+  color: var(--adv-violeta-oscuro);
+}
+
+/* Paginación y puntos de los deslizadores */
+.pagi-dot span.active { background-color: var(--adv-violeta); }
+
+/* --- Zonas de color por sección ------------------------------------------- */
+/* Cada bloque grande recibe un tinte distinto de la paleta que Thomas
+   documentó, para que se separen al hacer scroll sin romper la unidad.
+   El turquesa del logotipo sigue mandando; el violeta es el segundo color.   */
+
+:root {
+  --adv-celeste: #8DB9DF;
+  --adv-azul: #3E689A;
+  --adv-marino: #242F5A;
+  --adv-lima: #7DC242;
+}
+
+/* Nosotros · turquesa, que es el color de la marca */
+.section-about-us {
+  position: relative;
+  background:
+    radial-gradient(36% 44% at 2% 6%, rgba(0, 163, 171, 0.20) 0%, rgba(0, 163, 171, 0) 66%),
+    radial-gradient(30% 38% at 98% 88%, rgba(207, 230, 231, 0.70) 0%, rgba(207, 230, 231, 0) 66%);
+}
+
+
+/* --- Más violeta en iconos y controles ------------------------------------ */
+
+
+/* Paginación de noticias */
+.wg-pagination .pagination-item.active,
+.wg-pagination .pagination-item:hover { color: var(--adv-violeta); }
+
+/* Redes: al pasar el cursor, violeta en vez de tinta */
+.tf-social .social-item:hover {
+  background: linear-gradient(180deg, var(--adv-violeta-claro) 0%, var(--adv-violeta) 100%);
+  box-shadow: 0 10px 24px rgba(164, 124, 251, .40);
+}
+
+/* Acreditaciones: el borde se enciende en violeta */
+.awards-item:hover { border-color: rgba(164, 124, 251, .55); }
+
+
+/* Indicadores de «Por qué Advance» */
+.benefits-progress-inner .benefits-progress-item:nth-child(even) .progress-text .icon {
+  color: var(--adv-violeta-oscuro);
+}
+
+/* Enlace activo del menú */
+.nav-menu-main .item-link.active::after,
+.nav-menu-main .item-link:hover::after { background-color: var(--adv-violeta); }
+
+/* --- Reserva tu hora: campo de color en vez de fotografía ----------------- */
+/* Sobre la foto de la sala de espera el titular y los datos de contacto se
+   perdían. Se reemplaza por el mismo degradado de malla del hero, que además
+   deja respirar al violeta.                                                  */
+
+.section-contact .contact-image {
+  overflow: hidden;
+  background:
+    radial-gradient(46% 54% at 84% 10%, rgba(0, 163, 171, 0.42) 0%, rgba(0, 163, 171, 0) 64%),
+    radial-gradient(40% 48% at 10% 88%, rgba(0, 163, 171, 0.52) 0%, rgba(0, 163, 171, 0) 64%),
+    radial-gradient(46% 52% at 100% 94%, rgba(62, 104, 154, 0.44) 0%, rgba(62, 104, 154, 0) 66%),
+    linear-gradient(140deg, #F2F8FB 0%, #E1EBF8 44%, #CFDEF2 100%);
+}
+
+.section-contact .contact-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  pointer-events: none;
+  opacity: .34;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* El icono del medio de cada columna de «Todo en un solo lugar» va en violeta
+   profundo: mismo peso que el verde azulado, para que convivan sin pelearse. */
+.features-col > :nth-child(2) .icon { background-color: #3A2A63; }
+
+/* --- El ámbar como color de FONASA ---------------------------------------- */
+/* Estaba suelto en una sola sección. Ahora marca siempre lo mismo: el bono. */
+
+.adv-topbar strong { color: var(--adv-ambar); }
+
+.section-pricing .price-per {
+  color: #7A5505;
+  background: rgba(242, 179, 61, .20);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  align-self: center;
+}
+.section-pricing .pricing-item.style-black .price-per {
+  color: #F7C96A;
+  background: rgba(242, 179, 61, .16);
+}
+
+/* --- Hero: las líneas animadas van detrás del contenido ------------------- */
+
+.adv-hero__lineas { top: 24%; bottom: 22%; }
+.section-hero .container { position: relative; z-index: 2; }
+
+/* --- Tecnología: aquí vive ahora la animación del template ----------------- */
+
+.section-tools { position: relative; overflow: hidden; }
+
+.adv-tools__pill {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  z-index: 0;
+  width: 255px;
+  transform: translateX(-50%) scale(.82);
+  transform-origin: center bottom;
+  pointer-events: none;
+}
+.section-tools .container { position: relative; z-index: 1; }
+
+@media (max-width: 1199px) { .adv-tools__pill { transform: translateX(-50%) scale(.66); bottom: 5%; } }
+
+
+/* --- Hero: trazado ramificado con pulso ----------------------------------- */
+/* Sale del centro del hero hacia los lados. Va en la capa de más atrás, así que
+   no interfiere con el titular, la figura ni las tarjetitas.                  */
+
+.adv-circuito {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 16%;
+  height: 68%;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.adv-circuito__trazos path {
+  stroke: rgba(11, 61, 66, .11);
+  stroke-width: 1.4;
+}
+
+.adv-circuito__nodos circle {
+  fill: rgba(0, 143, 150, .28);
+}
+.adv-circuito__nodos circle:first-child { fill: rgba(0, 143, 150, .45); }
+
+.adv-circuito__pulsos path {
+  stroke: var(--adv-turquesa);
+  stroke-width: 2.4;
+  stroke-dasharray: 34 1000;
+  stroke-dashoffset: 1034;
+  animation: advPulso 5.6s linear infinite;
+  opacity: .75;
+}
+.adv-circuito__pulsos path:nth-child(1) { animation-duration: 7.4s; opacity: .5; }
+.adv-circuito__pulsos path:nth-child(2) { animation-delay: 1.1s; }
+.adv-circuito__pulsos path:nth-child(3) { animation-delay: 2.4s; }
+.adv-circuito__pulsos path:nth-child(4) { animation-delay: .5s; }
+.adv-circuito__pulsos path:nth-child(5) { animation-delay: 3.2s; }
+
+@keyframes advPulso {
+  to { stroke-dashoffset: 0; }
+}
+
+/* La nota al pie de los valores necesita aire: pegada al bloque se lee como
+   parte de la tarjeta. */
+.adv-nota-valores { margin-top: 56px; }
+@media (max-width: 767px) { .adv-nota-valores { margin-top: 36px; } }
+
+/* Aviso de vista previa. Se quita de los HTML (span.adv-aviso-demo) y de aquí
+   cuando el contenido deje de ser de ejemplo. */
+.adv-aviso-demo { display: inline-block; margin-top: 6px; font-size: 12px; opacity: .72; }

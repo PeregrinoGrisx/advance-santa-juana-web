@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+    <meta charset="utf-8">
+    <title>Nosotros · Advance, centro de salud de Santa Juana</title>
+    <meta name="author" content="Punto Gris — puntogris.cl">
+    <!-- Se permite el zoom a propósito: el sitio actual lo bloquea y deja fuera a las personas mayores. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Quiénes somos: el único centro de salud integral de Santa Juana con autorización sanitaria de la SEREMI y convenio FONASA. Conoce al equipo que te atiende.">
+    <meta name="theme-color" content="#008F96">
+    <!-- Vista previa: no debe indexarse mientras el contenido sea de ejemplo. -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- font -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/brand.css">
+
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="assets/images/logo/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" href="assets/images/logo/favicon.svg">
+</head>
+
+<body class="counter-scroll">
+    <canvas class="cursor-trail" id="trail" style="display: none;"></canvas>
+
+    <a class="adv-skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Scroll Top -->
+    <button id="goTop" aria-label="Volver arriba">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-long-arrow-alt-up-solid"></span>
+        </span>
+    </button>
+    <!-- /Scroll Top -->
+
+    <!-- WhatsApp -->
+    <a class="adv-whatsapp" href="https://wa.me/56942934776?text=Hola%2C%20quiero%20reservar%20una%20hora%20en%20Advance%20Santa%20Juana" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a Advance Santa Juana">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.25-4.36c0-4.53 3.7-8.22 8.24-8.22 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+        <span>Escribir por WhatsApp</span>
+    </a>
+    <!-- /WhatsApp -->
+
+    <!-- #wrapper -->
+    <main id="wrapper">
+
+        <!-- Aviso superior -->
+        <div class="adv-topbar">
+            Atendemos con <strong>bono FONASA</strong> · Modalidad Libre Elección
+            <span class="sep adv-topbar__opt">|</span>
+            <span class="adv-topbar__opt">Villagrán 199, Santa Juana</span>
+            <span class="sep">|</span>
+            <a href="tel:+56942934776">+56 9 4293 4776</a>
+        </div>
+        <!-- /Aviso superior -->
+
+        <!-- Header -->
+        <header class="tf-header header2">
+            <div class="header-inner">
+                <a href="index.html" class="logo-site adv-logo" aria-label="Advance, centro de salud de Santa Juana — inicio">
+                    <span class="adv-mark adv-mark--iso"></span>
+                    <span class="adv-logo__text">
+                        <span class="adv-mark adv-mark--word"></span>
+                        <span class="adv-mark adv-mark--tag"></span>
+                    </span>
+                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item">
+                            <a href="index.html" class="item-link link1">Inicio</a>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="especialidades.html" class="item-link link1">Especialidades</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="especialidades.html" class="item-link link1">Todas las áreas</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="especialidad.html" class="item-link link1">Medicina general</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="nosotros.html" class="item-link link1 active">Nosotros</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="index.html#valores" class="item-link link1">FONASA y valores</a>
+                        </li>
+                        <li class="menu-item has-child">
+                            <a href="noticias.html" class="item-link link1">Noticias</a>
+                            <ul class="sub-menu">
+                                <li class="sub-menu-item">
+                                    <a href="noticias.html" class="item-link link1">Todas las noticias</a>
+                                </li>
+                                <li class="sub-menu-item">
+                                    <a href="noticia.html" class="item-link link1">Convenio FONASA</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="contacto.html" class="item-link link1">Cómo llegar</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="index.html#reservar" class="tf-btn d-lg-flex d-none">
+                    Reservar hora
+                </a>
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex" aria-label="Abrir menú">
+                    <i class="icon icon-grip-lines-solid"></i>
+                </a>
+            </div>
+        </header>
+        <!-- /Header -->
+
+        <!-- Hero Banner -->
+        <div class="section-hero v1" id="contenido">
+            <div class="hero-image"></div>
+            <div class="container">
+                <div class="content-wrap text-center">
+                    <div class="sub fw-semibold effectFade fadeUp">
+                        <i class="icon icon-heart-solid" aria-hidden="true"></i>
+                        Desde Santa Juana, para Santa Juana
+                    </div>
+                    <div class="title text-display-2 effectFade fadeRotateX">
+                        <span class="title1 fw-semibold text-gradient-1">Un centro de salud</span>
+                        <br>
+                        <div class="title2 d-flex gap-20 justify-content-center flex-wrap">
+                            <span class="fw-semibold text-gradient-1">con nombre y apellido</span>
+                            <div class="title-icon">
+                                <div class="box"></div>
+                                <div class="title-icon-wrap">
+                                    <img src="assets/images/item/item-10.svg" alt="" class="img-1 img-transform-3">
+                                    <img src="assets/images/item/item-11.svg" alt="" class="img-2 img-transform-3">
+                                    <img src="assets/images/item/item-12.svg" alt="" class="img-3 img-transform-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text effectFade fadeUp">
+                        Somos el único centro integral de la comuna con autorización sanitaria de la SEREMI de Salud. <br> Diez áreas de atención, profesionales con registro vigente y ficha clínica digital.
+                    </p>
+                    <div class="bot-btns effectFade fadeRotateX">
+                        <a href="index.html#reservar" class="tf-btn">Reservar hora</a>
+                        <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="tf-btn-2">Escribir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero Banner -->
+
+        <!-- section-about-us -->
+        <div class="section-about-us flat-spacing" id="advance">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="heading-section">
+                            <div class="heading-sub fw-semibold effectFade fadeUp">Nosotros</div>
+                            <div class="heading-title text-gradient-2 effectFade fadeRotateX">Para que la salud <br> deje de ser un viaje</div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-7 col-lg-6 lg-mb-24">
+                        <div class="col-left">
+                            <div class="position-relative z-5">
+                                <div class="sub text-white">
+                                    <span class="dot"></span>
+                                    Atención presencial y por videollamada
+                                </div>
+                                <h5 class="title fw-semibold text-white">Villagrán 199, <span class="text-brand">Santa Juana</span></h5>
+                                <a href="contacto.html" class="tf-btn">Cómo llegar</a>
+                            </div>
+                            <img class="effectFade fadeRotateX" src="assets/images/item/earth.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xxl-5 col-lg-6">
+                        <div class="mission-box mb-24">
+                            <h4 class="title fw-semibold effectFade fadeUp">Nuestro propósito</h4>
+                            <div class="line"></div>
+                            <p class="text effectFade fadeUp">
+                                Fortalecer la salud familiar de Santa Juana. El hospital local es de baja complejidad y no tiene especialidades, así que durante años cada control, cada examen y cada hora con un especialista significó un viaje a Concepción: un día de trabajo perdido, pasajes y, muchas veces, una atención que terminaba postergándose. Advance existe para que eso deje de pasar. Reunimos en un solo lugar diez áreas de atención, con autorización sanitaria, convenio FONASA y ficha clínica digital, para que una familia resuelva su salud en su propia comuna.
+                            </p>
+                        </div>
+                        <div class="box-quotes effectFade fadeRotateX">
+                            <div class="image">
+                                <img src="assets/images/section/quotes-1.jpg" alt="Profesional del equipo de Advance">
+                            </div>
+                            <div class="content">
+                                <div class="icon mb-8">
+                                    <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M12.9375 20V10.3597C12.9375 7.72182 13.824 5.51559 15.5969 3.74101C17.4177 1.91847 19.8854 0.671463 23 0V6.40288C21.8021 6.78657 21.0115 7.26619 20.6281 7.84173C20.2448 8.3693 20.0292 9.04077 19.9813 9.85612H23V20H12.9375ZM0 20V10.3597C0 7.72182 0.886459 5.51559 2.65938 3.74101C4.48021 1.91847 6.94792 0.671463 10.0625 0V6.40288C8.9125 6.78657 8.12187 7.26619 7.69062 7.84173C7.30729 8.3693 7.09167 9.04077 7.04375 9.85612H10.0625V20H0Z" fill="#DDEAEB"/>
+                                    </svg>
+                                </div>
+                                <!-- TEXTO DE EJEMPLO: reemplazar por una cita real del equipo. -->
+                                <div class="text-body-1 fw-semibold desc">Cada hora que atendemos acá es un viaje a Concepción que una familia se ahorra.</div>
+                                <div class="cite">
+                                    <div class="name text-body-3 fw-semibold">Equipo Advance</div>
+                                    <div class="line"></div>
+                                    <div class="sub text-body-3">Santa Juana</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-about-us -->
+
+        <!-- section-partner -->
+        <div class="section-partner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="partner-wrap">
+                            <p class="text-secondary text fw-semibold">Autorizados y <br> en convenio</p>
+                            <div class="infiniteSlide_tech_main d-grid">
+                                <div class="infiniteSlide infiniteSlide_partner" data-clone="5">
+                                    <img src="assets/images/partner/partner-1.svg" alt="FONASA">
+                                    <img src="assets/images/partner/partner-2.svg" alt="SEREMI de Salud Biobío">
+                                    <img src="assets/images/partner/partner-3.svg" alt="MINSAL">
+                                    <img src="assets/images/partner/partner-4.svg" alt="Superintendencia de Salud">
+                                    <img src="assets/images/partner/partner-5.svg" alt="Municipalidad de Santa Juana">
+                                    <img src="assets/images/partner/partner-6.svg" alt="Ficha clínica MACA">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-partner -->
+
+        <div class="box-white">
+            <!-- section-valores -->
+            <div class="section-features flat-spacing" id="filosofia">
+                <div class="container">
+                    <div class="heading-section center mb-64">
+                        <div class="heading-sub fw-semibold effectFade fadeUp">Nuestros valores</div>
+                        <div class="heading-title text-gradient-3 effectFade fadeRotateX">Lo que no <br> se negocia</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-24">
+                            <div class="features-item h-100 effectFade fadeUp">
+                                <i class="icon icon-headset-solid"></i>
+                                <h6 class="title fw-semibold">Servicio</h6>
+                                <p class="text-secondary">Que pedir una hora sea fácil, que te contesten, que sepas cuánto vas a pagar y a qué hora te van a atender.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-24">
+                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.1">
+                                <i class="icon icon-shield-alt-solid"></i>
+                                <h6 class="title fw-semibold">Integridad</h6>
+                                <p class="text-secondary">Instalaciones autorizadas, profesionales con registro vigente y procedimientos que se hacen como corresponde.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-24">
+                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.2">
+                                <i class="icon icon-user-check-solid"></i>
+                                <h6 class="title fw-semibold">Confianza</h6>
+                                <p class="text-secondary">Sabes quién te atiende, qué te van a hacer y cuánto cuesta. Sin letra chica ni sorpresas en el mesón.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-24">
+                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.3">
+                                <i class="icon icon-heart-solid"></i>
+                                <h6 class="title fw-semibold">Familiar</h6>
+                                <p class="text-secondary">Atendemos a la guagua, a la mamá y al abuelo. Y cuando se puede, coordinamos sus horas el mismo día.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /section-valores -->
+        </div>
+
+        <div class="box-black">
+            <div class="light-box"></div>
+            <img class="light-top" src="assets/images/item/light-top.svg" alt="">
+            <img class="light-bot" src="assets/images/item/light-bot.svg" alt="">
+
+            <!-- section-team -->
+            <div class="section-team flat-spacing" id="equipo">
+                <div class="container">
+                    <div class="heading-section center mb-64">
+                        <div class="heading-sub fw-semibold style-1 effectFade fadeUp">Nuestro equipo</div>
+                        <div class="heading-title text-white effectFade fadeRotateX">Quién te va <br> a atender</div>
+                    </div>
+                    <!-- DATOS DE EJEMPLO: reemplazar por el equipo real, con fotos de la sesión y registro en la Superintendencia de Salud. -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-8 lg-mb-24">
+                            <div class="team-item h-100 effectFade fadeUp">
+                                <div class="image"><img src="assets/images/team/team-1.jpg" alt="Profesional de medicina general"></div>
+                                <a href="#equipo" class="name h6 fw-semibold">Dra. Camila Fuentes</a>
+                                <div class="sub text-body-1">Medicina general y familiar</div>
+                                <div class="tf-social justify-content-center">
+                                    <a href="index.html#reservar" class="social-item" aria-label="Reservar hora"><i class="icon icon-clock-solid"></i></a>
+                                    <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="social-item" aria-label="WhatsApp"><i class="icon icon-comment-solid"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 lg-mb-24">
+                            <div class="team-item style-1 mb-24 effectFade fadeUp">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-2.jpg" alt="Profesional de odontología"></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="index.html#reservar" class="social-item" aria-label="Reservar hora"><i class="icon icon-clock-solid"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#equipo" class="name text-body-1 fw-semibold">Dr. Matías Riquelme</a>
+                                <div class="sub">Odontología general y urgencias</div>
+                            </div>
+                            <div class="team-item style-1 effectFade fadeUp">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-3.jpg" alt="Profesional de kinesiología"></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="index.html#reservar" class="social-item" aria-label="Reservar hora"><i class="icon icon-clock-solid"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#equipo" class="name text-body-1 fw-semibold">Klgo. Ignacio Soto</a>
+                                <div class="sub">Kinesiología y reintegro deportivo</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="team-item style-1 mb-24 effectFade fadeUp" data-delay="0.1">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-4.jpg" alt="Profesional de matronería"></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="index.html#reservar" class="social-item" aria-label="Reservar hora"><i class="icon icon-clock-solid"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#equipo" class="name text-body-1 fw-semibold">Mat. Paulina Medina</a>
+                                <div class="sub">Matronería y salud de la mujer</div>
+                            </div>
+                            <div class="team-item style-1 effectFade fadeUp" data-delay="0.1">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-5.jpg" alt="Profesional de psicología"></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="index.html#reservar" class="social-item" aria-label="Reservar hora"><i class="icon icon-clock-solid"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#equipo" class="name text-body-1 fw-semibold">Ps. Daniela Carrasco</a>
+                                <div class="sub">Psicología adulto e infantil</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /section-team -->
+
+            <!-- section-awards -->
+            <div class="section-awards flat-spacing">
+                <div class="container">
+                    <div class="heading-section center mb-48">
+                        <div class="heading-sub fw-semibold style-1 mb-0 effectFade fadeUp">Acreditaciones y convenios</div>
+                    </div>
+                    <div class="d-grid gap-16">
+                        <div class="awards-item effectFade fadeUp">
+                            <div class="image"><img src="assets/images/partner/partner-7.svg" alt="SEREMI de Salud"></div>
+                            <div class="title text-body-1 text-white">Autorización sanitaria</div>
+                            <div class="text text-body-1 text-white">Único centro integral autorizado en Santa Juana</div>
+                            <div class="year text-body-1 text-neutral-400">/ vigente</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.1">
+                            <div class="image"><img src="assets/images/partner/partner-8.svg" alt="FONASA"></div>
+                            <div class="title text-body-1 text-white">Convenio FONASA</div>
+                            <div class="text text-body-1 text-white">Modalidad Libre Elección en prestaciones autorizadas</div>
+                            <div class="year text-body-1 text-neutral-400">/ 2026</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.2">
+                            <div class="image"><img src="assets/images/partner/partner-9.svg" alt="MINSAL"></div>
+                            <div class="title text-body-1 text-white">Prestador registrado</div>
+                            <div class="text text-body-1 text-white">Profesionales con registro vigente</div>
+                            <div class="year text-body-1 text-neutral-400">/ vigente</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.3">
+                            <div class="image"><img src="assets/images/partner/partner-10.svg" alt="Superintendencia de Salud"></div>
+                            <div class="title text-body-1 text-white">Ficha clínica digital</div>
+                            <div class="text text-body-1 text-white">Sistema MACA, presencial y online</div>
+                            <div class="year text-body-1 text-neutral-400">/ vigente</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /section-awards -->
+        </div>
+
+<!-- section-faqs -->
+        <div class="section-faqs flat-spacing pt-0">
+            <div class="container">
+                <div class="heading-section center mb-64">
+                    <div class="heading-sub fw-semibold effectFade fadeUp">Preguntas frecuentes</div>
+                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">
+                        Lo que más <br>nos preguntan
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion-asked" id="accordion-asked">
+                            <div class="accordion-asked-item effectFade fadeRotateX">
+                                <div class="accordion-asked-title" id="asked1">
+                                    <button class="accordion-button text-body-1 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        ¿Atienden con bono FONASA?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse1" role="region" class="accordion-collapse collapse show" aria-labelledby="asked1" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Sí. Desde mayo de 2026 tenemos convenio FONASA en Modalidad Libre Elección para todas nuestras prestaciones autorizadas. Puedes comprar el bono en línea o emitirlo acá mismo. El copago depende de tu tramo; te lo indicamos al confirmar la hora.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.1">
+                                <div class="accordion-asked-title" id="asked2">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        ¿Cómo reservo si no manejo bien el celular?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse2" role="region" class="accordion-collapse collapse" aria-labelledby="asked2" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Puedes escribirnos por WhatsApp al +56 9 4293 4776 y te tomamos la hora nosotros, o llamarnos en horario de atención. También puedes venir directamente a Villagrán 199 y agendar en mesón.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.2">
+                                <div class="accordion-asked-title" id="asked3">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        ¿Qué es la atención online y para qué sirve?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse3" role="region" class="accordion-collapse collapse" aria-labelledby="asked3" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Es una consulta por videollamada con el mismo profesional que te atendería en el box. Sirve para controles, revisar resultados de exámenes, renovar recetas y orientación. Si vives en un sector rural, te ahorra el viaje; si se necesita examen físico, te citamos presencial.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.3">
+                                <div class="accordion-asked-title" id="asked4">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        ¿Qué significa estar autorizado por la SEREMI?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse4" role="region" class="accordion-collapse collapse" aria-labelledby="asked4" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Que la autoridad sanitaria revisó nuestras instalaciones, equipamiento y procedimientos, y nos autorizó a realizarlos. Es el único centro integral de Santa Juana con esa condición, y es lo que permite además tener convenio con FONASA.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.4">
+                                <div class="accordion-asked-title" id="asked5">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        ¿Puedo pedir hora para varias personas el mismo día?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse5" role="region" class="accordion-collapse collapse" aria-labelledby="asked5" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Sí, y es lo que recomendamos si vienes de un sector rural. Escríbenos por WhatsApp contándonos a quiénes hay que atender y coordinamos las horas seguidas para que resuelvan todo en una sola visita.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-faqs -->
+
+<!-- section-contact -->
+        <div id="reservar" class="flat-spacing pt-0">
+            <div class="section-contact">
+                <!-- Campo de color en lugar de fotografía: sobre foto el texto y los
+                     iconos pierden legibilidad. -->
+                <div class="contact-image"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="col-left">
+                                <div class="heading-section mb-48">
+                                    <div class="heading-sub fw-semibold effectFade fadeUp">Reserva tu hora</div>
+                                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">
+                                        Te esperamos <br> en Villagrán 199
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX">
+                                        <i class="icon icon-comment-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">WhatsApp</div>
+                                            <div class="text"><a href="https://wa.me/56942934776" target="_blank" rel="noopener">+56 9 4293 4776</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX" data-delay="0.1">
+                                        <i class="icon icon-envelope-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Correo</div>
+                                            <div class="text"><a href="mailto:contacto@advanceclinica.cl">contacto@advanceclinica.cl</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item effectFade fadeRotateX" data-delay="0.2">
+                                        <i class="icon icon-map-marker-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Dirección</div>
+                                            <div class="text">Villagrán 199, esquina José Cardenio Avello, Santa Juana</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="form-contact adv-booking effectFade fadeUp" action="#" method="post">
+                                <h4 class="heading fw-semibold">Pide tu hora en dos pasos</h4>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20" for="adv-area">¿Qué necesitas?</label>
+                                    <select id="adv-area" name="area" required>
+                                        <option value="">Elige un área</option>
+                                        <option>Medicina general</option>
+                                        <option>Odontología</option>
+                                        <option>Kinesiología y reintegro deportivo</option>
+                                        <option>Matronería</option>
+                                        <option>Enfermería</option>
+                                        <option>Toma de muestras y exámenes</option>
+                                        <option>Nutrición</option>
+                                        <option>Fonoaudiología</option>
+                                        <option>Psicología</option>
+                                        <option>Terapia ocupacional</option>
+                                    </select>
+                                </fieldset>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">¿Cuándo te acomoda?</label>
+                                    <div class="adv-chips">
+                                        <button type="button" class="adv-chip is-active">Lo antes posible</button>
+                                        <button type="button" class="adv-chip">Esta semana</button>
+                                        <button type="button" class="adv-chip">En la mañana</button>
+                                        <button type="button" class="adv-chip">En la tarde</button>
+                                    </div>
+                                </fieldset>
+                                <div class="adv-booking__row mb-21">
+                                    <fieldset>
+                                        <label class="fw-semibold text-body-3 mb-20" for="adv-nombre">Tu nombre</label>
+                                        <input id="adv-nombre" name="nombre" type="text" placeholder="Nombre y apellido" required>
+                                    </fieldset>
+                                    <fieldset>
+                                        <label class="fw-semibold text-body-3 mb-20" for="adv-fono">Tu teléfono</label>
+                                        <input id="adv-fono" name="telefono" type="tel" placeholder="+56 9 ..." required>
+                                    </fieldset>
+                                </div>
+                                <fieldset class="mb-18">
+                                    <label class="fw-semibold text-body-3 mb-0" for="adv-msg">Cuéntanos brevemente qué te pasa</label>
+                                    <textarea id="adv-msg" name="mensaje"></textarea>
+                                </fieldset>
+                                <div class="adv-note mb-18">
+                                    <i class="icon icon-info-circle-solid" aria-hidden="true"></i>
+                                    <span>Te confirmamos por WhatsApp dentro del horario de atención, con el valor y el copago FONASA de tu prestación.</span>
+                                </div>
+                                <button type="submit" class="tf-btn w-100">Pedir mi hora</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /section-contact -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footer-image">
+                <img class="effectFade fadeUp" src="assets/images/logo/logo-footer.svg" alt="">
+            </div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index.html" class="footer-logo" aria-label="Advance — inicio">
+                        <img src="assets/images/logo/logo-2.svg" alt="Advance">
+                    </a>
+                    <div class="title h6 fw-semibold">Advance, centro de salud <br> de Santa Juana</div>
+                    <div class="text">Villagrán 199, esquina José Cardenio Avello · +56 9 4293 4776</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="https://www.instagram.com/advancesantajuana/" target="_blank" rel="noopener" class="text-body-1 fw-semibold">
+                            Instagram
+                            <div class="social-item">
+                                <i class="icon icon-instagram"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.facebook.com/clinicaadvanceconcepcion/" target="_blank" rel="noopener" class="text-body-1 fw-semibold">
+                            Facebook
+                            <div class="social-item">
+                                <i class="icon icon-facebook-f"></i>
+                            </div>
+                        </a>
+                        <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="text-body-1 fw-semibold">
+                            WhatsApp
+                            <div class="social-item">
+                                <i class="icon icon-comment-solid"></i>
+                            </div>
+                        </a>
+                        <a href="mailto:contacto@advanceclinica.cl" class="text-body-1 fw-semibold">
+                            Correo
+                            <div class="social-item">
+                                <i class="icon icon-envelope-solid"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li>
+                            <a href="nosotros.html" class="fw-semibold link-underline link1">Nosotros</a>
+                        </li>
+                        <li>
+                            <a href="especialidades.html" class="fw-semibold link-underline link1">Especialidades</a>
+                        </li>
+                        <li>
+                            <a href="noticias.html" class="fw-semibold link-underline link1">Noticias</a>
+                        </li>
+                        <li>
+                            <a href="contacto.html" class="fw-semibold link-underline link1">Contacto</a>
+                        </li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2026 Advance · Centro de salud Santa Juana<br><span class="adv-aviso-demo">Vista previa de diseño de Punto Gris · contenido de ejemplo, no es el sitio oficial</span></p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1">
+                        <span class="fw-semibold">Volver arriba</span>
+                        <i class="icon icon-long-arrow-alt-up-solid fs-20"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!-- /footer -->
+    </main>
+    <!-- /wrapper -->
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index.html" class="logo-site adv-logo adv-logo--light" aria-label="Advance — inicio">
+                            <span class="adv-mark adv-mark--iso"></span>
+                            <span class="adv-logo__text">
+                                <span class="adv-mark adv-mark--word"></span>
+                                <span class="adv-mark adv-mark--tag"></span>
+                            </span>
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            CERRAR
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb" id="mobile-menu">
+                            <li>
+                                <div class="item">
+                                    <a href="index.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Inicio</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-1" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse"
+                                            aria-expanded="false" aria-controls="dropdown-menu-1">
+                                            <span class="text">Especialidades</span>
+                                        </a>
+                                        <div id="dropdown-menu-1" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="especialidades.html" class="sub-nav-link text-white">Todas las áreas</a></li>
+                                                <li><a href="especialidad.html" class="sub-nav-link text-white">Medicina general</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="nosotros.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Nosotros</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="index.html#valores" class="mb-menu-link text-display-1">
+                                        <span class="text">FONASA y valores</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="noticias.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Noticias</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="contacto.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Cómo llegar</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:contacto@advanceclinica.cl" class="text-caption text-neutral-200">contacto@advanceclinica.cl</a>
+                            <p class="text-caption text-neutral-200">
+                                SANTA JUANA <span class="clock"></span>
+                            </p>
+                        </div>
+                        <div class="right">
+                            <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                WHATSAPP
+                            </a>
+                            <a href="https://www.instagram.com/advancesantajuana/" target="_blank" rel="noopener" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                INSTAGRAM
+                            </a>
+                            <a href="https://www.facebook.com/clinicaadvanceconcepcion/" target="_blank" rel="noopener" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>
+                                FACEBOOK
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/countto.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/advance.js"></script>
+
+</body>
+
+</html>
