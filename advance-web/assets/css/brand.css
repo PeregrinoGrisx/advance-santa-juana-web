@@ -897,7 +897,8 @@ textarea:focus-visible {
 
 .adv-esquinas {
   position: absolute;
-  inset: 16px 16px 0;
+  /* 20px por dentro del borde del hero: la curva queda concéntrica con él. */
+  inset: 36px 36px 20px;
   z-index: 0;
   pointer-events: none;
 }
@@ -955,8 +956,9 @@ textarea:focus-visible {
    escuadras se redibuja para seguir calzando. Si el navegador no admite 'd' en
    CSS, queda el trazo de 40px del atributo, que es el caso de escritorio. */
 @media (max-width: 767px) {
-  .adv-esq--si path { d: path("M1 159 V24 A23 23 0 0 1 24 1 H239"); }
-  .adv-esq--sd path { d: path("M1 1 H216 A23 23 0 0 1 239 24 V159"); }
-  .adv-esq--ii path { d: path("M1 1 V136 A23 23 0 0 0 24 159 H239"); }
-  .adv-esq--id path { d: path("M239 1 V136 A23 23 0 0 1 216 159 H1"); }
+  .adv-esquinas { inset: 28px 28px 12px; }
+  .adv-esq--si path { d: path("M1 159 V12 A11 11 0 0 1 12 1 H239"); }
+  .adv-esq--sd path { d: path("M1 1 H228 A11 11 0 0 1 239 12 V159"); }
+  .adv-esq--ii path { d: path("M1 1 V148 A11 11 0 0 0 12 159 H239"); }
+  .adv-esq--id path { d: path("M239 1 V148 A11 11 0 0 1 228 159 H1"); }
 }
