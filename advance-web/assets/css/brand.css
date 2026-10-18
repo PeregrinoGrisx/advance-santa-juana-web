@@ -816,3 +816,81 @@ textarea:focus-visible {
 /* Aviso de vista previa. Se quita de los HTML (span.adv-aviso-demo) y de aquí
    cuando el contenido deje de ser de ejemplo. */
 .adv-aviso-demo { display: inline-block; margin-top: 6px; font-size: 12px; opacity: .72; }
+
+/* --- Menú fijo ------------------------------------------------------------ */
+/* El template dejaba la cabecera quieta arriba del todo. Al hacer scroll se
+   queda pegada: en un sitio donde lo importante es reservar, el botón tiene
+   que estar siempre a mano. */
+
+.tf-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  transition: padding-top .28s ease;
+}
+.tf-header .header-inner { transition: box-shadow .28s ease, background-color .28s ease; }
+
+.tf-header.adv-fijo { padding-top: 12px; }
+.tf-header.adv-fijo .header-inner {
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 30px rgba(11, 61, 66, .14);
+}
+
+@media (max-width: 991px) {
+  .tf-header.adv-fijo { padding-top: 10px; }
+}
+
+/* --- Navegación por secciones --------------------------------------------- */
+/* Sustituye al botón de «volver arriba» del template: ahora se sube y se baja
+   de bloque en bloque sin hacer scroll. */
+
+#goTop { display: none !important; }
+
+.adv-nav {
+  position: fixed;
+  right: 20px;
+  bottom: 92px;
+  z-index: 85;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.adv-nav__btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 99px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  color: #fff;
+  background: var(--adv-tinta);
+  box-shadow: 0 8px 20px rgba(11, 61, 66, .26);
+  transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+}
+.adv-nav__btn:hover { background: var(--adv-turquesa); transform: translateY(-2px); }
+
+/* el anillo de progreso del template, reaprovechado en el botón de subir */
+.adv-nav__btn .border-progress {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  border-radius: 99px;
+  border: 1.5px solid var(--adv-turquesa);
+  mask-image: conic-gradient(#000 var(--progress-angle, 0deg), transparent 0);
+  -webkit-mask-image: conic-gradient(#000 var(--progress-angle, 0deg), transparent 0);
+  pointer-events: none;
+}
+
+/* arriba del todo no hay a dónde subir */
+.adv-nav.is-arriba .adv-nav__btn[data-dir="-1"] { opacity: .35; pointer-events: none; }
+
+@media (max-width: 575px) {
+  .adv-nav { right: 16px; bottom: 86px; }
+}
