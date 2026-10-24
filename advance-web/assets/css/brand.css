@@ -1,22 +1,22 @@
 /* ---------------------------------------------------------------------------
    Advance · Centro de salud Santa Juana
    Capa de marca sobre el template base. Punto Gris — puntogris.cl
-   Paleta tomada del logotipo (#008F96) y del diagnóstico de Thomas.
+   Paleta tomada del logotipo (#0098c7) y del diagnóstico de Thomas.
 --------------------------------------------------------------------------- */
 
 :root {
-  --adv-turquesa: #008F96;   /* color exacto del logotipo */
-  --adv-turquesa-claro: #00A3AB;
-  --adv-teal-profundo: #006B70;
-  --adv-tinta: #0B3D42;      /* fondos oscuros */
-  --adv-tinta-900: #072227;
-  --adv-agua: #CFE6E7;
-  --adv-nieve: #EDF5F5;
-  --adv-ambar: #F2B33D;      /* acento FONASA */
-  --adv-naranja: #F7941D;    /* naranja de la paleta actual, documentado por Thomas */
-  --adv-celeste: #8DB9DF;    /* celeste de la paleta actual */
-  --adv-azul: #3E689A;       /* azul de la paleta actual */
-  --adv-marino: #242F5A;     /* azul marino de la paleta actual */
+  --adv-turquesa: #0098c7;   /* color exacto del logotipo */
+  --adv-turquesa-claro: #00b4d8;
+  --adv-teal-profundo: #0077a8;
+  --adv-tinta: #0a2240;      /* fondos oscuros */
+  --adv-tinta-900: #0d1117;
+  --adv-agua: #d8e2f0;
+  --adv-nieve: #f5f7fa;
+  --adv-ambar: #bfff00;      /* acento FONASA */
+  --adv-naranja: #bfff00;    /* naranja de la paleta actual, documentado por Thomas */
+  --adv-celeste: #00e5ff;    /* celeste de la paleta actual */
+  --adv-azul: #5b1aff;       /* azul de la paleta actual */
+  --adv-marino: #0a2240;     /* azul marino de la paleta actual */
   --adv-verde: #1E7F46;      /* confirmaciones */
   --adv-whatsapp: #1E7F46;
 }
@@ -104,7 +104,7 @@
     radial-gradient(40% 46% at 18% 80%, rgba(0, 163, 171, 0.62) 0%, rgba(0, 163, 171, 0) 64%),
     radial-gradient(50% 54% at 100% 92%, rgba(62, 104, 154, 0.58) 0%, rgba(62, 104, 154, 0) 66%),
     radial-gradient(42% 46% at 2% 2%, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0) 62%),
-    linear-gradient(140deg, #EAF3FA 0%, #D7E6F6 42%, #C6DBF1 72%, #B4CFEC 100%);
+    linear-gradient(140deg, #f5f7fa 0%, #D7E6F6 42%, #C6DBF1 72%, #B4CFEC 100%);
 }
 
 /* Grano fino, como en la referencia */
@@ -204,7 +204,7 @@
 .adv-float--tri {
   width: 74px; height: 64px;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  background: linear-gradient(180deg, #00A3AB 0%, #006B70 100%);
+  background: linear-gradient(180deg, #00b4d8 0%, #0077a8 100%);
   box-shadow: 0 14px 26px rgba(0, 143, 150, .34);
 }
 .adv-float--tri-2 {
@@ -249,9 +249,9 @@
 .adv-tarjeta .ic {
   width: 30px; height: 30px; border-radius: 10px; flex-shrink: 0;
   display: grid; place-items: center; color: #fff; font-size: 13px;
-  background: linear-gradient(180deg, #00A3AB, #006B70);
+  background: linear-gradient(180deg, #00b4d8, #0077a8);
 }
-.adv-tarjeta .ic.ambar { background: linear-gradient(180deg, #F7C96A, #F2B33D); color: #4A3407; }
+.adv-tarjeta .ic.ambar { background: linear-gradient(180deg, #d4ff4d, #bfff00); color: #4A3407; }
 .adv-tarjeta--1 { top: 16%; left: -6%; }
 .adv-tarjeta--2 { bottom: 20%; right: -8%; }
 
@@ -293,7 +293,7 @@
    efecto, pero partiendo de un 30 % de opacidad en vez de cero.             */
 
 .text-gradient-2 {
-  background: linear-gradient(360deg, rgba(11, 61, 66, 0.32) 0%, #0B3D42 100%);
+  background: linear-gradient(360deg, rgba(11, 61, 66, 0.32) 0%, #0a2240 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -339,7 +339,7 @@
   background-image: none;
   background:
     radial-gradient(62% 70% at 50% -10%, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0) 70%),
-    linear-gradient(152deg, #EAF3FA 0%, #CBDFF1 38%, #8DB9DF 76%, #3E689A 100%);
+    linear-gradient(152deg, #f5f7fa 0%, #CBDFF1 38%, #00e5ff 76%, #5b1aff 100%);
 }
 
 /* --- Formularios ---------------------------------------------------------- */
@@ -564,14 +564,14 @@ textarea:focus-visible {
 }
 
 /* --- El violeta como acento del sistema ----------------------------------- */
-/* El turquesa sigue siendo la marca (es el logotipo). El violeta #A47CFB
+/* El turquesa sigue siendo la marca (es el logotipo). El violeta #5b1aff
    aparece de forma consistente en el botón secundario, en los antetítulos y
    en las secciones de tecnología, equipo y valores.                          */
 
 :root {
-  --adv-violeta: #A47CFB;
-  --adv-violeta-claro: #B99EF8;
-  --adv-violeta-oscuro: #7C53D6;
+  --adv-violeta: #5b1aff;
+  --adv-violeta-claro: #7a45ff;
+  --adv-violeta-oscuro: #5b1aff;
 }
 
 /* Botón secundario: está en todos los pares de llamada a la acción */
@@ -621,14 +621,14 @@ textarea:focus-visible {
 /* Iconos de las tarjetas: una progresión con tres colores de la paleta,
    todos con el mismo peso para que no se peleen entre sí. */
 .process-slide .swiper-slide:nth-child(2) .process-card .icon {
-  background: linear-gradient(180deg, #A47CFB 0%, #7C53D6 100%);
+  background: linear-gradient(180deg, #5b1aff 0%, #5b1aff 100%);
   box-shadow: 0 22px 37px rgba(124, 83, 214, .20),
               0 14px 34px rgba(124, 83, 214, .24),
               0 -3px 0 0 rgba(0, 0, 0, .06) inset,
               0 1px 0 0 rgba(255, 255, 255, .55) inset;
 }
 .process-slide .swiper-slide:nth-child(3) .process-card .icon {
-  background: linear-gradient(180deg, #4E7AAE 0%, #3E689A 100%);
+  background: linear-gradient(180deg, #4E7AAE 0%, #5b1aff 100%);
   box-shadow: 0 22px 37px rgba(62, 104, 154, .20),
               0 14px 34px rgba(62, 104, 154, .24),
               0 -3px 0 0 rgba(0, 0, 0, .06) inset,
@@ -650,9 +650,9 @@ textarea:focus-visible {
    El turquesa del logotipo sigue mandando; el violeta es el segundo color.   */
 
 :root {
-  --adv-celeste: #8DB9DF;
-  --adv-azul: #3E689A;
-  --adv-marino: #242F5A;
+  --adv-celeste: #00e5ff;
+  --adv-azul: #5b1aff;
+  --adv-marino: #0a2240;
   --adv-lima: #7DC242;
 }
 
@@ -736,7 +736,7 @@ textarea:focus-visible {
   align-self: center;
 }
 .section-pricing .pricing-item.style-black .price-per {
-  color: #F7C96A;
+  color: #d4ff4d;
   background: rgba(242, 179, 61, .16);
 }
 
@@ -827,8 +827,8 @@ body::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
   border-radius: 99px;
   cursor: grab;
-  background-color: #008F96;
-  background-image: linear-gradient(180deg, #00A3AB 0%, #006B70 100%);
+  background-color: #0098c7;
+  background-image: linear-gradient(180deg, #00b4d8 0%, #0077a8 100%);
   border: 4px solid transparent;
   background-clip: padding-box;
 }
@@ -841,14 +841,14 @@ html::-webkit-scrollbar-thumb:active,
 body::-webkit-scrollbar-thumb:active,
 ::-webkit-scrollbar-thumb:active {
   cursor: grabbing;
-  background-image: linear-gradient(180deg, #008F96 0%, #0B3D42 100%);
+  background-image: linear-gradient(180deg, #0098c7 0%, #0a2240 100%);
 }
 ::-webkit-scrollbar-corner { background: transparent; }
 
 @supports (scrollbar-color: auto) and (not selector(::-webkit-scrollbar)) {
   html {
     scrollbar-width: thin;
-    scrollbar-color: #008F96 rgba(207, 230, 231, .55);
+    scrollbar-color: #0098c7 rgba(207, 230, 231, .55);
   }
 }
 

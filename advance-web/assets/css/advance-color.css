@@ -352,14 +352,59 @@ textarea:focus-visible {
    Lo que hubo que resolver al aplicar la paleta sobre el maquetado existente.
    ========================================================================== */
 
-/* El botón en negrita 700 con espaciado se ensancha y, dentro de la cabecera,
-   se come el hueco entre el logotipo y el menú. Ahí va en versión compacta. */
+/* EL DEGRADADO DE LA MARCA.
+   Uno solo, y siempre el mismo: del celeste al violeta. Es el de los titulares
+   y es el que mejor funciona de todos los que probamos, así que no se inventa
+   otro para cada sitio. */
+.text-gradient,
+.text-gradient-1,
+.text-gradient-2,
+.text-gradient-3,
+.heading-title.text-gradient-3 {
+  background: linear-gradient(104deg, var(--color-cian-electrico) 0%, var(--color-violeta-digital) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Los botones son redondos: pastilla completa, como el borde del menú. */
+.btn-reservar,
+.btn-primary-advance,
+.tf-btn,
+.btn-whatsapp,
+.btn-secondary-advance,
+.btn-ver-area,
+.tf-btn-2,
+input[type="submit"].btn-submit,
+button[type="submit"].tf-btn {
+  border-radius: 999px !important;
+}
+
+/* LA CABECERA.
+   El template la dibuja más alta mientras no se hace scroll y la encoge al
+   fijarse. Queda rara: crece justo cuando está sobre el hero. Se deja la
+   altura compacta siempre, que es la que funciona. */
+.tf-header,
+.tf-header.adv-fijo { padding-top: 12px !important; }
+@media (max-width: 991px) {
+  .tf-header,
+  .tf-header.adv-fijo { padding-top: 10px !important; }
+}
+
 .header-inner { gap: 24px; }
 .header-inner .btn-reservar,
 .header-inner .tf-btn {
-  padding: 10px 18px !important;
+  padding: 10px 22px !important;
   letter-spacing: 0 !important;
   font-weight: 600 !important;
+}
+
+/* Sobre el azul noche de la cabecera, el logotipo va en blanco */
+.navbar .adv-mark,
+.tf-header .adv-mark {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.97;
 }
 
 /* EL HERO.
