@@ -594,14 +594,18 @@ textarea:focus-visible {
 .heading-section .heading-sub::before { background-color: var(--adv-violeta); }
 .heading-section .heading-sub.style-1::before { background-color: #fff; }
 
-/* Tecnología · turquesa de la marca, que es el que rinde sobre fondo claro */
+/* Tecnología. El lavado celeste, bajado.
+   Estaba tan saturado (#D3EBEC con radiales al 42%) que el campo quedaba en
+   rgb(136,205,223), y encima el titular en celeste solo llegaba a 2,25:1. Dos
+   celestes uno sobre otro no se distinguen: el de atrás tiene que ceder. Y de
+   paso se va la última base con tinte verdoso, heredada de la paleta vieja. */
 .section-tools {
   border-radius: 40px;
   margin: 0 16px;
   background:
-    radial-gradient(52% 58% at 84% 14%, rgba(0, 180, 216, 0.42) 0%, rgba(0, 180, 216, 0) 64%),
-    radial-gradient(46% 52% at 12% 86%, rgba(0, 119, 168, 0.26) 0%, rgba(0, 119, 168, 0) 64%),
-    linear-gradient(140deg, #F2FAFA 0%, #E3F3F4 46%, #D3EBEC 100%);
+    radial-gradient(52% 58% at 84% 14%, rgba(0, 180, 216, 0.18) 0%, rgba(0, 180, 216, 0) 64%),
+    radial-gradient(46% 52% at 12% 86%, rgba(91, 26, 255, 0.12) 0%, rgba(91, 26, 255, 0) 64%),
+    linear-gradient(140deg, #F7FAFD 0%, #EDF3FA 46%, #E2EBF7 100%);
 }
 
 /* Zona oscura: equipo, cifras, acreditaciones y testimonios */

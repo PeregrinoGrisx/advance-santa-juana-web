@@ -145,16 +145,14 @@ p, li, label, .text, .description {
   fill: currentcolor;
 }
 
-/* Tramas y degradados tecnológicos */
+/* Tramas y degradados tecnológicos.
+   Aquí solo los fondos de verdad. El degradado de los titulares se define en
+   un único sitio, el apartado 14 al final del archivo: estaba repetido en
+   tres, y el que ganaba no era el que uno creía, sino el de más
+   especificidad. */
 .bg-gradient-tech,
-.ficha-digital-glow,
-.text-gradient-3 {
+.ficha-digital-glow {
   background: linear-gradient(135deg, var(--color-cian-electrico) 0%, var(--color-violeta-digital) 100%) !important;
-}
-.text-gradient-3 {
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
 }
 
 /* ==========================================================================
@@ -369,21 +367,11 @@ textarea:focus-visible {
    Lo que hubo que resolver al aplicar la paleta sobre el maquetado existente.
    ========================================================================== */
 
-/* EL DEGRADADO DE LA MARCA.
-   Uno solo, y siempre el mismo: del celeste al violeta. Es el de los titulares
-   y es el que mejor funciona de todos los que probamos, así que no se inventa
-   otro para cada sitio. */
-.text-gradient,
-.text-gradient-1,
-.text-gradient-2,
-.text-gradient-3,
-.heading-title.text-gradient-3 {
-  background: linear-gradient(104deg, var(--color-cian-electrico) 0%, var(--color-violeta-digital) 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  color: transparent !important;
-}
+/* EL DEGRADADO DE LA MARCA: ver el apartado 14, al final del archivo.
+   Estuvo definido aquí también, con la misma regla pero más específica, y por
+   eso ganaba esta y no aquella. Vale la pena el recordatorio: dos reglas
+   idénticas no son inofensivas, porque cuando se cambia una el sitio no
+   cambia y no se ve el motivo. */
 
 /* Los botones son redondos: pastilla completa, como el borde del menú. */
 .btn-reservar,
@@ -834,27 +822,26 @@ a.scroll-more { display: none !important; }
    Celeste a morado, y nada más. En claro arranca en un celeste profundo para
    que se pueda leer; en oscuro va a plena potencia.
    ========================================================================== */
+/* El extremo celeste va a #0089b8 y no al cian de la paleta. Medido sobre el
+   blanco frio del fondo: el cian a plena potencia da 1,4:1 y no se lee; este
+   da 3,7:1, por encima del minimo de texto grande y con margen. Es el mismo
+   celeste, bajado al registro que el fondo claro permite. Sobre fondo oscuro
+   vuelve a plena potencia, y de eso se encarga fondos-oscuros.css. */
 .text-gradient, .text-gradient-1, .text-gradient-2, .text-gradient-3,
+.heading-title.text-gradient-3,
 .section-hero .title .title1,
 .section-hero .title .title2 span {
-  background: linear-gradient(100deg, #0098c7 0%, var(--color-violeta-digital) 100%) !important;
+  background: linear-gradient(100deg, #0089b8 0%, var(--color-violeta-digital) 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
 }
-.section-team .text-gradient-3, .section-statistic .text-gradient-3,
-.section-awards .text-gradient-3, .section-testimonials .text-gradient-3,
-.section-pricing .text-gradient-3, .section-contact .text-gradient-3,
-.section-faqs .text-gradient-3, .section-features .text-gradient-3,
-.section-services .text-gradient-3, .section-process .text-gradient-3,
-.section-benefits .text-gradient-3, .section-about-us .text-gradient-3,
-.section-tools .text-gradient-3 {
-  background: linear-gradient(100deg, var(--color-cian-electrico) 0%, #8a5cf6 100%) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-}
+/* Aquí había una lista de trece secciones a las que se les devolvía el cian a
+   plena potencia. Enumerar secciones por su nombre es precisamente lo que no
+   funciona: .section-about-us y .section-tools tienen fondo claro, y el cian
+   encima daba 1,4:1. Quien decide ahora es la medición, en fondos-oscuros.css,
+   que solo toca las secciones cuyo fondo es oscuro de verdad. */
 
 /* ==========================================================================
    15. HOVER Y FLECHAS
@@ -910,4 +897,111 @@ html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track {
   background: rgba(10, 34, 64, 0.07) !important;
+}
+
+/* =========================================================================
+   RESERVA TU HORA — el cierre de la página
+   =========================================================================
+   Dos arreglos que venían juntos.
+
+   1) El hueco. La columna de la izquierda se estiraba a la altura del
+      formulario (861 px) y llevaba justify-content: space-between, así que
+      repartía 143 px de aire entre el titular y los datos de contacto. Pasa a
+      flex-start: el contenido se queda arriba, pegado, como se leía antes de
+      que el formulario creciera.
+
+   2) El formulario, más bajo. Era lo que estiraba la columna. Se recorta el
+      titular a una línea y se aprietan las separaciones internas: de 861 px a
+      unos 690, que es la altura real del contenido de la izquierda. Las dos
+      columnas quedan parejas y el hueco desaparece por los dos lados.
+
+   Y el fondo oscuro que sugeriste. Funciona por una razón concreta: deja el
+   formulario como lo único blanco de la sección, así que el ojo va ahí. Es la
+   última llamada a la acción de la página; conviene que no compita con nada.
+   Los colores del texto sobre este fondo los decide fondos-oscuros.css, que
+   mide; aquí solo van los que esa medición no alcanza (enlaces e iconos).  */
+
+/* El fondo va en la seccion, no en el hijo .contact-image. Importa el porque:
+   ese hijo es un div absoluto, hermano del texto, no un ancestro suyo. Medir
+   el fondo de un parrafo consiste en subir por sus padres, y por ahi no se
+   pasa nunca; un degradado puesto ahi es invisible para generar-fondos.js y
+   la seccion se habria quedado con el texto en tinta sobre azul noche. */
+#reservar .section-contact {
+  border-radius: 40px;
+  overflow: hidden;
+  background:
+    radial-gradient(52% 58% at 86% 8%, rgba(0, 229, 255, 0.20) 0%, rgba(0, 229, 255, 0) 62%),
+    radial-gradient(44% 50% at 6% 92%, rgba(91, 26, 255, 0.28) 0%, rgba(91, 26, 255, 0) 64%),
+    linear-gradient(140deg, #0a2240 0%, #13294d 54%, #0b1c36 100%);
+}
+
+/* Al hijo le queda solo el grano, y suave: sobre fondo oscuro el grano fuerte
+   lo ensucia en vez de darle textura. */
+#reservar .section-contact .contact-image {
+  inset: 0 !important;
+  background: none !important;
+}
+#reservar .section-contact .contact-image::after { opacity: .1 !important; }
+
+/* 1) Fuera el hueco */
+#reservar .section-contact .col-left {
+  justify-content: flex-start !important;
+}
+
+/* El titular, con el degradado de marca a plena potencia: sobre oscuro no
+   hace falta oscurecer el celeste para que se lea. */
+#reservar .section-contact .heading-title.text-gradient-3 {
+  background: linear-gradient(100deg, var(--color-cian-electrico) 0%, #7a45ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+#reservar .section-contact .heading-sub { color: var(--color-cian-electrico) !important; }
+
+/* Los iconos de WhatsApp, correo y dirección */
+#reservar .section-contact .col-left .contact-item .icon {
+  background-color: rgba(0, 229, 255, 0.12) !important;
+  color: var(--color-cian-electrico) !important;
+}
+
+/* Los enlaces no los cubre la medición: viven dentro de .text y traen su
+   propio color del template. */
+#reservar .section-contact .col-left .contact-item .text a {
+  color: #e6edf6 !important;
+  text-decoration-color: rgba(0, 229, 255, 0.5);
+}
+#reservar .section-contact .col-left .contact-item .text a:hover {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* 2) El formulario, más compacto -----------------------------------------
+   El titular a 36 px ocupaba dos líneas y 96 px de alto él solo. */
+.adv-booking .heading {
+  font-size: 26px !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 18px !important;
+}
+
+/* Etiqueta y campo son una sola cosa: 20 px de separación los divorciaba */
+.adv-booking label { margin-bottom: 8px !important; }
+
+.adv-booking .mb-21 { margin-bottom: 15px !important; }
+.adv-booking .mb-18 { margin-bottom: 14px !important; }
+
+.adv-booking textarea {
+  min-height: 0 !important;
+  height: 74px !important;
+}
+
+.adv-booking .adv-chips { gap: 8px !important; }
+
+.adv-booking .adv-note {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+@media (min-width: 992px) {
+  #reservar .section-contact .form-contact { padding: 34px 32px !important; }
 }

@@ -44,7 +44,18 @@
     const paradas = [...bi.matchAll(/rgba?\(([^)]+)\)/g)]
       .map((m) => m[1].split(',').map(parseFloat))
       .filter((p) => p.length < 4 || p[3] > 0.25);
+    /* El template usa degradados casi transparentes como brillo decorativo
+       —radial-gradient(… rgba(255,255,255,.2) …)— encima de botones, iconos y
+       titulillos. Eso no es el fondo: si se toma por fondo, la medición se
+       detiene ahí y devuelve casi blanco, tapando el color real que hay
+       debajo. Un degradado solo cuenta como fondo si tapa de verdad, es decir
+       si alguna de sus paradas es opaca. */
     if (!paradas.length) return null;
+    if (!paradas.some((p) => p.length < 4 || p[3] >= 0.9)) return null;
+    /* Y si alguna parada no se pudo leer, no se devuelve un numero a medias:
+       un NaN se propaga hasta el calculo de contraste y da comparaciones que
+       siempre son falsas, asi que el fallo pasaria inadvertido. */
+    if (paradas.some((p) => p.slice(0, 3).some((v) => !isFinite(v)))) return null;
     const n = paradas.length;
     return {
       r: paradas.reduce((a, p) => a + p[0], 0) / n,
@@ -54,12 +65,20 @@
     };
   };
 
+  /* Un fondo recortado al texto (background-clip: text) no pinta fondo: pinta
+     las letras. Tomarlo por fondo hace que un titular con degradado se mida
+     contra sí mismo y dé siempre el mismo número, pase lo que pase detrás. */
+  const recortadoAlTexto = (cs) =>
+    /text/.test(cs.webkitBackgroundClip || cs.backgroundClip || '')
+    || cs.webkitTextFillColor === 'rgba(0, 0, 0, 0)';
+
   /* El fondo real: se suben los padres acumulando capas translúcidas */
   const fondoReal = (el) => {
     const capas = [];
     let n = el;
     while (n && n !== document.documentElement) {
       const cs = getComputedStyle(n);
+      if (recortadoAlTexto(cs)) { n = n.parentElement; continue; }
       const grad = deGradiente(cs.backgroundImage);
       if (grad) { capas.push(grad); break; }
       const bg = aRGB(cs.backgroundColor);
@@ -89,14 +108,29 @@
 
     const col = aRGB(cs.color);
     if (!col) return;
-    /* Los titulares con degradado llevan el color transparente a propósito:
-       lo que se ve es el degradado recortado sobre la letra, no el color.
-       Medirlos da 1:1 y es un falso positivo. */
-    if (col.a === 0 && /text/.test(cs.webkitBackgroundClip || cs.backgroundClip || '')) return;
-    if (col.a === 0 && cs.webkitTextFillColor === 'rgba(0, 0, 0, 0)') return;
+
+    /* Los titulares con degradado llevan el color transparente a propósito: lo
+       que se ve es el degradado recortado sobre la letra, no el color. Medir
+       ese transparente da 1:1, un falso positivo.
+
+       Antes se saltaban, y así el texto más grande del sitio —el titular del
+       hero— era justo el único que nadie medía. Ahora se mide cada parada del
+       degradado contra el fondo y se guarda la PEOR: un degradado solo es tan
+       legible como su extremo más flojo, porque ahí hay letras igual. */
+    const recortado = col.a === 0 && recortadoAlTexto(cs);
+
     const fondo = fondoReal(el);
-    const texto = sobre(col, fondo);
-    const ratio = razon(texto, fondo);
+    let ratio;
+    if (recortado) {
+      const paradas = [...(cs.backgroundImage || '').matchAll(/rgba?\(([^)]+)\)/g)]
+        .map((m) => m[1].split(',').map((x) => parseFloat(x)))
+        .filter((p) => (p.length < 4 || p[3] > 0.5) && p.slice(0, 3).every((v) => isFinite(v)));
+      if (!paradas.length) return;
+      ratio = Math.min(...paradas.map((p) => razon(
+        sobre({ r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 }, fondo), fondo)));
+    } else {
+      ratio = razon(sobre(col, fondo), fondo);
+    }
 
     const tam = parseFloat(cs.fontSize);
     const negrita = parseInt(cs.fontWeight, 10) >= 700;
