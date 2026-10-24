@@ -861,19 +861,37 @@ a.scroll-more { display: none !important; }
 .section-team .tf-btn-2:hover *, .section-contact .tf-btn-2:hover *,
 .pricing-item .tf-btn-2:hover * { color: var(--color-azul-noche) !important; }
 
+/* Las flechas llevan disco OPACO, y no es un capricho.
+   Con el disco translúcido, el color de la flecha dependía de lo que hubiera
+   detrás: sobre claro quedaba cian sobre casi blanco, y en un sitio la flecha
+   salía directamente del color del fondo, o sea invisible. Un disco opaco
+   decide su propio fondo, así que la flecha se lee igual en cualquier sección
+   sin tener que saber dónde está puesta. Cian sobre azul noche: 11,9:1. */
 .nav-prev, .nav-next, .swiper-button-prev, .swiper-button-next,
+.nav-prev-swiper, .nav-next-swiper, .btn-slider,
 .slick-prev, .slick-next, .box-navigation-slider .nav {
   opacity: 1 !important;
   visibility: visible !important;
-  background: rgba(0, 229, 255, 0.14) !important;
-  border: 1px solid rgba(0, 229, 255, 0.5) !important;
+  background: var(--color-azul-noche) !important;
+  border: 1px solid rgba(0, 229, 255, 0.55) !important;
   color: var(--color-cian-electrico) !important;
 }
+.nav-prev *, .nav-next *, .swiper-button-prev *, .swiper-button-next *,
+.nav-prev-swiper *, .nav-next-swiper *, .btn-slider *,
+.slick-prev *, .slick-next *, .box-navigation-slider .nav * {
+  color: inherit !important;
+}
 .nav-prev:hover, .nav-next:hover,
-.swiper-button-prev:hover, .swiper-button-next:hover {
+.swiper-button-prev:hover, .swiper-button-next:hover,
+.nav-prev-swiper:hover, .nav-next-swiper:hover, .btn-slider:hover,
+.slick-prev:hover, .slick-next:hover {
   background: var(--color-cian-electrico) !important;
   color: var(--color-azul-noche) !important;
 }
+.nav-prev:hover *, .nav-next:hover *,
+.swiper-button-prev:hover *, .swiper-button-next:hover *,
+.nav-prev-swiper:hover *, .nav-next-swiper:hover *, .btn-slider:hover *,
+.slick-prev:hover *, .slick-next:hover * { color: var(--color-azul-noche) !important; }
 
 /* ==========================================================================
    16. LOS LOGOS DE ACREDITACIÓN
@@ -959,10 +977,20 @@ body::-webkit-scrollbar-track,
 
 #reservar .section-contact .heading-sub { color: var(--color-cian-electrico) !important; }
 
-/* Los iconos de WhatsApp, correo y dirección */
+/* Los iconos de WhatsApp, correo y dirección.
+   Va la propiedad «background» entera y no «background-color»: el template
+   pinta esta caja con un degradado de un solo color, y un color de fondo no
+   puede tapar una imagen de fondo. Por eso seguían saliendo cuadrados casi
+   blancos con el icono cian encima, a 1,4:1, que es el caso que se ve en la
+   foto: la caja se nota perfectamente y el dibujo de dentro no. */
 #reservar .section-contact .col-left .contact-item .icon {
-  background-color: rgba(0, 229, 255, 0.12) !important;
+  background: rgba(0, 229, 255, 0.14) !important;
+  border: 1px solid rgba(0, 229, 255, 0.4) !important;
   color: var(--color-cian-electrico) !important;
+}
+#reservar .section-contact .col-left .contact-item .icon * {
+  color: inherit !important;
+  fill: currentcolor !important;
 }
 
 /* Los enlaces no los cubre la medición: viven dentro de .text y traen su
@@ -1004,4 +1032,107 @@ body::-webkit-scrollbar-track,
 
 @media (min-width: 992px) {
   #reservar .section-contact .form-contact { padding: 34px 32px !important; }
+}
+
+/* =========================================================================
+   17. LA NOTA DE LOS VALORES
+   =========================================================================
+   «Valores referenciales. El copago final depende del tramo FONASA…» quedaba
+   pegada a la caja de precios de arriba, sin un solo píxel entre medias. La
+   regla que le daba aire estaba escrita en brand.css con 56 px, pero perdía
+   contra otra más específica y el margen calculado acababa en cero.
+   Aquí gana, y de paso la nota se lee como lo que es: una aclaración, no la
+   última línea de la caja.                                                  */
+.adv-nota-valores {
+  margin-top: 48px !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+@media (max-width: 767px) {
+  .adv-nota-valores { margin-top: 32px !important; }
+}
+
+/* =========================================================================
+   18. EL BOTÓN «VER ÁREA» SOBRE LA FOTO
+   =========================================================================
+   Llevaba letra blanca sobre un velo translúcido, rgba(0,0,0,.2). Sobre una
+   foto oscura se lee; sobre una clara se queda en gris claro con letra blanca
+   encima, 1,7:1. Un velo no decide su propio fondo: lo hereda, y por eso unas
+   veces funciona y otras no.
+   Se le pone fondo propio en azul noche, casi opaco. Deja ver que hay foto
+   debajo y la letra se lee siempre, mire donde mire.                        */
+.featured-works-item .image .view-project,
+.tf-mouse.view-project {
+  background: rgba(10, 34, 64, 0.86) !important;
+  color: var(--color-blanco-frio) !important;
+  backdrop-filter: blur(2px);
+}
+.featured-works-item .image .view-project *,
+.tf-mouse.view-project * { color: inherit !important; }
+
+.featured-works-item .image .view-project:hover,
+.tf-mouse.view-project:hover {
+  background: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+.featured-works-item .image .view-project:hover *,
+.tf-mouse.view-project:hover * { color: var(--color-azul-noche) !important; }
+
+/* =========================================================================
+   19. LOS TITULARES, QUE QUEPAN
+   =========================================================================
+   En tableta, «Una comuna / que necesita / especialistas cerca» se quedaba a
+   72 px dentro de una columna de 337: la palabra «especialistas» sola mide
+   más que la caja, así que se salía por el lado. El template baja el tamaño
+   por escalones y entre un escalón y otro hay anchos donde no cabe.
+   Un tamaño fluido no tiene ese hueco: crece y mengua con el ancho real.
+   El escritorio no se toca; esto empieza donde empezaba el problema.        */
+@media (max-width: 1199px) {
+  .heading-title,
+  .section-hero .title {
+    font-size: clamp(28px, 6.4vw, 56px) !important;
+    line-height: 1.08 !important;
+  }
+}
+
+/* Y una red por debajo: ninguna palabra larga rompe su caja, caiga donde
+   caiga. Más vale una palabra partida que un titular saliéndose. */
+.heading-title, .title, .page-title, .accordion-title, .heading {
+  overflow-wrap: break-word;
+}
+
+/* =========================================================================
+   20. LAS FICHAS FLOTANTES DE «UN CENTRO MODERNO»
+   =========================================================================
+   El template las traía como seis cuadrados de color liso, sin dibujo
+   ninguno: marcadores de posición que nadie llegó a sustituir. Se veían como
+   lo que eran, seis recuadros sueltos alrededor del titular.
+   Ahora cada una lleva el icono de una de las cosas que esa misma sección
+   dice que el centro tiene: ficha digital, agenda, confirmación por
+   WhatsApp, resultados al correo, videollamada y teléfono. El adorno pasa a
+   contar lo mismo que el texto que rodea.                                   */
+.adv-tool-tile {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 22%;
+  background: linear-gradient(160deg, var(--color-azul-noche) 0%, #13294d 100%);
+  box-shadow: 0 14px 30px rgba(10, 34, 64, 0.18);
+}
+/* El icono se mide contra la ficha, no contra el texto de la página.
+   Con «font-size: 44%» salía a 7 px: un porcentaje en font-size se calcula
+   sobre el del padre, que aquí es el cuerpo a 16 px, y no sobre el tamaño de
+   la caja. Las unidades de contenedor sí miran la caja, que es lo que hace
+   falta porque el template le da a cada ficha un ancho distinto. */
+.adv-tool-tile { container-type: size; }
+.adv-tool-tile .icon {
+  color: var(--color-cian-electrico);
+  font-size: 42cqw;
+  line-height: 1;
+}
+
+@media (max-width: 991px) {
+  .adv-tool-tile { border-radius: 26%; }
+  .adv-tool-tile .icon { font-size: 46cqw; }
 }

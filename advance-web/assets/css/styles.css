@@ -34,18 +34,27 @@
 :root {
   --white: #ffffff;
   --black: #000000;
+  /* LA ESCALA DE NEUTROS, SOBRE EL AZUL Y NO SOBRE EL VERDE.
+     Aquí estaba escondido el verde que volvía una y otra vez. Esta escala es
+     la del template y venía teñida de verde azulado: --neutral-700 era
+     #2E5B61 y --neutral-800 era #163F45. No son verdes evidentes, son grises
+     con tinte, pero cada var(--neutral-700) del archivo los reparte, así que
+     el color reaparecía en sitios que nadie había tocado. Buscarlo escrito a
+     mano no servía de nada: lo que había que cambiar era la escala.
+     Ahora los once peldaños están sobre el mismo eje azul que el azul noche
+     de la marca, con los mismos saltos de claridad que traía el template. */
   --primary: #0d1117;
-  --secondary: #6B8187;
-  --brand: #0098c7;
-  --neutral-50: #F7FBFB;
+  --secondary: #6B7C94;
+  --brand: #0089b8;
+  --neutral-50: #F7F9FC;
   --neutral-100: #f5f7fa;
-  --neutral-200: #DDEAEB;
+  --neutral-200: #E4EAF4;
   --neutral-300: #ccd6e6;
-  --neutral-400: #9AAEB2;
-  --neutral-500: #6B8187;
-  --neutral-600: #4f5d66;
-  --neutral-700: #2E5B61;
-  --neutral-800: #163F45;
+  --neutral-400: #9BA9BF;
+  --neutral-500: #6B7C94;
+  --neutral-600: #505F73;
+  --neutral-700: #2C3F5C;
+  --neutral-800: #16293F;
   --neutral-900: #0a2240;
   --neutral-950: #0d1117;
   --body: #f5f7fa;
@@ -80,7 +89,7 @@
 }
 
 [data-color-primary=color-primary-8] {
-  --brand: #7DC242;
+  --brand: #5b1aff;
 }
 
 /*------------ Core CSS ---------------- */
@@ -1244,7 +1253,7 @@ h6,
 }
 
 .text-gradient-1 {
-  background: linear-gradient(132.09deg, #2E5B61 11.15%, #0a2240 79.01%);
+  background: linear-gradient(132.09deg, #0089b8 11.15%, #5b1aff 79.01%);
   -webkit-background-clip: text;
   -webkit-text-stroke: 0px transparent;
   -webkit-text-fill-color: transparent;
@@ -2621,7 +2630,7 @@ header.header-sticky {
 }
 .social-links a:hover {
   background-color: #fff;
-  color: #0C3338;
+  color: #0a2240;
 }
 
 .comment-wrap .heading {
@@ -8470,7 +8479,7 @@ button.animate-btn::after,
   background: #bfff00;
 }
 .settings-color .choose-item:nth-child(8) {
-  background: #7DC242;
+  background: #5b1aff;
 }
 .settings-color .choose-item::before {
   position: absolute;
@@ -8620,7 +8629,7 @@ button.animate-btn::after,
 }
 .benefits-step-inner .step-item .icon {
   font-size: 48px;
-  color: #0C3338;
+  color: #0a2240;
 }
 .benefits-step-inner .step-item:hover {
   box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.0509803922) inset, 0px 4px 0px 0px rgba(255, 255, 255, 0.6) inset, 0px 2.77px 2.21px 0px rgba(0, 0, 0, 0.0588235294), 0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.0588235294), 0px 12.52px 10.02px 0px rgba(0, 0, 0, 0.0588235294), 0px 22.34px 17.87px 0px rgba(0, 0, 0, 0.0588235294), 0px 41.78px 33.42px 0px rgba(0, 0, 0, 0.0588235294), 0px 100px 80px 0px rgba(0, 0, 0, 0.0588235294);
