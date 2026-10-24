@@ -1,0 +1,35 @@
+/* Plantillas de Advance · Centro de salud Santa Juana.
+   Cada HTML es un lienzo de tamaño fijo; se edita el texto y se exporta a PNG
+   (ver herramientas/exportar.js). Tipografía: Urbanist, la misma de la web. */
+
+@import url("../colores/paleta.css");
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #777; }
+body { font-family: "Urbanist", "Segoe UI", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+
+.lienzo { position: relative; overflow: hidden; color: var(--advance-tinta-900); }
+.cuadrado { width: 1080px; height: 1080px; }
+.historia { width: 1080px; height: 1920px; }
+.portada { width: 1640px; height: 624px; }
+.a4 { width: 210mm; height: 297mm; }
+
+/* Puntos del isotipo como recurso gráfico */
+.puntos { position: absolute; pointer-events: none; }
+
+.kicker {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 30px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+}
+.pildora {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 30px; border-radius: 999px;
+  font-size: 32px; font-weight: 700; line-height: 1;
+}
+.pildora--fonasa { background: var(--advance-ambar); color: var(--advance-tinta-900); }
+.pildora--whatsapp { background: var(--advance-verde); color: #fff; }
+.pildora--clara { background: #fff; color: var(--advance-teal); }
+.pildora svg { width: 34px; height: 34px; flex: none; }
+
+.titular { font-weight: 700; letter-spacing: -0.02em; line-height: 1.04; }
+.texto { font-weight: 500; line-height: 1.35; }

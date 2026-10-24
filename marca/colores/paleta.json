@@ -1,0 +1,101 @@
+{
+  "turquesa": {
+    "nombre": "Turquesa Advance",
+    "hex": "#008F96",
+    "rgb": [
+      0,
+      143,
+      150
+    ],
+    "uso": "Color del logotipo. Acentos, íconos, fondos grandes. Con texto blanco, solo en títulos o texto en negrita de 19 px o más (3,9:1)."
+  },
+  "teal": {
+    "nombre": "Teal profundo",
+    "hex": "#006B70",
+    "rgb": [
+      0,
+      107,
+      112
+    ],
+    "uso": "Botones y enlaces con texto. Texto blanco encima: 6,3:1."
+  },
+  "tinta": {
+    "nombre": "Tinta petróleo",
+    "hex": "#0B3D42",
+    "rgb": [
+      11,
+      61,
+      66
+    ],
+    "uso": "Titulares y fondos oscuros. Texto blanco encima: 11,9:1."
+  },
+  "tinta-900": {
+    "nombre": "Tinta 900",
+    "hex": "#072227",
+    "rgb": [
+      7,
+      34,
+      39
+    ],
+    "uso": "Texto principal sobre fondos claros (15:1 sobre Nieve)."
+  },
+  "gris": {
+    "nombre": "Gris texto",
+    "hex": "#4A6169",
+    "rgb": [
+      74,
+      97,
+      105
+    ],
+    "uso": "Texto secundario. Nunca un gris más claro sobre fondo claro (5,9:1 sobre Nieve)."
+  },
+  "agua": {
+    "nombre": "Agua",
+    "hex": "#CFE6E7",
+    "rgb": [
+      207,
+      230,
+      231
+    ],
+    "uso": "Líneas, bordes y fondos suaves. Texto suave sobre la tinta (8,9:1)."
+  },
+  "nieve": {
+    "nombre": "Nieve",
+    "hex": "#EDF5F5",
+    "rgb": [
+      237,
+      245,
+      245
+    ],
+    "uso": "Fondo general del sitio y de las piezas claras."
+  },
+  "ambar": {
+    "nombre": "Ámbar FONASA",
+    "hex": "#F2B33D",
+    "rgb": [
+      242,
+      179,
+      61
+    ],
+    "uso": "Solo para FONASA: sello, cinta y copago. Texto en tinta encima (8,9:1). Si no habla del bono, no va en ámbar."
+  },
+  "verde": {
+    "nombre": "Verde WhatsApp",
+    "hex": "#1E7F46",
+    "rgb": [
+      30,
+      127,
+      70
+    ],
+    "uso": "Solo para WhatsApp y confirmaciones. Texto blanco encima: 5:1."
+  },
+  "_pendiente": {
+    "violeta": {
+      "hex": "#A47CFB",
+      "estado": "En revisión: no usar en piezas nuevas hasta decidir."
+    }
+  },
+  "_prohibido": [
+    "rojo (lo descarta el brief)"
+  ]
+}

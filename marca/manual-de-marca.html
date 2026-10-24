@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<title>Manual de marca · Advance Santa Juana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="colores/paleta.css">
+<style>
+  /* A4 horizontal: una sección por página. Se exporta a PDF con herramientas/exportar.js */
+  @page { size: A4 landscape; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #8a8a8a; }
+  body { font-family: "Urbanist", "Segoe UI", Arial, sans-serif; color: var(--advance-tinta-900); -webkit-font-smoothing: antialiased; }
+  .pagina { width: 297mm; height: 210mm; padding: 16mm 18mm; position: relative; overflow: hidden; background: #fff; page-break-after: always; margin: 0 auto 8mm; }
+  .pagina:last-child { page-break-after: auto; }
+  @media print { html { background: none; } .pagina { margin: 0; } }
+  .num { position: absolute; right: 18mm; bottom: 9mm; font-size: 9pt; color: var(--advance-gris); }
+  .pie { position: absolute; left: 18mm; bottom: 9mm; font-size: 9pt; color: var(--advance-gris); }
+  .eyebrow { font-size: 10pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--advance-teal); }
+  h1 { font-size: 30pt; font-weight: 700; letter-spacing: -.02em; line-height: 1.05; margin-top: 3mm; color: var(--advance-tinta); }
+  h2 { font-size: 14pt; font-weight: 700; color: var(--advance-tinta); }
+  p, li { font-size: 11pt; line-height: 1.45; font-weight: 500; }
+  .gris { color: var(--advance-gris); }
+  .grid { display: grid; gap: 7mm; }
+  .tarjeta { background: var(--advance-nieve); border-radius: 5mm; padding: 6mm; }
+  .nota { font-size: 9.5pt; color: var(--advance-gris); }
+  .chip { display: inline-block; padding: 1.2mm 3.5mm; border-radius: 99px; font-size: 9pt; font-weight: 700; }
+  .si { background: #DDEFE3; color: #155F35; }
+  .no { background: #F4E4D7; color: #7A3E12; }
+  ul { padding-left: 5mm; display: grid; gap: 1.5mm; }
+</style>
+</head>
+<body>
+
+<!-- 1. Portada -->
+<section class="pagina" style="background:var(--advance-tinta);color:#fff">
+  <img src="logo/svg/advance-isotipo-turquesa.svg" alt="" style="position:absolute;width:150mm;right:-30mm;top:-25mm;opacity:.35">
+  <img src="logo/svg/advance-horizontal-blanco.svg" alt="Advance, Centro de salud, Santa Juana" style="width:120mm;margin-top:20mm">
+  <h1 style="color:#fff;font-size:40pt;margin-top:32mm">Manual de marca básico</h1>
+  <p style="font-size:15pt;color:var(--advance-agua);margin-top:4mm">Logotipo, colores, tipografía, voz y plantillas para usar desde hoy.</p>
+  <p style="position:absolute;left:18mm;bottom:14mm;font-size:10pt;color:var(--advance-agua)">Versión 1 · octubre de 2026 · Preparado por Punto Gris para Advance · Centro de salud Santa Juana</p>
+</section>
+
+<!-- 2. La marca -->
+<section class="pagina">
+  <div class="eyebrow">La marca</div>
+  <h1>Salud de familia, más cerca</h1>
+  <div class="grid" style="grid-template-columns:1fr 1fr 1fr;margin-top:9mm">
+    <div class="tarjeta"><h2>Propósito</h2><p style="margin-top:2mm">Fortalecer la salud familiar de Santa Juana, con atención de especialistas sin salir de la comuna.</p></div>
+    <div class="tarjeta"><h2>Promesa</h2><p style="margin-top:2mm">Te atendemos cerca, te explicamos claro y te acompañamos en el tiempo.</p></div>
+    <div class="tarjeta"><h2>Frase</h2><p style="margin-top:2mm;font-size:16pt;font-weight:700;color:var(--advance-teal)">Tu salud, aquí en Santa Juana.</p></div>
+    <div class="tarjeta"><h2>Valores</h2><p style="margin-top:2mm">Servicio · Integridad · Confianza · Familiar</p></div>
+    <div class="tarjeta"><h2>Personalidad</h2><p style="margin-top:2mm">De confianza y cercana. El trato es cercano, formal, directo y cuidadoso. La imagen, moderna, tecnológica y profesional.</p></div>
+    <div class="tarjeta"><h2>Idea central: «más cerca»</h2><p style="margin-top:2mm">Cerca en distancia, en trato, en lenguaje y en precio (bono FONASA). Cada pieza cumple al menos una de las cuatro.</p></div>
+  </div>
+  <div class="tarjeta" style="margin-top:7mm;background:#fff;border:0.4mm solid var(--advance-agua)">
+    <h2>Cómo se escribe el nombre</h2>
+    <p style="margin-top:2mm"><b>Advance · Centro de salud Santa Juana</b>. En texto corrido basta con «Advance» o «Centro de salud Advance».
+    <span class="chip no" style="margin-left:2mm">No</span> «Clínica Advance», «Advanced», «advance», «ADVANCE».</p>
+  </div>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">2</span>
+</section>
+
+<!-- 3. Logotipo -->
+<section class="pagina">
+  <div class="eyebrow">Logotipo</div>
+  <h1>Cuatro versiones del mismo logo</h1>
+  <p class="gris" style="margin-top:2mm">Vectorizadas desde el logotipo oficial (archivos en <b>logo/svg</b> y <b>logo/png</b>, en turquesa, tinta, blanco y negro).</p>
+  <div class="grid" style="grid-template-columns:1.1fr 1.4fr;margin-top:8mm">
+    <div class="tarjeta" style="display:grid;place-items:center;gap:4mm;padding:9mm">
+      <img src="logo/svg/advance-vertical-turquesa.svg" alt="" style="width:78mm">
+      <p><b>Vertical (principal).</b> Fachada, afiches, documentos y presentaciones.</p>
+    </div>
+    <div class="grid" style="gap:6mm">
+      <div class="tarjeta" style="display:flex;align-items:center;gap:8mm"><img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:85mm"><p><b>Horizontal.</b> Web, portadas, firmas de correo.</p></div>
+      <div class="tarjeta" style="display:flex;align-items:center;gap:8mm"><img src="logo/svg/advance-horizontal-compacto-turquesa.svg" alt="" style="width:70mm"><p><b>Compacto.</b> Barras de navegación y espacios bajos, donde la bajada no se leería.</p></div>
+      <div class="tarjeta" style="display:flex;align-items:center;gap:8mm"><img src="logo/svg/advance-isotipo-turquesa.svg" alt="" style="width:22mm"><p><b>Isotipo.</b> Foto de perfil en redes, ícono del sitio, sellos. Los cuatro puntos: familia, equipo y comunidad.</p></div>
+    </div>
+  </div>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">3</span>
+</section>
+
+<!-- 4. Uso correcto -->
+<section class="pagina">
+  <div class="eyebrow">Uso correcto</div>
+  <h1>Espacio, tamaño y fondos</h1>
+  <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:8mm">
+    <div class="tarjeta">
+      <h2>Área de resguardo</h2>
+      <div style="margin:5mm auto;width:fit-content;padding:9mm;border:0.4mm dashed var(--advance-teal);border-radius:2mm;background:#fff">
+        <img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:70mm;display:block">
+      </div>
+      <p>Alrededor del logo queda libre, como mínimo, el alto del punto más grande del isotipo. Nada de texto, bordes ni fotos dentro de ese margen.</p>
+      <h2 style="margin-top:5mm">Tamaño mínimo</h2>
+      <p>Horizontal: 120 px o 30 mm de ancho. Vertical: 90 px o 22 mm. Isotipo: 24 px o 6 mm. Bajo esos tamaños, usar el compacto o el isotipo.</p>
+    </div>
+    <div>
+      <h2>Fondos permitidos</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:5mm;margin-top:4mm">
+        <div style="background:#fff;border:0.3mm solid var(--advance-agua);border-radius:4mm;height:36mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:58mm"></div>
+        <div style="background:var(--advance-nieve);border-radius:4mm;height:36mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-tinta.svg" alt="" style="width:58mm"></div>
+        <div style="background:var(--advance-turquesa);border-radius:4mm;height:36mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-blanco.svg" alt="" style="width:58mm"></div>
+        <div style="background:var(--advance-tinta);border-radius:4mm;height:36mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-blanco.svg" alt="" style="width:58mm"></div>
+        <div style="background:var(--advance-ambar);border-radius:4mm;height:36mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-tinta.svg" alt="" style="width:58mm"></div>
+        <div style="background:var(--advance-teal);border-radius:4mm;height:36mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-blanco.svg" alt="" style="width:58mm"></div>
+      </div>
+      <p class="nota" style="margin-top:4mm">Sobre fotografías, solo en zonas lisas y oscuras o claras, nunca sobre caras ni detalles.</p>
+    </div>
+  </div>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">4</span>
+</section>
+
+<!-- 5. No hacer -->
+<section class="pagina">
+  <div class="eyebrow">Uso incorrecto</div>
+  <h1>Lo que no se hace con el logo</h1>
+  <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:9mm;gap:6mm">
+    <div class="tarjeta" style="text-align:center"><div style="height:32mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:46mm;transform:scaleX(1.35)"></div><span class="chip no">No</span><p style="margin-top:2mm">Estirarlo o aplastarlo.</p></div>
+    <div class="tarjeta" style="text-align:center"><div style="height:32mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:62mm;filter:hue-rotate(160deg) saturate(2)"></div><span class="chip no">No</span><p style="margin-top:2mm">Cambiarle el color. Nunca en rojo.</p></div>
+    <div class="tarjeta" style="text-align:center"><div style="height:32mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:58mm;transform:rotate(-12deg)"></div><span class="chip no">No</span><p style="margin-top:2mm">Rotarlo o inclinarlo.</p></div>
+    <div class="tarjeta" style="text-align:center"><div style="height:32mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:62mm;filter:drop-shadow(1.5mm 1.5mm 1mm rgba(0,0,0,.45))"></div><span class="chip no">No</span><p style="margin-top:2mm">Agregarle sombras, brillos o bordes.</p></div>
+    <div class="tarjeta" style="text-align:center;background:var(--advance-agua)"><div style="height:32mm;display:grid;place-items:center"><img src="logo/svg/advance-horizontal-turquesa.svg" alt="" style="width:62mm;opacity:.55"></div><span class="chip no">No</span><p style="margin-top:2mm">Ponerlo sobre un fondo sin contraste.</p></div>
+    <div class="tarjeta" style="text-align:center"><div style="height:32mm;display:grid;place-items:center"><span style="font-family:Georgia,serif;font-size:30pt;letter-spacing:.3em;color:var(--advance-turquesa);font-weight:300">ADVANCE</span></div><span class="chip no">No</span><p style="margin-top:2mm">Escribir el nombre con otra letra en vez del logo.</p></div>
+  </div>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">5</span>
+</section>
+
+<!-- 6. Color -->
+<section class="pagina">
+  <div class="eyebrow">Color</div>
+  <h1>Una paleta que sale del logo</h1>
+  <div class="grid" style="grid-template-columns:repeat(5,1fr);gap:4mm;margin-top:7mm">
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-turquesa)"></div><h2 style="font-size:11pt;margin-top:2mm">Turquesa Advance</h2><p class="nota">#008F96 · 0 143 150<br>Logo, acentos, fondos grandes. Texto blanco solo grande o en negrita.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-teal)"></div><h2 style="font-size:11pt;margin-top:2mm">Teal profundo</h2><p class="nota">#006B70 · 0 107 112<br>Botones y enlaces. Blanco encima 6,3:1.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-tinta)"></div><h2 style="font-size:11pt;margin-top:2mm">Tinta petróleo</h2><p class="nota">#0B3D42 · 11 61 66<br>Titulares y fondos oscuros. Blanco encima 11,9:1.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-tinta-900)"></div><h2 style="font-size:11pt;margin-top:2mm">Tinta 900</h2><p class="nota">#072227 · 7 34 39<br>Texto principal. 15:1 sobre Nieve.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-gris)"></div><h2 style="font-size:11pt;margin-top:2mm">Gris texto</h2><p class="nota">#4A6169 · 74 97 105<br>Texto secundario. Ningún gris más claro sobre fondo claro.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-agua)"></div><h2 style="font-size:11pt;margin-top:2mm">Agua</h2><p class="nota">#CFE6E7 · 207 230 231<br>Líneas, bordes, texto suave sobre la tinta.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-nieve);border:0.3mm solid var(--advance-agua)"></div><h2 style="font-size:11pt;margin-top:2mm">Nieve</h2><p class="nota">#EDF5F5 · 237 245 245<br>Fondo general.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-ambar)"></div><h2 style="font-size:11pt;margin-top:2mm">Ámbar FONASA</h2><p class="nota">#F2B33D · 242 179 61<br>Solo FONASA: sello, cinta, copago. Texto en tinta.</p></div>
+    <div><div style="height:24mm;border-radius:3mm;background:var(--advance-verde)"></div><h2 style="font-size:11pt;margin-top:2mm">Verde WhatsApp</h2><p class="nota">#1E7F46 · 30 127 70<br>Solo WhatsApp y confirmaciones.</p></div>
+    <div class="tarjeta" style="padding:4mm"><h2 style="font-size:11pt">Reglas</h2><p class="nota" style="margin-top:1.5mm"><b>Sin rojo</b>, en ninguna pieza.<br>El violeta <b>#A47CFB</b> que usa la vista previa de la web está <b>en revisión</b>: no usarlo en piezas nuevas hasta decidir.</p></div>
+  </div>
+  <p class="nota" style="margin-top:6mm">Archivos: <b>colores/paleta.css</b> (variables para la web) y <b>colores/paleta.json</b> (valores para diseño). Los contrastes siguen la norma WCAG: 4,5:1 para texto normal.</p>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">6</span>
+</section>
+
+<!-- 7. Tipografía -->
+<section class="pagina">
+  <div class="eyebrow">Tipografía</div>
+  <h1>Urbanist, la misma letra de la web</h1>
+  <div class="grid" style="grid-template-columns:1.2fr 1fr;margin-top:8mm">
+    <div class="tarjeta" style="padding:9mm">
+      <p style="font-size:64pt;font-weight:700;line-height:1;color:var(--advance-tinta)">Aa</p>
+      <p style="font-size:26pt;font-weight:700;margin-top:4mm;line-height:1.1;color:var(--advance-tinta)">Tu salud, aquí en Santa Juana</p>
+      <p style="font-size:13pt;margin-top:4mm">Médico, dentista, kine, matrona, psicología y exámenes. Presencial y online, sin viajar a Concepción.</p>
+      <p style="font-size:12pt;margin-top:5mm;letter-spacing:.04em">A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z<br>a b c d e f g h i j k l m n ñ o p q r s t u v w x y z · 0 1 2 3 4 5 6 7 8 9</p>
+    </div>
+    <div class="grid" style="gap:5mm;align-content:start">
+      <div class="tarjeta"><h2>Pesos</h2><p style="margin-top:2mm"><span style="font-weight:700">Bold 700</span> para titulares · <span style="font-weight:600">SemiBold 600</span> para botones y destacados · <span style="font-weight:500">Medium 500</span> para textos.</p></div>
+      <div class="tarjeta"><h2>Tamaños mínimos</h2><ul style="margin-top:2mm"><li>Web: texto de 18 px; nunca menos de 16 px.</li><li>Redes (1080 px): titulares de 80 px o más; textos de 36 px o más.</li><li>Impresos: texto de 11 pt o más.</li></ul></div>
+      <div class="tarjeta"><h2>Dónde conseguirla</h2><p style="margin-top:2mm">Gratis en Google Fonts (fonts.google.com/specimen/Urbanist) y disponible en Canva. Si un programa no la tiene, usar Arial.</p></div>
+    </div>
+  </div>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">7</span>
+</section>
+
+<!-- 8. Voz -->
+<section class="pagina">
+  <div class="eyebrow">Voz y tono</div>
+  <h1>Hablamos simple, de tú, con datos claros</h1>
+  <table style="width:100%;border-collapse:collapse;margin-top:8mm;font-size:11.5pt">
+    <thead><tr><th style="text-align:left;padding:3mm;border-bottom:0.6mm solid var(--advance-tinta)"><span class="chip si">Decimos</span></th><th style="text-align:left;padding:3mm;border-bottom:0.6mm solid var(--advance-tinta)"><span class="chip no">En vez de</span></th></tr></thead>
+    <tbody>
+      <tr><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua);font-weight:600">Agenda tu hora por WhatsApp.</td><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua)" class="gris">Solicite su atención a través de nuestros canales digitales.</td></tr>
+      <tr><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua);font-weight:600">Atendemos con bono FONASA.</td><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua)" class="gris">Somos Prestador Institucional en Modalidad Libre Elección.</td></tr>
+      <tr><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua);font-weight:600">¿Te duele la espalda hace semanas? La kine te puede ayudar.</td><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua)" class="gris">La Kinesiología es una disciplina orientada a la evaluación del movimiento.</td></tr>
+      <tr><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua);font-weight:600">Centro de salud autorizado por la SEREMI.</td><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua)" class="gris">Centro acreditado. (La acreditación es otro trámite, de la Superintendencia de Salud.)</td></tr>
+      <tr><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua);font-weight:600">Exámenes y consulta en una sola mañana.</td><td style="padding:3mm;border-bottom:0.3mm solid var(--advance-agua)" class="gris">Ofrecemos continuidad asistencial integral.</td></tr>
+    </tbody>
+  </table>
+  <ul style="margin-top:7mm;grid-template-columns:1fr 1fr;column-gap:10mm">
+    <li>Frases cortas y palabras de uso diario. El término técnico va después, si hace falta.</li>
+    <li>Siempre a la vista: WhatsApp, dirección y «bono FONASA».</li>
+    <li>Nunca prometer resultados ni decir «los mejores».</li>
+    <li>Las consultas clínicas por mensaje se responden con una hora, no con un diagnóstico.</li>
+  </ul>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">8</span>
+</section>
+
+<!-- 9. Plantillas -->
+<section class="pagina">
+  <div class="eyebrow">Plantillas</div>
+  <h1>Listas para usar</h1>
+  <p class="gris" style="margin-top:2mm">En la carpeta <b>plantillas</b>: cada pieza tiene su HTML editable y su PNG o PDF exportado.</p>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;margin-top:7mm;align-items:start">
+    <figure><img src="plantillas/avatar-redes.png" alt="" style="width:100%;border-radius:50%"><figcaption class="nota" style="margin-top:2mm"><b>Avatar</b> · 1080 × 1080 · Facebook, Instagram, WhatsApp</figcaption></figure>
+    <figure><img src="plantillas/post-aviso-fonasa.png" alt="" style="width:100%;border-radius:2mm"><figcaption class="nota" style="margin-top:2mm"><b>Aviso FONASA</b> · post 1080 × 1080</figcaption></figure>
+    <figure><img src="plantillas/post-conoce-equipo.png" alt="" style="width:100%;border-radius:2mm"><figcaption class="nota" style="margin-top:2mm"><b>Conoce a tu equipo</b> · post 1080 × 1080</figcaption></figure>
+    <figure><img src="plantillas/post-salud-en-simple.png" alt="" style="width:100%;border-radius:2mm"><figcaption class="nota" style="margin-top:2mm"><b>Salud en simple</b> · post 1080 × 1080</figcaption></figure>
+  </div>
+  <div style="display:grid;grid-template-columns:2.2fr .55fr .75fr;gap:5mm;margin-top:5mm;align-items:start">
+    <figure><img src="plantillas/portada-facebook.png" alt="" style="width:100%;border-radius:2mm"><figcaption class="nota" style="margin-top:2mm"><b>Portada de Facebook</b> · 1640 × 624</figcaption></figure>
+    <figure><img src="plantillas/historia-cupos.png" alt="" style="width:100%;border-radius:2mm;max-height:52mm;object-fit:cover;object-position:top"><figcaption class="nota" style="margin-top:2mm"><b>Historia</b> · 1080 × 1920</figcaption></figure>
+    <figure><img src="plantillas/afiche-a4.png" alt="" style="width:100%;border-radius:2mm;max-height:52mm;object-fit:cover;object-position:top;border:0.3mm solid var(--advance-agua)"><figcaption class="nota" style="margin-top:2mm"><b>Afiche A4</b> con QR a WhatsApp</figcaption></figure>
+  </div>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">9</span>
+</section>
+
+<!-- 10. Fotografía y cuidados -->
+<section class="pagina">
+  <div class="eyebrow">Fotografía y cuidados</div>
+  <h1>Rostros reales, datos cuidados</h1>
+  <div class="grid" style="grid-template-columns:1fr 1fr;margin-top:8mm">
+    <div class="tarjeta">
+      <h2>Fotografía</h2>
+      <ul style="margin-top:3mm">
+        <li>El equipo real, con uniforme, en sus box y con luz natural.</li>
+        <li>La fachada de Villagrán con José Cardenio Avello, para que la reconozcan al llegar.</li>
+        <li>Santa Juana de fondo: la plaza, el Biobío, el cerro.</li>
+        <li>Las fotos de banco de la vista previa se reemplazan con la sesión de fotos.</li>
+      </ul>
+    </div>
+    <div class="tarjeta">
+      <h2>Cuidados obligatorios</h2>
+      <ul style="margin-top:3mm">
+        <li>Pacientes y equipo solo con consentimiento escrito (Ley 20.584).</li>
+        <li>Los formularios piden datos de salud: aviso de privacidad y consentimiento. La Ley 21.719 rige desde el 1 de diciembre de 2026.</li>
+        <li>Afirmar solo lo verificable: autorización sanitaria de la SEREMI y convenio FONASA.</li>
+        <li>Nada marcado como «Ejemplo» se publica sin reemplazar.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tarjeta" style="margin-top:7mm;background:var(--advance-tinta);color:#fff;display:flex;align-items:center;justify-content:space-between">
+    <p style="font-size:13pt;font-weight:600">¿Dudas sobre una pieza? Si no habla de FONASA, no va en ámbar. Si no es WhatsApp, no va en verde.</p>
+    <img src="logo/svg/advance-horizontal-compacto-blanco.svg" alt="" style="width:55mm">
+  </div>
+  <span class="pie">Advance · Manual de marca básico</span><span class="num">10</span>
+</section>
+
+</body>
+</html>
