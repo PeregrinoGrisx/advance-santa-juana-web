@@ -22,8 +22,9 @@
 
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick.theme.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=202610181517">
-    <link rel="stylesheet" type="text/css" href="assets/css/brand.css?v=202610181517">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=202610240629">
+    <link rel="stylesheet" type="text/css" href="assets/css/brand.css?v=202610240629">
+    <link rel="stylesheet" type="text/css" href="assets/css/advance-color.css?v=202610240629">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg">
@@ -65,7 +66,7 @@
         <!-- /Aviso superior -->
 
         <!-- Header -->
-        <header class="tf-header header2">
+        <header class="tf-header header2 navbar">
             <div class="header-inner">
                 <a href="index.html" class="logo-site adv-logo" aria-label="Advance, centro de salud de Santa Juana — inicio">
                     <span class="adv-mark adv-mark--iso"></span>
@@ -112,10 +113,10 @@
                         </li>
                     </ul>
                 </div>
-                <a href="index.html#reservar" class="tf-btn d-lg-flex d-none">
+                <a href="index.html#reservar" class="tf-btn d-lg-flex d-none btn-reservar">
                     Reservar hora
                 </a>
-                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex" aria-label="Abrir menú">
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex btn-reservar" aria-label="Abrir menú">
                     <i class="icon icon-grip-lines-solid"></i>
                 </a>
             </div>
@@ -150,8 +151,8 @@
                         Somos el único centro integral de la comuna con autorización sanitaria de la SEREMI de Salud. <br> Diez áreas de atención, profesionales con registro vigente y ficha clínica digital.
                     </p>
                     <div class="bot-btns effectFade fadeRotateX">
-                        <a href="index.html#reservar" class="tf-btn">Reservar hora</a>
-                        <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="tf-btn-2">Escribir por WhatsApp</a>
+                        <a href="index.html#reservar" class="tf-btn btn-reservar">Reservar hora</a>
+                        <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="tf-btn-2 btn-whatsapp">Escribir por WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -176,7 +177,7 @@
                                     Atención presencial y por videollamada
                                 </div>
                                 <h5 class="title fw-semibold text-white">Villagrán 199, <span class="text-brand">Santa Juana</span></h5>
-                                <a href="contacto.html" class="tf-btn">Cómo llegar</a>
+                                <a href="contacto.html" class="tf-btn btn-reservar">Cómo llegar</a>
                             </div>
                             <img class="effectFade fadeRotateX" src="assets/images/item/earth.svg" alt="">
                         </div>
@@ -248,28 +249,28 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad">
                                 <i class="icon icon-headset-solid"></i>
                                 <h6 class="title fw-semibold">Servicio</h6>
                                 <p class="text-secondary">Que pedir una hora sea fácil, que te contesten, que sepas cuánto vas a pagar y a qué hora te van a atender.</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.1">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.1">
                                 <i class="icon icon-shield-alt-solid"></i>
                                 <h6 class="title fw-semibold">Integridad</h6>
                                 <p class="text-secondary">Instalaciones autorizadas, profesionales con registro vigente y procedimientos que se hacen como corresponde.</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.2">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.2">
                                 <i class="icon icon-user-check-solid"></i>
                                 <h6 class="title fw-semibold">Confianza</h6>
                                 <p class="text-secondary">Sabes quién te atiende, qué te van a hacer y cuánto cuesta. Sin letra chica ni sorpresas en el mesón.</p>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.3">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.3">
                                 <i class="icon icon-heart-solid"></i>
                                 <h6 class="title fw-semibold">Familiar</h6>
                                 <p class="text-secondary">Atendemos a la guagua, a la mamá y al abuelo. Y cuando se puede, coordinamos sus horas el mismo día.</p>
@@ -563,7 +564,7 @@
                                     <i class="icon icon-info-circle-solid" aria-hidden="true"></i>
                                     <span>Te confirmamos por WhatsApp dentro del horario de atención, con el valor y el copago FONASA de tu prestación.</span>
                                 </div>
-                                <button type="submit" class="tf-btn w-100">Pedir mi hora</button>
+                                <button type="submit" class="tf-btn w-100 btn-reservar">Pedir mi hora</button>
                             </form>
                         </div>
                     </div>
@@ -753,8 +754,8 @@
     <script src="assets/js/ScrollTrigger.min.js"></script>
     <script src="assets/js/ScrollToPlugin.min.js"></script>
     <script src="assets/js/gsapAnimation.js"></script>
-    <script src="assets/js/main.js?v=202610181517"></script>
-    <script src="assets/js/advance.js?v=202610181517"></script>
+    <script src="assets/js/main.js?v=202610240629"></script>
+    <script src="assets/js/advance.js?v=202610240629"></script>
 
 </body>
 

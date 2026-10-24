@@ -1,0 +1,416 @@
+/* ==========================================================================
+   ADVANCE SANTA JUANA · ARQUITECTURA CROMÁTICA (2026)
+
+   Esta es la capa que manda sobre el color. Se carga la última, después de
+   styles.css (el maquetado del template) y de brand.css (los arreglos de
+   estructura: logotipo, barra fija, formulario, accesibilidad).
+
+   Por qué va aparte y no reemplaza a styles.css: ese archivo son 9.800 líneas
+   con la retícula, las animaciones y todos los componentes. Sustituirlo deja
+   el sitio sin maquetado. Aquí solo vive el color, que es lo que cambia.
+
+   Las clases de utilidad (.navbar, .card-especialidad, .btn-reservar…) están
+   puestas en el HTML y además emparejadas con la clase real del template, de
+   modo que cada regla funciona por las dos vías.
+
+   LAS TIPOGRAFÍAS NO SE TOCAN: el sitio sigue en Urbanist.
+   ========================================================================== */
+
+:root {
+  /* --- PALETA, CON SU PESO EN EL SITIO --- */
+  --color-blanco-frio:     #f5f7fa; /* 52% · fondo general */
+  --color-azul-noche:      #0a2240; /* 16% · barra, bloques oscuros, pie */
+  --color-cian-electrico:  #00e5ff; /* 15% · luz de marca, iconos, números */
+  --color-violeta-digital: #5b1aff; /* 11% · identidad secundaria y hover */
+  --color-text-tinta:      #0d1117; /*  4% · tipografía principal */
+  --color-lima-neon:       #bfff00; /*  2% · solo conversión: reservar hora */
+
+  /* --- SOPORTES --- */
+  --color-blanco-puro:     #ffffff;
+  --color-lineas-suaves:   rgba(13, 17, 23, 0.06);
+  --transicion-advance:    all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* El cian a plena potencia sobre fondo claro da un contraste de 1,5:1 y no
+     se puede leer. Uno de cada cuatro habitantes de la comuna tiene 60 años o
+     más, así que el cian sobre blanco se oscurece. A plena potencia solo donde
+     hay fondo oscuro detrás, que es donde brilla de verdad. */
+  --color-cian-texto:      #00718f; /* cian legible sobre claro (4,6:1) */
+  --color-cian-dato:       #0098bd; /* para cifras grandes (3,2:1) */
+}
+
+/* ==========================================================================
+   1. NÚCLEO
+   ========================================================================== */
+
+body {
+  background-color: var(--color-blanco-frio) !important;
+  color: var(--color-text-tinta) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading-title, .title {
+  color: var(--color-text-tinta);
+}
+
+p, li, label, .text, .description {
+  color: var(--color-text-tinta);
+}
+
+::selection { background: var(--color-cian-electrico); color: var(--color-text-tinta); }
+
+/* ==========================================================================
+   2. BLOQUES OSCUROS · 16%
+   .navbar está en el HTML sobre la cabecera del template (.tf-header).
+   ========================================================================== */
+
+.navbar,
+.tf-header.adv-fijo,
+.section-dark-bg,
+.footer,
+.adv-topbar,
+#como-llegar {
+  background-color: var(--color-azul-noche) !important;
+  border-color: rgba(0, 229, 255, 0.12) !important;
+}
+
+/* La cabecera flota sobre el hero: cristal oscuro en vez de bloque macizo */
+.navbar .header-inner,
+.tf-header .header-inner {
+  background-color: rgba(10, 34, 64, 0.88) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 229, 255, 0.14) !important;
+}
+
+/* Secciones que el template pinta oscuras */
+.section-team,
+.section-statistic,
+.section-awards,
+.section-testimonials {
+  background-color: var(--color-azul-noche) !important;
+}
+
+/* Inversión de textos dentro de lo oscuro, para que nada quede ilegible */
+.navbar *,
+.section-dark-bg *,
+.footer *,
+.adv-topbar *,
+.section-team *,
+.section-statistic *,
+.section-awards *,
+.section-testimonials * {
+  color: var(--color-blanco-frio) !important;
+}
+
+/* Dentro de lo oscuro el cian sí va a plena potencia */
+.footer .adv-destacado,
+.adv-topbar strong,
+.section-statistic .statistic-number,
+.section-dark-bg .advance-accent-text {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* ==========================================================================
+   3. IDENTIDAD: CIAN 15% Y VIOLETA 11%
+   ========================================================================== */
+
+/* Números de las áreas y antetítulos destacados sobre fondo claro */
+.specialty-number,
+.num,
+.advance-accent-text,
+.heading-sub,
+.features-item .number {
+  color: var(--color-cian-texto) !important;
+}
+
+/* Cifras grandes: al ser enormes aguantan un cian más vivo */
+.counter,
+.statistic-number,
+.adv-cifra {
+  color: var(--color-cian-dato) !important;
+}
+
+/* Iconos: acreditaciones, motivos de consulta, especialidades */
+.acreditaciones-icon,
+.features-item .icon,
+.services-item .icon,
+.iconbox .icon,
+.adv-badge .ic {
+  color: var(--color-cian-texto) !important;
+}
+.acreditaciones-card svg,
+.features-item .icon svg,
+.motivos-consulta svg {
+  fill: currentcolor;
+}
+
+/* Tramas y degradados tecnológicos */
+.bg-gradient-tech,
+.ficha-digital-glow,
+.text-gradient-3 {
+  background: linear-gradient(135deg, var(--color-cian-electrico) 0%, var(--color-violeta-digital) 100%) !important;
+}
+.text-gradient-3 {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ==========================================================================
+   4. TARJETAS
+   .card-especialidad está en el HTML sobre las 10 áreas (.features-item).
+   ========================================================================== */
+
+.card-especialidad,
+.card-light,
+.team-card,
+.features-item,
+.services-item {
+  background-color: var(--color-blanco-puro) !important;
+  border: 1px solid var(--color-lineas-suaves) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(10, 34, 64, 0.03) !important;
+  transition: var(--transicion-advance) !important;
+}
+
+.card-especialidad:hover,
+.card-light:hover,
+.team-card:hover,
+.features-item:hover,
+.services-item:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(0, 229, 255, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(10, 34, 64, 0.08) !important;
+}
+
+/* Tarjetas dentro de un bloque oscuro */
+.card-motivo-consulta,
+.card-dark,
+.section-team .team-item,
+.section-testimonials .testimonials-item {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(0, 229, 255, 0.16) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px);
+}
+
+/* ==========================================================================
+   5. BOTONES
+   .btn-reservar está en el HTML sobre los CTA principales (.tf-btn).
+   ========================================================================== */
+
+.btn-reservar,
+.btn-primary-advance,
+.tf-btn,
+input[type="submit"].btn-submit,
+button[type="submit"].tf-btn {
+  background-color: var(--color-lima-neon) !important;
+  background-image: none !important;
+  color: var(--color-text-tinta) !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 14px rgba(191, 255, 0, 0.25) !important;
+  transition: var(--transicion-advance) !important;
+  cursor: pointer;
+}
+.btn-reservar *,
+.tf-btn * {
+  color: var(--color-text-tinta) !important;
+}
+
+/* Encendido digital al pasar por encima */
+.btn-reservar:hover,
+.btn-primary-advance:hover,
+.tf-btn:hover,
+input[type="submit"].btn-submit:hover,
+button[type="submit"].tf-btn:hover {
+  background-color: var(--color-cian-electrico) !important;
+  color: var(--color-text-tinta) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4) !important;
+}
+
+/* Secundario: contorno tecnológico */
+.btn-whatsapp,
+.btn-secondary-advance,
+.btn-ver-area,
+.tf-btn-2 {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--color-cian-texto) !important;
+  border: 2px solid var(--color-cian-texto) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  transition: var(--transicion-advance) !important;
+  cursor: pointer;
+}
+.btn-whatsapp *,
+.tf-btn-2 * { color: inherit !important; }
+
+.btn-whatsapp:hover,
+.btn-secondary-advance:hover,
+.btn-ver-area:hover,
+.tf-btn-2:hover {
+  background-color: var(--color-violeta-digital) !important;
+  border-color: var(--color-violeta-digital) !important;
+  color: var(--color-blanco-puro) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-whatsapp:hover *,
+.tf-btn-2:hover * { color: var(--color-blanco-puro) !important; }
+
+/* El botón flotante de WhatsApp conserva el verde de WhatsApp: ahí el color
+   no es decorativo, es el que hace que se reconozca el servicio. */
+.adv-whatsapp {
+  background-color: #1e7f46 !important;
+  color: #ffffff !important;
+}
+.adv-whatsapp * { color: #ffffff !important; }
+
+/* Enlaces */
+.nav-link,
+.footer-link,
+.back-to-top,
+.adv-nav__btn {
+  transition: var(--transicion-advance) !important;
+}
+.nav-link:hover,
+.footer-link:hover,
+.item-link:hover,
+.link-underline:hover {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* ==========================================================================
+   6. FORMULARIOS, FONASA Y ACCESIBILIDAD
+   ========================================================================== */
+
+.form-control,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.adv-booking input,
+.adv-booking select,
+.adv-booking textarea {
+  background-color: var(--color-blanco-puro) !important;
+  border: 1.5px solid var(--color-lineas-suaves) !important;
+  color: var(--color-text-tinta) !important;
+  border-radius: 8px !important;
+  transition: var(--transicion-advance) !important;
+}
+
+.form-control:focus,
+.form-group input:focus,
+.form-group select:focus,
+.adv-booking input:focus,
+.adv-booking select:focus,
+.adv-booking textarea:focus {
+  outline: none !important;
+  border-color: var(--color-violeta-digital) !important;
+  box-shadow: 0 0 0 3px rgba(91, 26, 255, 0.12) !important;
+}
+
+/* Foco visible por teclado: no se quita, se hace evidente */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-violeta-digital) !important;
+  outline-offset: 2px !important;
+}
+
+/* Distintivos de FONASA, SEREMI y copago */
+.badge-fonasa,
+.badge-seremi,
+.copago-highlight,
+.adv-badge--fonasa {
+  background-color: var(--color-lima-neon) !important;
+  color: var(--color-text-tinta) !important;
+  font-weight: 700 !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+  display: inline-block;
+}
+.badge-fonasa *,
+.adv-badge--fonasa * { color: var(--color-text-tinta) !important; }
+
+/* Separador */
+.advance-divider {
+  height: 2px;
+  background-color: var(--color-lineas-suaves);
+  border: none;
+  margin: 2rem 0;
+}
+
+/* ==========================================================================
+   7. AJUSTES DE CONVIVENCIA
+   Lo que hubo que resolver al aplicar la paleta sobre el maquetado existente.
+   ========================================================================== */
+
+/* El botón en negrita 700 con espaciado se ensancha y, dentro de la cabecera,
+   se come el hueco entre el logotipo y el menú. Ahí va en versión compacta. */
+.header-inner { gap: 24px; }
+.header-inner .btn-reservar,
+.header-inner .tf-btn {
+  padding: 10px 18px !important;
+  letter-spacing: 0 !important;
+  font-weight: 600 !important;
+}
+
+/* EL HERO.
+   Sin esto se quedaba con el turquesa de la paleta anterior y chocaba de
+   frente con la barra azul noche. Se mantiene claro —la figura recortada de
+   la doctora necesita fondo claro— pero construido con los colores nuevos:
+   el cian y el violeta como zonas de luz sobre el blanco frío. */
+.section-hero .hero-image {
+  background-image: none;
+  background-color: var(--color-blanco-frio) !important;
+  background:
+    radial-gradient(46% 50% at 80% 10%, rgba(0, 229, 255, 0.30) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(42% 48% at 14% 82%, rgba(0, 229, 255, 0.22) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(50% 54% at 100% 94%, rgba(91, 26, 255, 0.16) 0%, rgba(91, 26, 255, 0) 66%),
+    radial-gradient(44% 48% at 2% 2%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 62%),
+    linear-gradient(140deg, #ffffff 0%, var(--color-blanco-frio) 44%, #e8eef6 74%, #dde6f2 100%) !important;
+}
+
+/* Titular y bajada del hero, en la tinta nueva */
+.section-hero .title,
+.section-hero .title * {
+  color: var(--color-azul-noche) !important;
+  -webkit-text-fill-color: var(--color-azul-noche) !important;
+  background: none !important;
+}
+.section-hero p { color: var(--color-text-tinta) !important; }
+
+/* Las escuadras animadas de las esquinas, al cian */
+.adv-esq__pulso { stroke: var(--color-cian-electrico) !important; }
+.adv-esq__nodo  { fill: var(--color-cian-electrico) !important; }
+
+/* Los distintivos del hero: el de FONASA en lima, los otros en blanco */
+.adv-badge { background: var(--color-blanco-puro) !important; color: var(--color-text-tinta) !important; }
+.adv-badge .ic { color: var(--color-cian-texto) !important; }
+.adv-badge.badge-fonasa,
+.adv-chip.badge-fonasa {
+  background: var(--color-lima-neon) !important;
+  color: var(--color-text-tinta) !important;
+}
+.adv-badge.badge-fonasa .ic,
+.adv-badge.badge-fonasa * { color: var(--color-text-tinta) !important; }
+
+/* La barra de desplazamiento, a juego */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-cian-texto) !important;
+  background-image: linear-gradient(180deg, var(--color-cian-dato) 0%, var(--color-azul-noche) 100%) !important;
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  background: rgba(10, 34, 64, 0.07) !important;
+}

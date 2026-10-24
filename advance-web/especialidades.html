@@ -22,8 +22,9 @@
 
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/slick.theme.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=202610181517">
-    <link rel="stylesheet" type="text/css" href="assets/css/brand.css?v=202610181517">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?v=202610240629">
+    <link rel="stylesheet" type="text/css" href="assets/css/brand.css?v=202610240629">
+    <link rel="stylesheet" type="text/css" href="assets/css/advance-color.css?v=202610240629">
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg">
@@ -65,7 +66,7 @@
         <!-- /Aviso superior -->
 
         <!-- Header -->
-        <header class="tf-header header2">
+        <header class="tf-header header2 navbar">
             <div class="header-inner">
                 <a href="index.html" class="logo-site adv-logo" aria-label="Advance, centro de salud de Santa Juana — inicio">
                     <span class="adv-mark adv-mark--iso"></span>
@@ -112,10 +113,10 @@
                         </li>
                     </ul>
                 </div>
-                <a href="index.html#reservar" class="tf-btn d-lg-flex d-none">
+                <a href="index.html#reservar" class="tf-btn d-lg-flex d-none btn-reservar">
                     Reservar hora
                 </a>
-                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex" aria-label="Abrir menú">
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex btn-reservar" aria-label="Abrir menú">
                     <i class="icon icon-grip-lines-solid"></i>
                 </a>
             </div>
@@ -150,8 +151,8 @@
                         Medicina, rehabilitación, salud mental y exámenes. Todas nuestras prestaciones autorizadas se atienden <br> con bono FONASA en Modalidad Libre Elección.
                     </p>
                     <div class="bot-btns effectFade fadeRotateX">
-                        <a href="index.html#reservar" class="tf-btn">Reservar hora</a>
-                        <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="tf-btn-2">Escribir por WhatsApp</a>
+                        <a href="index.html#reservar" class="tf-btn btn-reservar">Reservar hora</a>
+                        <a href="https://wa.me/56942934776" target="_blank" rel="noopener" class="tf-btn-2 btn-whatsapp">Escribir por WhatsApp</a>
                     </div>
                 </div>
             </div>
@@ -192,7 +193,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad">
                                 <i class="icon icon-user-friends-solid"></i>
                                 <h6 class="title fw-semibold">Medicina general y familiar</h6>
                                 <p class="text-secondary">Consultas, controles y seguimiento de enfermedades crónicas para niños, adultos y personas mayores. Presencial o por videollamada.</p>
@@ -204,7 +205,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.1">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.1">
                                 <i class="icon icon-heart-solid"></i>
                                 <h6 class="title fw-semibold">Odontología general</h6>
                                 <p class="text-secondary">Salud bucal para toda la familia en box equipado, con atención de urgencias dentales.</p>
@@ -216,7 +217,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.2">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.2">
                                 <i class="icon icon-bolt-solid"></i>
                                 <h6 class="title fw-semibold">Kinesiología</h6>
                                 <p class="text-secondary">Rehabilitación de lesiones, dolor de espalda, kinesiología respiratoria y recuperación del adulto mayor.</p>
@@ -228,7 +229,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad">
                                 <i class="icon icon-chart-line-solid"></i>
                                 <h6 class="title fw-semibold">Reintegro deportivo</h6>
                                 <p class="text-secondary">Programa para volver a entrenar y competir de forma segura, con evaluación funcional y alta documentada.</p>
@@ -240,7 +241,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.1">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.1">
                                 <i class="icon icon-user-check-solid"></i>
                                 <h6 class="title fw-semibold">Matronería</h6>
                                 <p class="text-secondary">Control del embarazo, salud sexual y reproductiva, y acompañamiento en cada etapa.</p>
@@ -252,7 +253,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.2">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.2">
                                 <i class="icon icon-shield-alt-solid"></i>
                                 <h6 class="title fw-semibold">Enfermería</h6>
                                 <p class="text-secondary">Curaciones, procedimientos, control de signos vitales y educación al paciente y su familia.</p>
@@ -264,7 +265,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad">
                                 <i class="icon icon-clipboard-check-solid"></i>
                                 <h6 class="title fw-semibold">Toma de muestras y exámenes</h6>
                                 <p class="text-secondary">Exámenes de laboratorio tomados en Santa Juana, con resultados en tu ficha y en tu correo.</p>
@@ -276,7 +277,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.1">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.1">
                                 <i class="icon icon-leaf-solid"></i>
                                 <h6 class="title fw-semibold">Nutrición</h6>
                                 <p class="text-secondary">Planes de alimentación realistas para bajar de peso, controlar la diabetes o mejorar la salud de toda la familia.</p>
@@ -288,7 +289,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp" data-delay="0.2">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad" data-delay="0.2">
                                 <i class="icon icon-comments-solid"></i>
                                 <h6 class="title fw-semibold">Fonoaudiología</h6>
                                 <p class="text-secondary">Evaluación y tratamiento del lenguaje, el habla, la voz y la deglución, en niños y adultos.</p>
@@ -300,7 +301,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 mb-24">
-                            <div class="features-item h-100 effectFade fadeUp">
+                            <div class="features-item h-100 effectFade fadeUp card-especialidad">
                                 <i class="icon icon-comment-quote"></i>
                                 <h6 class="title fw-semibold">Psicología</h6>
                                 <p class="text-secondary">Atención en salud mental para adultos, adolescentes y niños, presencial o por videollamada.</p>
@@ -313,7 +314,7 @@
                         </div>
                     </div>
                     <div class="text-center mt-40">
-                        <a href="index.html#reservar" class="tf-btn effectFade fadeRotateX">Reservar hora</a>
+                        <a href="index.html#reservar" class="tf-btn effectFade fadeRotateX btn-reservar">Reservar hora</a>
                     </div>
                 </div>
             </div>
@@ -560,7 +561,7 @@
                                     <i class="icon icon-info-circle-solid" aria-hidden="true"></i>
                                     <span>Te confirmamos por WhatsApp dentro del horario de atención, con el valor y el copago FONASA de tu prestación.</span>
                                 </div>
-                                <button type="submit" class="tf-btn w-100">Pedir mi hora</button>
+                                <button type="submit" class="tf-btn w-100 btn-reservar">Pedir mi hora</button>
                             </form>
                         </div>
                     </div>
@@ -750,8 +751,8 @@
     <script src="assets/js/ScrollTrigger.min.js"></script>
     <script src="assets/js/ScrollToPlugin.min.js"></script>
     <script src="assets/js/gsapAnimation.js"></script>
-    <script src="assets/js/main.js?v=202610181517"></script>
-    <script src="assets/js/advance.js?v=202610181517"></script>
+    <script src="assets/js/main.js?v=202610240629"></script>
+    <script src="assets/js/advance.js?v=202610240629"></script>
 
 </body>
 
