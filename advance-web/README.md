@@ -122,7 +122,7 @@ que es la que amarra el fondo con el logotipo.
 Detrás de todo corre un **trazado ramificado** (`.adv-circuito`) que sale del
 centro hacia los lados, con nodos y un pulso, en la capa de más atrás.
 
-Encima va una **figura recortada** (`assets/images/hero/medica.png`) con un
+Encima va una **figura recortada** (`assets/images/hero/medica.webp`) con un
 corte en diagonal en la parte baja del cuerpo, más piezas flotantes: triángulos,
 una esfera, un aro punteado y dos tarjetitas de interfaz. La animación del
 titular que traía el template no se eliminó: se reubicó junto a la figura
@@ -164,8 +164,8 @@ Buscar `DE EJEMPLO`, `REFERENCIALES` y `TEXTO DE EJEMPLO`.
   fotos del centro, el equipo y Santa Juana prevista en el plan.
 - **La figura del hero.** Sale de la imagen que está en `doctora/`, recortada
   con la herramienta de Adobe. Cuando exista la sesión de fotos, se reemplaza
-  por una profesional real del centro: basta con dejar el PNG recortado en
-  `assets/images/hero/medica.png`, sin tocar nada más.
+  por una profesional real del centro: basta con exportar el recorte en WebP (con transparencia) a
+  `assets/images/hero/medica.webp`, sin tocar nada más.
 - **Equipo.** Los nombres de `index.html` y `nosotros.html` son de ejemplo.
   Deben ir los profesionales reales con su número de registro en la
   Superintendencia de Salud.
@@ -202,3 +202,37 @@ se abre WhatsApp con los datos ya escritos, para no perder la solicitud
   línea de los titulares casi invisible; se ampliaron el encabezado y los
   tamaños de cifras para los textos en español; y se habilitó el zoom
   (el sitio actual lo bloquea con `maximum-scale=1`).
+
+## Revisión del 24-10-2026
+
+Cambios hechos tras revisar la web contra el diagnóstico y la presentación:
+
+- **Afirmaciones regulatorias.** La sección pasó a llamarse «Autorización y
+  convenio» y quedan solo la autorización sanitaria de la SEREMI y el convenio
+  FONASA. Se quitaron MINSAL, Superintendencia de Salud, Municipalidad y MACA de
+  la franja y de la tabla: no son acreditaciones del centro. El registro en la
+  Superintendencia es de cada profesional y va en su ficha de equipo.
+- **FONASA.** En Modalidad Libre Elección el copago no depende del tramo del
+  paciente: el texto ahora dice que depende de la prestación y se confirma al
+  reservar. La noticia del convenio lleva la fecha real, 26 de mayo de 2026.
+- **Contenido de ejemplo rotulado a la vista** (`.adv-ejemplo` y
+  `.adv-nota-ejemplo` en `brand.css`): equipo, valores y planes, y noticias.
+  La «campaña de vacunación» se cambió por un consejo de invierno, porque
+  suponía un vacunatorio.
+- **Redes.** Facebook e Instagram apuntan a `advancesantajuana`. **Antes de
+  publicar** hay que cambiar el usuario de la página de Facebook (hoy
+  `clinicaadvanceconcepcion`) y de Instagram (hoy `clinicaadvance`), o volver a
+  los enlaces actuales.
+- **Celular.** La ilustración de «Pensado para toda la comuna» ya no tapa el
+  título; el selector de los formularios no se sale de la tarjeta; el logotipo
+  de la barra muestra isotipo y palabra, sin la bajada ilegible.
+- **Contraste.** El gris secundario pasa de `#6B8187` (3,7:1) a `#4A6169`
+  (6:1); se oscurecen los números decorativos, el teléfono de la cinta superior
+  y el chip activo.
+- **Encabezados.** El título del hero de cada página es ahora un `h1`.
+- **Peso.** Fotos redimensionadas y recomprimidas (4,9 MB → 2,6 MB en total); la
+  figura del hero pasa a `medica.webp` (937 KB → 66 KB). Se eliminó
+  `assets/images/video/hero.mp4` (8 MB), que no se usaba.
+
+Quedan para decidir: el violeta como segundo color y el formato del hero
+(figura o módulo de reserva).
