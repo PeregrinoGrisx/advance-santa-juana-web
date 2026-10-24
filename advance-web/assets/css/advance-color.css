@@ -629,15 +629,56 @@ h5.title.fw-semibold.text-white {
     linear-gradient(140deg, #ffffff 0%, #eaf6fb 40%, #d9eef7 72%, #cfe4f4 100%) !important;
 }
 
-/* El titular del hero, en el degradado de marca: arranca en celeste y cierra
-   en violeta. Sobre el fondo claro mantiene contraste de sobra. */
-.section-hero .title,
-.section-hero .title * {
-  background: linear-gradient(104deg, #0092c9 0%, var(--color-violeta-digital) 100%) !important;
+/* EL TITULAR DEL HERO, CON JERARQUÍA.
+   Antes iba en Urbanist 400 a 96 px: todo del mismo peso y del mismo tamaño,
+   así que no había nada que mirara primero. Urbanist es variable de 100 a 900,
+   así que el peso está disponible y no se estaba usando.
+
+   La jerarquía se hace con dos cosas a la vez:
+   - Peso 800 y cuerpo más grande, con interlineado apretado (0,92) para que el
+     bloque se lea como una sola masa y no como dos frases sueltas.
+   - Dos tonos. «Tu salud,» entra en celeste y «en Santa Juana» cierra en
+     violeta, que es lo que de verdad hay que recordar: el lugar. */
+.section-hero .title {
+  /* 118 px rompía las líneas y empujaba los botones fuera de la primera
+     pantalla. A 84 el bloque entra en dos líneas y sigue mandando. */
+  font-size: clamp(38px, 5.3vw, 84px) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.035em !important;
+  font-weight: 800 !important;
+}
+.section-hero .title span,
+.section-hero .title .title1,
+.section-hero .title .title2 span {
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* Primera línea: arranca en celeste */
+.section-hero .title .title1 {
+  background: linear-gradient(100deg, #0092c9 0%, #1f6ae0 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
+}
+
+/* Segunda línea: cierra en violeta, que es el remate */
+.section-hero .title .title2 span {
+  background: linear-gradient(100deg, #2f5fe6 0%, var(--color-violeta-digital) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* La bajada baja de peso y de tamaño: si todo grita, nada se oye */
+.section-hero p.text {
+  font-size: clamp(16px, 1.25vw, 20px) !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: #4f5d66 !important;
+  max-width: 560px;
 }
 
 /* --- Los últimos de la tabla de valores y del acordeón ---
