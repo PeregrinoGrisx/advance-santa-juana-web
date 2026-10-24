@@ -1,0 +1,53 @@
+/* GENERADO POR assets/js/generar-fondos.js — no editar a mano.
+   Bloques cuyo fondo real es oscuro, medidos sobre las páginas servidas.
+   Se regenera con:  node assets/js/generar-fondos.js
+   El motivo de que esto exista: el template mezcla secciones oscuras con
+   cajas blancas encima, y la misma clase aparece en los dos contextos. Elegir
+   el color del texto por el nombre de la clase lleva a negro sobre negro en un
+   sitio y blanco sobre blanco en otro. Esto lo decide midiendo. */
+
+/* Un bloque oscuro puede llevar dentro una caja blanca. El texto de dentro de
+   esa caja NO va en claro: va en tinta, como cualquier texto sobre blanco.
+   De ahí el guardarraíl. */
+div.awards-item :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.blockquote-wrap :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.box-black :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.header-inner :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-awards :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-statistic :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.statistic-slider :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+header.tf-header.header2.navbar :is(.title, h1, h2, h3, h4, h5, h6):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *) {
+  color: #ffffff;
+}
+div.awards-item :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.blockquote-wrap :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.box-black :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.header-inner :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-awards :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-statistic :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.statistic-slider :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+header.tf-header.header2.navbar :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *) {
+  color: #c3d0dd;
+}
+div.awards-item :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.blockquote-wrap :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.box-black :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.header-inner :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-awards :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-statistic :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.statistic-slider :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+header.tf-header.header2.navbar :is(.heading-sub, .sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *) {
+  color: #00e5ff;
+}
+div.awards-item :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.blockquote-wrap :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.box-black :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.header-inner :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-awards :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.section-statistic :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+div.statistic-slider :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *),
+header.tf-header.header2.navbar :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .pricing-item:not(.style-black), .card-light) *) {
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.45);
+  color: #00e5ff;
+}

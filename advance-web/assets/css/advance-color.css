@@ -523,13 +523,55 @@ p.text-secondary,
   border-color: #005f85 !important;
 }
 
-/* --- Texto blanco que quedó sobre fondo claro --- */
-.section-contact .sub.text-white,
-.section-contact h5.title,
-.text-white.sub,
-h5.title.fw-semibold.text-white {
-  color: var(--color-text-tinta) !important;
+/* El color del texto sobre fondo oscuro NO se decide aquí: lo decide
+   fondos-oscuros.css, que se genera midiendo el fondo real de cada bloque.
+   Ver assets/js/generar-fondos.js y el porqué explicado ahí. */
+
+/* EL BLOQUE DE LA DIRECCIÓN.
+   Lleva .text-white en el HTML pero había perdido el fondo oscuro, así que
+   quedaba blanco sobre blanco. En vez de cambiarle el texto se le devuelve el
+   fondo, que es lo que el bloque pedía: una franja oscura con el mapa. */
+.col-left:has(.text-white) {
+  background: linear-gradient(135deg, var(--color-azul-noche) 0%, #13294d 100%);
+  border-radius: 20px;
+  padding: 48px 44px;
 }
+.col-left:has(.text-white) .title,
+.col-left:has(.text-white) .sub,
+.col-left:has(.text-white) .sub * { color: #ffffff !important; }
+.col-left:has(.text-white) .text-brand { color: var(--color-cian-electrico) !important; }
+.col-left:has(.text-white) .dot { background: var(--color-cian-electrico) !important; }
+
+/* --- Los bloques oscuros del template --- */
+/* La tarjeta de plan en negro */
+.pricing-item.style-black,
+.pricing-item.style-black .title,
+.pricing-item.style-black .price-number,
+.pricing-item.style-black h5,
+.pricing-item.style-black h6 { color: #ffffff !important; }
+.pricing-item.style-black .text,
+.pricing-item.style-black li,
+.pricing-item.style-black .price-per,
+.pricing-item.style-black .fw-semibold { color: #c3d0dd !important; }
+.pricing-item.style-black .icon,
+.pricing-item.style-black svg { color: var(--color-cian-electrico) !important; }
+
+/* El acordeón de especialidades cambia de fondo según esté abierto o cerrado,
+   así que su color no se fija aquí: lo resuelve fondos-oscuros.css cuando el
+   bloque está abierto, y el estado cerrado se queda en tinta sobre claro. */
+.accordion-action.active .accordion-title,
+.services-image-btn.active .accordion-title { color: #ffffff !important; }
+.accordion-action.active .text,
+.services-image-btn.active .text { color: #c3d0dd !important; }
+.accordion-action.active .num,
+.services-image-btn.active .num { color: var(--color-cian-electrico) !important; }
+.accordion-action.active .adv-chip,
+.services-image-btn.active .adv-chip {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.accordion-action.active .adv-chip * { color: var(--color-cian-electrico) !important; }
 
 /* --- Las pastillas de las áreas sobre fondo oscuro ---
    Iban en violeta sobre violeta y no se leían. */
@@ -696,12 +738,12 @@ h5.title.fw-semibold.text-white {
 .text-neutral-300 { color: #5a6b75 !important; }
 /* Los tres de la tabla de planes: el template los dejaba en blanco o en un
    gris muy claro, pensados para una caja oscura que ya no existe. */
-.section-pricing .text.fw-semibold,
-.section-pricing .fw-semibold.text,
-.pricing-item .text.fw-semibold,
-.box-pricing .text.fw-semibold,
-div.fw-semibold.text,
-div.text.fw-semibold { color: var(--color-text-tinta) !important; }
+/* Solo en la tarjeta clara: en la negra el mismo texto va en claro. */
+.pricing-item:not(.style-black) .text.fw-semibold,
+.pricing-item:not(.style-black) .fw-semibold.text,
+.box-pricing:not(.style-black) .text.fw-semibold { color: var(--color-text-tinta) !important; }
+.pricing-item.style-black .text.fw-semibold,
+.pricing-item.style-black .fw-semibold.text { color: #c3d0dd !important; }
 .text-body-3.text-neutral-300,
 .pricing-wrap .text-neutral-400,
 .pricing-wrap .text-neutral-300 { color: #4f5d66 !important; }
@@ -710,6 +752,152 @@ div.text.fw-semibold { color: var(--color-text-tinta) !important; }
 .adv-tarjeta small,
 .adv-tarjeta .text,
 small { color: #4f5d66 !important; }
+
+/* ==========================================================================
+   11. CÓMO FUNCIONA DE VERDAD EL FONDO EN ESTE TEMPLATE
+   Las secciones son OSCURAS y encima llevan cajas blancas. El texto que queda
+   fuera de esas cajas está sobre oscuro, no sobre claro. Las reglas anteriores
+   asumían lo contrario, y de ahí el texto negro sobre negro.
+   La regla es simple: lo que esté sobre la sección va claro; lo que esté
+   dentro de una caja blanca va oscuro.
+   ========================================================================== */
+
+/* No vale una regla general «las secciones son oscuras»: unas lo son y otras
+   no, y pintarlas todas de claro deja texto claro sobre fondo claro. Van una
+   por una, y cada una comprobada con el auditor.
+
+   Regla de oro: el texto se decide por el fondo que tiene DETRÁS, no por la
+   sección en la que vive. */
+
+/* La tarjeta de plan oscura */
+.pricing-item[style*="rgb(10, 34, 64)"],
+.pricing-item.pricing-dark,
+.box-pricing.is-dark {
+  color: #ffffff !important;
+}
+
+/* Bloques con fondo oscuro propio: se marcan con data-fondo="oscuro" desde el
+   HTML, que es la única forma fiable de saberlo. */
+[data-fondo="oscuro"],
+[data-fondo="oscuro"] .title,
+[data-fondo="oscuro"] h3,
+[data-fondo="oscuro"] h4,
+[data-fondo="oscuro"] h5,
+[data-fondo="oscuro"] h6 { color: #ffffff !important; }
+[data-fondo="oscuro"] p,
+[data-fondo="oscuro"] li,
+[data-fondo="oscuro"] .text,
+[data-fondo="oscuro"] .text-secondary { color: #c3d0dd !important; }
+[data-fondo="oscuro"] .adv-chip,
+[data-fondo="oscuro"] .badge-fonasa {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: var(--color-cian-electrico) !important;
+}
+[data-fondo="oscuro"] .adv-chip *,
+[data-fondo="oscuro"] .badge-fonasa * { color: var(--color-cian-electrico) !important; }
+
+/* ==========================================================================
+   12. DOS ESTILOS DE BOTÓN, NO CINCO
+   Había cuatro tratamientos distintos conviviendo en el hero. Se quedan dos:
+   el lleno de conversión y el de contorno. Lo demás deja de parecer botón.
+   ========================================================================== */
+
+/* Los sellos de confianza no son botones: pierden la pastilla y el borde */
+.adv-badges .adv-badge,
+.adv-badge,
+.adv-badge.badge-fonasa,
+.adv-badge--fonasa {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 4px 0 !important;
+  margin-right: 26px !important;
+  border-radius: 0 !important;
+  color: #3c4a55 !important;
+  font-weight: 600 !important;
+}
+.adv-badge *, .adv-badge.badge-fonasa * { color: #3c4a55 !important; }
+.adv-badge .ic,
+.adv-badge.badge-fonasa .ic { color: #0098c7 !important; }
+
+/* ==========================================================================
+   13. FUERA EL INDICADOR DE SCROLL
+   Es un gesto que se repite en todas partes y no aporta: quien llega a una
+   web sabe bajar.
+   ========================================================================== */
+.scroll-more,
+a.scroll-more { display: none !important; }
+
+/* ==========================================================================
+   14. EL DEGRADADO, UNO SOLO
+   Celeste a morado, y nada más. En claro arranca en un celeste profundo para
+   que se pueda leer; en oscuro va a plena potencia.
+   ========================================================================== */
+.text-gradient, .text-gradient-1, .text-gradient-2, .text-gradient-3,
+.section-hero .title .title1,
+.section-hero .title .title2 span {
+  background: linear-gradient(100deg, #0098c7 0%, var(--color-violeta-digital) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+.section-team .text-gradient-3, .section-statistic .text-gradient-3,
+.section-awards .text-gradient-3, .section-testimonials .text-gradient-3,
+.section-pricing .text-gradient-3, .section-contact .text-gradient-3,
+.section-faqs .text-gradient-3, .section-features .text-gradient-3,
+.section-services .text-gradient-3, .section-process .text-gradient-3,
+.section-benefits .text-gradient-3, .section-about-us .text-gradient-3,
+.section-tools .text-gradient-3 {
+  background: linear-gradient(100deg, var(--color-cian-electrico) 0%, #8a5cf6 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* ==========================================================================
+   15. HOVER Y FLECHAS
+   El morado sobre fondo oscuro no se lee. Sobre oscuro, el hover va en celeste.
+   Y las flechas de los carruseles se ven siempre, no solo al pasar por encima.
+   ========================================================================== */
+.section-team .tf-btn-2:hover, .section-statistic .tf-btn-2:hover,
+.section-awards .tf-btn-2:hover, .section-testimonials .tf-btn-2:hover,
+.section-pricing .tf-btn-2:hover, .section-contact .tf-btn-2:hover,
+.section-faqs .tf-btn-2:hover, .section-features .tf-btn-2:hover,
+.pricing-item .tf-btn-2:hover,
+.section-team .btn-whatsapp:hover, .section-contact .btn-whatsapp:hover {
+  background-color: var(--color-cian-electrico) !important;
+  border-color: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+.section-team .tf-btn-2:hover *, .section-contact .tf-btn-2:hover *,
+.pricing-item .tf-btn-2:hover * { color: var(--color-azul-noche) !important; }
+
+.nav-prev, .nav-next, .swiper-button-prev, .swiper-button-next,
+.slick-prev, .slick-next, .box-navigation-slider .nav {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: rgba(0, 229, 255, 0.14) !important;
+  border: 1px solid rgba(0, 229, 255, 0.5) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.nav-prev:hover, .nav-next:hover,
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  background: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+
+/* ==========================================================================
+   16. LOS LOGOS DE ACREDITACIÓN
+   Estaban casi invisibles sobre el fondo claro.
+   ========================================================================== */
+.section-partner img,
+.infiniteslide img,
+.partner-item img {
+  filter: brightness(0.42) saturate(1.5) !important;
+  opacity: 0.95 !important;
+}
 
 /* La barra de desplazamiento, a juego */
 html::-webkit-scrollbar-thumb,

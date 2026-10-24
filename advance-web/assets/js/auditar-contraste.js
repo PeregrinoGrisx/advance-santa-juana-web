@@ -35,12 +35,34 @@
     return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
   };
 
+  /* Un degradado también es fondo. Se aproxima por la media de sus paradas:
+     no es exacto, pero distingue un bloque oscuro de uno claro, que es lo que
+     hace falta. Sin esto, cualquier caja con degradado se leía como
+     transparente y el resultado eran falsos positivos. */
+  const deGradiente = (bi) => {
+    if (!bi || bi === 'none' || !/gradient/.test(bi)) return null;
+    const paradas = [...bi.matchAll(/rgba?\(([^)]+)\)/g)]
+      .map((m) => m[1].split(',').map(parseFloat))
+      .filter((p) => p.length < 4 || p[3] > 0.25);
+    if (!paradas.length) return null;
+    const n = paradas.length;
+    return {
+      r: paradas.reduce((a, p) => a + p[0], 0) / n,
+      g: paradas.reduce((a, p) => a + p[1], 0) / n,
+      b: paradas.reduce((a, p) => a + p[2], 0) / n,
+      a: 1,
+    };
+  };
+
   /* El fondo real: se suben los padres acumulando capas translúcidas */
   const fondoReal = (el) => {
     const capas = [];
     let n = el;
     while (n && n !== document.documentElement) {
-      const bg = aRGB(getComputedStyle(n).backgroundColor);
+      const cs = getComputedStyle(n);
+      const grad = deGradiente(cs.backgroundImage);
+      if (grad) { capas.push(grad); break; }
+      const bg = aRGB(cs.backgroundColor);
       if (bg && bg.a > 0) { capas.push(bg); if (bg.a === 1) break; }
       n = n.parentElement;
     }
