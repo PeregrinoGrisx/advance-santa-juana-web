@@ -263,13 +263,20 @@ button[type="submit"].tf-btn:hover {
 .btn-whatsapp:hover *,
 .tf-btn-2:hover * { color: var(--color-blanco-puro) !important; }
 
-/* El botón flotante de WhatsApp conserva el verde de WhatsApp: ahí el color
-   no es decorativo, es el que hace que se reconozca el servicio. */
+/* El botón flotante de WhatsApp, en azul noche con letras blancas. El verde
+   del servicio se quedaba fuera de la paleta y cantaba demasiado; el icono
+   basta para que se reconozca de qué es. */
 .adv-whatsapp {
-  background-color: #1e7f46 !important;
+  background-color: var(--color-azul-noche) !important;
+  background-image: none !important;
   color: #ffffff !important;
+  border: 1px solid rgba(0, 229, 255, 0.28) !important;
 }
 .adv-whatsapp * { color: #ffffff !important; }
+.adv-whatsapp:hover {
+  background-color: var(--color-violeta-digital) !important;
+  border-color: var(--color-violeta-digital) !important;
+}
 
 /* Enlaces */
 .nav-link,
@@ -324,20 +331,30 @@ textarea:focus-visible {
   outline-offset: 2px !important;
 }
 
-/* Distintivos de FONASA, SEREMI y copago */
+/* FONASA Y COPAGO.
+   El lima NO se usa aquí. Está reservado a la conversión —reservar hora— y si
+   marcara también el bono dejaría de ser el 2% y dejaría de significar una
+   cosa sola. El bono va en violeta, que es la identidad secundaria: se
+   distingue igual de bien y no compite con el botón. */
 .badge-fonasa,
 .badge-seremi,
 .copago-highlight,
-.adv-badge--fonasa {
-  background-color: var(--color-lima-neon) !important;
-  color: var(--color-text-tinta) !important;
+.adv-badge--fonasa,
+.adv-badge.badge-fonasa,
+.adv-chip.badge-fonasa {
+  background-color: rgba(91, 26, 255, 0.10) !important;
+  color: #4a14d6 !important;
+  border: 1px solid rgba(91, 26, 255, 0.28) !important;
   font-weight: 700 !important;
-  padding: 4px 10px !important;
-  border-radius: 4px !important;
+  border-radius: 999px !important;
   display: inline-block;
 }
 .badge-fonasa *,
-.adv-badge--fonasa * { color: var(--color-text-tinta) !important; }
+.badge-seremi *,
+.copago-highlight *,
+.adv-badge--fonasa *,
+.adv-badge.badge-fonasa *,
+.adv-chip.badge-fonasa * { color: #4a14d6 !important; }
 
 /* Separador */
 .advance-divider {
@@ -436,16 +453,222 @@ button[type="submit"].tf-btn {
 .adv-esq__pulso { stroke: var(--color-cian-electrico) !important; }
 .adv-esq__nodo  { fill: var(--color-cian-electrico) !important; }
 
-/* Los distintivos del hero: el de FONASA en lima, los otros en blanco */
+/* LA CINTA SUPERIOR, POR DELANTE DEL HERO.
+   El hero empieza 18 px más arriba que la cabecera y lleva esquina redondeada
+   de 40 px. Como va después en el documento y está posicionado, se pintaba por
+   encima de la cinta: se veía una franja clara con una curva cortando el azul.
+   Subiéndole el nivel a la cinta, el hero queda donde tiene que quedar. */
+.adv-topbar {
+  position: relative;
+  z-index: 70;
+}
+
+/* Los distintivos del hero, en blanco */
 .adv-badge { background: var(--color-blanco-puro) !important; color: var(--color-text-tinta) !important; }
 .adv-badge .ic { color: var(--color-cian-texto) !important; }
-.adv-badge.badge-fonasa,
-.adv-chip.badge-fonasa {
-  background: var(--color-lima-neon) !important;
+
+/* ==========================================================================
+   8. LEGIBILIDAD
+   Medido con assets/js/auditar-contraste.js sobre las ocho páginas. El umbral
+   es el de la norma WCAG: 4,5:1 para texto normal y 3:1 para texto grande.
+   No es un capricho: uno de cada cuatro habitantes de la comuna tiene 60 años
+   o más, y la web antigua ni siquiera dejaba agrandar la letra.
+   ========================================================================== */
+
+/* --- Texto gris sobre fondo claro: estaba en 3,8:1 --- */
+.text-secondary,
+p.text-secondary,
+.infor_sub,
+.coppy-rights,
+.adv-aviso-demo,
+.description {
+  color: #4f5d66 !important;
+}
+
+/* --- Grises decorativos: estaban en 2,2:1 y 1,2:1 --- */
+.text-neutral-400 { color: #5a6b75 !important; }
+.text-neutral-200 { color: #7d8c96 !important; }
+
+/* --- El celeste como texto, según lo que tenga detrás ---
+   Sobre claro hay que bajarlo; sobre oscuro hay que subirlo. Es el mismo
+   color de marca, en la versión que se puede leer en cada caso. */
+.heading-sub,
+.sub,
+.specialty-number,
+.num,
+.advance-accent-text {
+  color: #006d99 !important;
+}
+.section-team .heading-sub,
+.section-statistic .heading-sub,
+.section-awards .heading-sub,
+.section-testimonials .heading-sub,
+.section-dark-bg .heading-sub,
+.footer .heading-sub,
+.navbar .heading-sub,
+.section-team .sub,
+.section-statistic .sub,
+.section-awards .sub,
+.section-testimonials .sub,
+.footer .sub,
+.adv-topbar strong {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* --- Blanco sobre celeste medio: estaba en 3,3:1 --- */
+.adv-skip-link,
+.adv-chip.is-active {
+  background: #005f85 !important;
+  color: #ffffff !important;
+  border-color: #005f85 !important;
+}
+
+/* --- Texto blanco que quedó sobre fondo claro --- */
+.section-contact .sub.text-white,
+.section-contact h5.title,
+.text-white.sub,
+h5.title.fw-semibold.text-white {
   color: var(--color-text-tinta) !important;
 }
-.adv-badge.badge-fonasa .ic,
-.adv-badge.badge-fonasa * { color: var(--color-text-tinta) !important; }
+
+/* --- Las pastillas de las áreas sobre fondo oscuro ---
+   Iban en violeta sobre violeta y no se leían. */
+.section-team .adv-chip,
+.section-statistic .adv-chip,
+.section-dark-bg .adv-chip,
+.section-team .badge-fonasa,
+.section-statistic .badge-fonasa,
+.section-dark-bg .badge-fonasa,
+.footer .badge-fonasa {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.section-team .adv-chip *,
+.section-dark-bg .adv-chip *,
+.footer .badge-fonasa * { color: var(--color-cian-electrico) !important; }
+
+/* --- La paginación activa, que iba violeta sobre azul noche --- */
+.pagination-item.active,
+.pagination-item.active * {
+  background: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+
+/* ==========================================================================
+   9. LOS RECUADROS DE ICONO
+   Un solo color, no una mezcla de celeste y violeta: sobre fondo blanco el
+   azul noche es el que mejor se sostiene y el que deja respirar al resto.
+   ========================================================================== */
+
+.features-item .icon,
+.services-item .icon,
+.iconbox .icon,
+.card-especialidad .icon,
+.box-icon .icon {
+  background: var(--color-azul-noche) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(10, 34, 64, 0.18) !important;
+}
+.features-item .icon *,
+.services-item .icon *,
+.iconbox .icon *,
+.card-especialidad .icon *,
+.box-icon .icon * {
+  color: #ffffff !important;
+  fill: currentcolor !important;
+}
+
+/* --- Los grises, cuando les toca fondo oscuro ---
+   El mismo gris que se lee bien sobre blanco desaparece sobre el azul noche.
+   Ahí sube, no baja. */
+.section-team .text-neutral-400,
+.section-statistic .text-neutral-400,
+.section-awards .text-neutral-400,
+.section-testimonials .text-neutral-400,
+.section-dark-bg .text-neutral-400,
+.footer .text-neutral-400,
+.section-team .year,
+.section-awards .year,
+.section-testimonials .year,
+.section-dark-bg .year {
+  color: #9fb4c4 !important;
+}
+
+/* --- Texto en blanco que quedó sobre fondo claro ---
+   Son bloques que el template pintaba oscuros y ahora son claros. El blanco
+   sobre blanco da 1,07:1: no se ve nada. */
+.section-pricing .text-white,
+.section-pricing .title,
+.section-pricing li,
+.pricing-item .text-white,
+.pricing-item .title,
+.pricing-item li,
+.box-pricing .text-white,
+.box-pricing li,
+.section-services-single .text-white,
+.section-services-single li {
+  color: var(--color-text-tinta) !important;
+}
+
+/* ==========================================================================
+   10. EL HERO, CON EL CELESTE DE PROTAGONISTA
+   El celeste manda aquí: es la primera pantalla y es lo que tiene que quedar
+   en la cabeza. Se sube la presencia del cian en el fondo y el titular pasa
+   al degradado de marca, que arranca en celeste.
+   ========================================================================== */
+
+.section-hero .hero-image {
+  background:
+    radial-gradient(52% 56% at 78% 8%, rgba(0, 229, 255, 0.52) 0%, rgba(0, 229, 255, 0) 66%),
+    radial-gradient(46% 52% at 10% 84%, rgba(0, 229, 255, 0.38) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(48% 52% at 100% 96%, rgba(91, 26, 255, 0.20) 0%, rgba(91, 26, 255, 0) 66%),
+    radial-gradient(40% 44% at 0% 0%, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(140deg, #ffffff 0%, #eaf6fb 40%, #d9eef7 72%, #cfe4f4 100%) !important;
+}
+
+/* El titular del hero, en el degradado de marca: arranca en celeste y cierra
+   en violeta. Sobre el fondo claro mantiene contraste de sobra. */
+.section-hero .title,
+.section-hero .title * {
+  background: linear-gradient(104deg, #0092c9 0%, var(--color-violeta-digital) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* --- Los últimos de la tabla de valores y del acordeón ---
+   El template los pintaba en blanco porque iban sobre una caja oscura que ya
+   no lo es, y los grises decorativos se quedaban cortos. */
+.accordion-title,
+.price-number,
+.price-per,
+.pricing-wrap .text,
+.pricing-wrap .fw-semibold,
+.box-pricing .text,
+.box-pricing .fw-semibold {
+  color: var(--color-text-tinta) !important;
+}
+.text-neutral-300 { color: #5a6b75 !important; }
+/* Los tres de la tabla de planes: el template los dejaba en blanco o en un
+   gris muy claro, pensados para una caja oscura que ya no existe. */
+.section-pricing .text.fw-semibold,
+.section-pricing .fw-semibold.text,
+.pricing-item .text.fw-semibold,
+.box-pricing .text.fw-semibold,
+div.fw-semibold.text,
+div.text.fw-semibold { color: var(--color-text-tinta) !important; }
+.text-body-3.text-neutral-300,
+.pricing-wrap .text-neutral-400,
+.pricing-wrap .text-neutral-300 { color: #4f5d66 !important; }
+
+/* Las tarjetitas flotantes del hero */
+.adv-tarjeta small,
+.adv-tarjeta .text,
+small { color: #4f5d66 !important; }
 
 /* La barra de desplazamiento, a juego */
 html::-webkit-scrollbar-thumb,
