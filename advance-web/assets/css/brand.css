@@ -1216,3 +1216,43 @@ body::-webkit-scrollbar-thumb:active,
 @media (max-width: 991px) {
   .section-services .services-image { height: 380px; max-width: 100%; }
 }
+
+/* ===========================================================================
+   TELEFONO (ajustes del 25-10 tras probar en un celular real)
+   Todo lo de abajo va dentro de media queries: en escritorio no cambia nada.
+   =========================================================================== */
+
+/* El template esconde cada bloque (opacity:0) hasta que GSAP lo anima al llegar
+   con el scroll. En un celular real, con la barra del navegador que sube y baja
+   y las imágenes cargando, esa animación a veces no llega a dispararse y el
+   bloque queda invisible pero ocupando su alto: huecos enormes y contenido
+   «borrado». En pantallas chicas y táctiles todo se muestra siempre. */
+@media (max-width: 991px), (pointer: coarse) {
+  html .effectFade {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+/* «Sin llamar para preguntar cuánto cuesta…»: en el celular, dos frases
+   separadas, y el interruptor con su texto en una línea propia. */
+@media (max-width: 767px) {
+  .section-pricing .adv-corte { display: block; height: 18px; }
+  .section-pricing .adv-corte-sw { display: block; height: 6px; }
+}
+@media (max-width: 767px) {
+  .section-pricing .heading-title { font-size: 35px; line-height: 43px; }
+}
+
+/* Hero en el celular: las tarjetas flotantes tapaban la cara y el brazo de la
+   doctora. La figura sube a 380px y las dos tarjetas bajan a la altura del
+   torso, una encima de la otra y sin cruzarse con la cara. */
+@media (max-width: 575px) {
+  .adv-hero__figure { height: 380px; }
+  .adv-tarjeta { font-size: 11.5px; padding: 8px 11px; gap: 8px; }
+  .adv-tarjeta small { font-size: 10.5px; }
+  .adv-tarjeta .ic { width: 28px; height: 28px; flex: 0 0 28px; font-size: 13px; }
+  .adv-tarjeta--1 { top: auto; bottom: 17%; left: 0; }
+  .adv-tarjeta--2 { top: auto; bottom: 3%; right: 0; }
+}
