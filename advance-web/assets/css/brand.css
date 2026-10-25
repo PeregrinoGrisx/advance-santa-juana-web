@@ -624,10 +624,24 @@ textarea:focus-visible {
    todos con el mismo peso para que no se peleen entre sí. */
 
 /* Etiquetas de las especialidades */
+.list-tags .tags-item:hover,
 .list-tags .tags-item:nth-child(even):hover {
-  border-color: var(--adv-violeta);
-  color: var(--adv-violeta-oscuro);
+  border-color: #00e5ff;
+  color: #00e5ff;
 }
+
+/* Isotipo del centro de «Todo en un solo lugar»: caja azul noche con los
+   cuatro círculos en cian (el blanco/azul sobre cian se veía raro). */
+.features-center {
+  background: linear-gradient(180deg, #0a2240 0%, #0a2240 100%),
+              radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Otros hover sobre azul noche: cian, no violeta (el violeta ahí no se lee) */
+.team-item .name:hover { color: #00e5ff; }
+.group-slider .group-btn-slider .btn-slider:hover .icon { color: #00e5ff; }
+.tf-social-1 a:hover,
+.tf-social-1 a:hover .icon { color: #00e5ff; }
 
 /* Paginación y puntos de los deslizadores */
 .pagi-dot span.active { background-color: var(--adv-violeta); }
@@ -668,7 +682,7 @@ textarea:focus-visible {
 }
 
 /* Acreditaciones: el borde se enciende en violeta */
-.awards-item:hover { border-color: rgba(91, 26, 255, .55); }
+.awards-item:hover { border-color: rgba(0, 229, 255, .55); }
 
 
 /* Indicadores de «Por qué Advance» */
@@ -1143,3 +1157,9 @@ body::-webkit-scrollbar-thumb:active,
    medio. Ahora van seguidos, arriba. */
 #reservar .section-contact .col-left { justify-content: flex-start !important; }
 #reservar .section-contact .col-left .heading-section { margin-bottom: 40px; }
+/* Ajuste 25-10: en escritorio el bloque va centrado a lo alto de la caja del
+   formulario y con un poco más de aire entre el titular y los datos. */
+@media (min-width: 992px) {
+  #reservar .section-contact .col-left { justify-content: center !important; }
+  #reservar .section-contact .col-left .heading-section { margin-bottom: 56px; }
+}
