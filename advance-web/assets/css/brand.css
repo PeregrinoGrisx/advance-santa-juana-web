@@ -976,9 +976,10 @@ body::-webkit-scrollbar-thumb:active,
    que las demas paginas no cambian.
    ========================================================================== */
 
-/* Las escuadras de las esquinas: las lineas finas que recorrian los bordes
-   del hero. Fuera, pedido de Danilo. Se ocultan con CSS, el HTML no se toca. */
-.section-hero.adv-hero .adv-esquinas { display: none !important; }
+/* Las escuadras animadas de las esquinas del hero SE QUEDAN. Las oculte yo por
+   mi cuenta al leer mal «lineas a los lados»: Danilo se referia a las lineas
+   que rodeaban a la doctora, que ya salieron con la caja nueva. Lo que no se
+   pidio, no se toca. */
 
 /* --- Titular: negrita y degradado del cian al lila ------------------------
    Cada linea hace su propio recorrido, de celeste a lila, como en la
@@ -1003,8 +1004,8 @@ body::-webkit-scrollbar-thumb:active,
 
 /* --- Botones: dos pastillas planas -----------------------------------------
    El del template llevaba sombras interiores y brillo; aqui son planos.
-   Principal: cian con letra azul noche (11,9:1). Secundario: contorno celeste.
-   Sin verde fluorescente: el color de conversion es el propio cian de marca. */
+   Principal: violeta con letra blanca (6,4:1): el cian se perdia contra el degradado celeste del fondo. Secundario: contorno celeste.
+   Sin verde fluorescente: el color de conversion es el violeta secundario. */
 .section-hero.adv-hero .bot-btns .tf-btn,
 .section-hero.adv-hero .bot-btns .tf-btn-2 {
   border-radius: 999px;
@@ -1015,20 +1016,22 @@ body::-webkit-scrollbar-thumb:active,
   transition: background-color .2s ease, border-color .2s ease, color .2s ease;
 }
 .section-hero.adv-hero .bot-btns .tf-btn {
-  background: #00e5ff !important;
-  border-color: #00e5ff;
-  color: #0a2240 !important;
-  box-shadow: 0 10px 26px rgba(0, 229, 255, .35) !important;
+  background: #5b1aff !important;
+  border-color: #5b1aff;
+  color: #fff !important;
+  box-shadow: 0 10px 26px rgba(91, 26, 255, .35) !important;
 }
 .section-hero.adv-hero .bot-btns .tf-btn:hover {
   background: #0a2240 !important;
   border-color: #0a2240;
   color: #fff !important;
 }
+/* Medido sobre el degradado real del fondo (celeste #76d2fa en el peor punto),
+   #00718f daba 3,3:1; con #00506f da 5,3:1. */
 .section-hero.adv-hero .bot-btns .tf-btn-2 {
   background: transparent !important;
-  border-color: #0089b8;
-  color: #00718f !important;
+  border-color: #00506f;
+  color: #00506f !important;
   box-shadow: none !important;
 }
 .section-hero.adv-hero .bot-btns .tf-btn-2:hover {
