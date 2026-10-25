@@ -103,7 +103,7 @@
   background:
     radial-gradient(46% 50% at 80% 12%, rgba(0, 229, 255, 0.46) 0%, rgba(0, 229, 255, 0) 64%),
     radial-gradient(40% 46% at 18% 80%, rgba(0, 229, 255, 0.62) 0%, rgba(0, 229, 255, 0) 64%),
-    radial-gradient(50% 54% at 100% 92%, rgba(91, 26, 255, 0.58) 0%, rgba(91, 26, 255, 0) 66%),
+    radial-gradient(50% 54% at 100% 92%, rgba(0, 229, 255, 0.46) 0%, rgba(0, 229, 255, 0) 66%),
     radial-gradient(42% 46% at 2% 2%, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0) 62%),
     linear-gradient(140deg, #EAF3FA 0%, #D7E6F6 42%, #C6DBF1 72%, #B4CFEC 100%);
 }
@@ -703,7 +703,7 @@ textarea:focus-visible {
   background:
     radial-gradient(46% 54% at 84% 10%, rgba(0, 229, 255, 0.42) 0%, rgba(0, 229, 255, 0) 64%),
     radial-gradient(40% 48% at 10% 88%, rgba(0, 229, 255, 0.52) 0%, rgba(0, 229, 255, 0) 64%),
-    radial-gradient(46% 52% at 100% 94%, rgba(91, 26, 255, 0.44) 0%, rgba(91, 26, 255, 0) 66%),
+    radial-gradient(46% 52% at 100% 94%, rgba(0, 229, 255, 0.46) 0%, rgba(0, 229, 255, 0) 66%),
     linear-gradient(140deg, #f5f7fa 0%, #E1EBF8 44%, #CFDEF2 100%);
 }
 
@@ -1081,6 +1081,9 @@ body::-webkit-scrollbar-thumb:active,
   aspect-ratio: auto;
   border-radius: 110px 110px 110px 28px;
   background: #0a2240 !important;
+  /* 1,5 px hacia dentro: por el antialias, la caja asomaba como un hilo oscuro por la
+     curva de abajo, alrededor de la bata. */
+  clip-path: inset(1.5px round 108px 108px 108px 26px);
 }
 .section-hero.adv-hero .adv-hero__person {
   position: absolute;
