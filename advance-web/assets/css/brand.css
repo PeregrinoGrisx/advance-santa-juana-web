@@ -1256,3 +1256,7 @@ body::-webkit-scrollbar-thumb:active,
   .adv-tarjeta--1 { top: auto; bottom: 17%; left: 0; }
   .adv-tarjeta--2 { top: auto; bottom: 3%; right: 0; }
 }
+
+/* «Un centro moderno» y «Quién te va a atender» estaban pegadas: se separan. */
+.section-tools { margin-bottom: 40px; }
+@media (max-width: 767px) { .section-tools { margin-bottom: 24px; } }
