@@ -822,16 +822,21 @@ a.scroll-more { display: none !important; }
    Celeste a morado, y nada más. En claro arranca en un celeste profundo para
    que se pueda leer; en oscuro va a plena potencia.
    ========================================================================== */
-/* El extremo celeste va a #0089b8 y no al cian de la paleta. Medido sobre el
-   blanco frio del fondo: el cian a plena potencia da 1,4:1 y no se lee; este
-   da 3,7:1, por encima del minimo de texto grande y con margen. Es el mismo
-   celeste, bajado al registro que el fondo claro permite. Sobre fondo oscuro
-   vuelve a plena potencia, y de eso se encarga fondos-oscuros.css. */
+/* DEL CIAN AL LILA. Los dos extremos, lo mas claros que el fondo permite.
+   Sobre el blanco frio, el cian a plena potencia da 1,4:1 y no se lee, asi
+   que el extremo celeste se queda en #0092c4 (3,3:1) y el violeta se abre a
+   #8b5cf6 (3,9:1), que es lila y no el violeta electrico de antes, el que
+   hacia que el conjunto pareciera azul mas morado.
+   El azul del medio es inevitable: entre el cian y el lila el camino corto
+   pasa por el azul. Lo que si cambia es que ahora los dos extremos se
+   reconocen, que era el problema.
+   Sobre fondo oscuro no hace falta bajar nada y el par va a plena potencia;
+   de eso se encarga fondos-oscuros.css. */
 .text-gradient, .text-gradient-1, .text-gradient-2, .text-gradient-3,
 .heading-title.text-gradient-3,
 .section-hero .title .title1,
 .section-hero .title .title2 span {
-  background: linear-gradient(100deg, #0089b8 0%, var(--color-violeta-digital) 100%) !important;
+  background: linear-gradient(100deg, #0092c4 0%, #8b5cf6 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
@@ -1135,4 +1140,53 @@ body::-webkit-scrollbar-track,
 @media (max-width: 991px) {
   .adv-tool-tile { border-radius: 26%; }
   .adv-tool-tile .icon { font-size: 46cqw; }
+}
+
+/* =========================================================================
+   21. EL HERO
+   ========================================================================= */
+
+/* 21.1 · QUE SE VEA REDONDO TAMBIÉN ARRIBA.
+   La tarjeta del hero siempre tuvo sus 40 px de radio en las cuatro
+   esquinas. Lo que pasaba es que la cabecera lleva margin-bottom: -116px
+   para que el hero se meta por debajo, y la cabecera es azul noche OPACO:
+   lo único que quedaba escondido ahí abajo era justo el redondeo de arriba.
+   Se quita ese tirón y la tarjeta empieza donde acaba la barra. De paso el
+   relleno de dentro baja de 196 a 96, porque esos 196 estaban puestos para
+   esquivar una cabecera que ya no se le echa encima; si no, el titular se
+   iría cien píxeles más abajo de donde estaba.
+   Así se arregla solo a cualquier alto de cabecera, que es mejor que dejar
+   escrito un número que habría que corregir cada vez que la barra cambie. */
+header.tf-header { margin-bottom: 0 !important; }
+
+@media (min-width: 992px) {
+  .adv-hero .content-wrap { padding-top: 96px !important; }
+}
+@media (max-width: 991px) {
+  .adv-hero .content-wrap { padding-top: 64px !important; }
+}
+
+/* 21.2 · FUERA EL LAVADO QUE SE LEÍA VERDE.
+   El fondo llevaba dos manchas de #00b4d8 al 46 % y al 62 % sobre una base
+   azul clara. Por separado ninguno es verde, pero al mezclarse dan un agua
+   turquesa que el ojo lee como verde: por eso no aparecía buscando códigos.
+   La tarjeta pasa a ser una superficie limpia, casi blanca, y el color se
+   concentra donde tiene que estar, detrás de la fotografía. */
+.section-hero .hero-image {
+  background:
+    linear-gradient(150deg, #ffffff 0%, #f7f9fc 50%, #edf1f8 100%) !important;
+}
+/* El grano, más discreto: sobre un fondo casi blanco se notaba de más */
+.section-hero .hero-image::after { opacity: .22 !important; }
+
+/* 21.3 · EL VIOLETA, DETRÁS DE LA MUJER.
+   Era un halo blanco sobre fondo claro, o sea invisible. Ahora es el color
+   primario, y hace dos cosas a la vez: recorta la figura contra el fondo y
+   deja dicho cuál es el color de la marca sin tener que escribirlo. */
+.adv-hero__blob {
+  background: radial-gradient(circle at 46% 40%,
+    rgba(91, 26, 255, 0.52) 0%,
+    rgba(91, 26, 255, 0.30) 42%,
+    rgba(91, 26, 255, 0.10) 60%,
+    rgba(91, 26, 255, 0) 73%) !important;
 }
