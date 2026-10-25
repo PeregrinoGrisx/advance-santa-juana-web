@@ -1,24 +1,25 @@
 /* ---------------------------------------------------------------------------
    Advance · Centro de salud Santa Juana
    Capa de marca sobre el template base. Punto Gris — puntogris.cl
-   Paleta tomada del logotipo (#008F96) y del diagnóstico de Thomas.
+   Paleta B: cian #00e5ff como color de marca, azul noche #0a2240 y violeta #5b1aff\n   secundario. Antes era el turquesa del logotipo (#008F96); se cambió el 26-10-2026.
 --------------------------------------------------------------------------- */
 
 :root {
-  --adv-turquesa: #008F96;   /* color exacto del logotipo */
-  --adv-turquesa-claro: #00A3AB;
-  --adv-teal-profundo: #006B70;
-  --adv-tinta: #0B3D42;      /* fondos oscuros */
-  --adv-tinta-900: #072227;
-  --adv-agua: #CFE6E7;
-  --adv-nieve: #EDF5F5;
+  --adv-turquesa: #00e5ff;
+  --adv-turquesa-texto: #00718f;   /* color exacto del logotipo */
+  --adv-turquesa-claro: #00e5ff;
+  --adv-teal-profundo: #0077a8;
+  --adv-tinta: #0a2240;      /* fondos oscuros */
+  --adv-tinta-900: #0d1117;
+  --adv-agua: #e4eaf4;
+  --adv-nieve: #f5f7fa;
   --adv-ambar: #F2B33D;      /* acento FONASA */
   --adv-naranja: #F7941D;    /* naranja de la paleta actual, documentado por Thomas */
   --adv-celeste: #8DB9DF;    /* celeste de la paleta actual */
   --adv-azul: #3E689A;       /* azul de la paleta actual */
   --adv-marino: #242F5A;     /* azul marino de la paleta actual */
-  --adv-verde: #1E7F46;      /* confirmaciones */
-  --adv-whatsapp: #1E7F46;
+  --adv-verde: #0a2240;      /* confirmaciones */
+  --adv-whatsapp: #0a2240;
 }
 
 /* --- Logotipo ------------------------------------------------------------ */
@@ -100,8 +101,8 @@
   background-image: none;
   background-color: #D7E6F6;
   background:
-    radial-gradient(46% 50% at 80% 12%, rgba(0, 163, 171, 0.46) 0%, rgba(0, 163, 171, 0) 64%),
-    radial-gradient(40% 46% at 18% 80%, rgba(0, 163, 171, 0.62) 0%, rgba(0, 163, 171, 0) 64%),
+    radial-gradient(46% 50% at 80% 12%, rgba(0, 229, 255, 0.46) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(40% 46% at 18% 80%, rgba(0, 229, 255, 0.62) 0%, rgba(0, 229, 255, 0) 64%),
     radial-gradient(50% 54% at 100% 92%, rgba(62, 104, 154, 0.58) 0%, rgba(62, 104, 154, 0) 66%),
     radial-gradient(42% 46% at 2% 2%, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0) 62%),
     linear-gradient(140deg, #EAF3FA 0%, #D7E6F6 42%, #C6DBF1 72%, #B4CFEC 100%);
@@ -194,7 +195,7 @@
   display: block;
   /* el corte en diagonal: la figura parece salir de la pantalla */
   clip-path: polygon(0 0, 100% 0, 100% 74%, 0 97%);
-  filter: drop-shadow(0 26px 40px rgba(11, 61, 66, 0.22));
+  filter: drop-shadow(0 26px 40px rgba(10, 34, 64, 0.22));
 }
 
 /* --- Piezas flotantes ----------------------------------------------------- */
@@ -204,14 +205,14 @@
 .adv-float--tri {
   width: 74px; height: 64px;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  background: linear-gradient(180deg, #00A3AB 0%, #006B70 100%);
-  box-shadow: 0 14px 26px rgba(0, 143, 150, .34);
+  background: linear-gradient(180deg, #00e5ff 0%, #0077a8 100%);
+  box-shadow: 0 14px 26px rgba(0, 229, 255, .34);
 }
 .adv-float--tri-2 {
   width: 56px; height: 48px;
   clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
-  background: linear-gradient(180deg, #A9D6DA 0%, #6FB4BA 100%);
-  box-shadow: 0 14px 26px rgba(0, 143, 150, .28);
+  background: linear-gradient(180deg, #b3e3f2 0%, #5ec3e3 100%);
+  box-shadow: 0 14px 26px rgba(0, 229, 255, .28);
 }
 .adv-float--dot {
   width: 96px; height: 96px; border-radius: 50%;
@@ -220,7 +221,7 @@
 }
 .adv-float--ring {
   width: 120px; height: 120px; border-radius: 50%;
-  border: 2px dashed rgba(11, 61, 66, .22);
+  border: 2px dashed rgba(10, 34, 64, .22);
 }
 
 .adv-float--a { top: 4%;  right: 2%; }
@@ -239,7 +240,7 @@
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(16px);
-  box-shadow: 0 16px 34px rgba(11, 61, 66, .16);
+  box-shadow: 0 16px 34px rgba(10, 34, 64, .16);
   font-size: 13px;
   font-weight: 600;
   color: var(--adv-tinta);
@@ -248,8 +249,8 @@
 .adv-tarjeta small { display: block; font-size: 11px; font-weight: 500; color: var(--neutral-500); }
 .adv-tarjeta .ic {
   width: 30px; height: 30px; border-radius: 10px; flex-shrink: 0;
-  display: grid; place-items: center; color: #fff; font-size: 13px;
-  background: linear-gradient(180deg, #00A3AB, #006B70);
+  display: grid; place-items: center; color: #0a2240; font-size: 13px;
+  background: linear-gradient(180deg, #00e5ff, #0077a8);
 }
 .adv-tarjeta .ic.ambar { background: linear-gradient(180deg, #F7C96A, #F2B33D); color: #4A3407; }
 .adv-tarjeta--1 { top: 16%; left: -6%; }
@@ -293,7 +294,7 @@
    efecto, pero partiendo de un 30 % de opacidad en vez de cero.             */
 
 .text-gradient-2 {
-  background: linear-gradient(360deg, rgba(11, 61, 66, 0.32) 0%, #0B3D42 100%);
+  background: linear-gradient(360deg, rgba(10, 34, 64, 0.32) 0%, #0a2240 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -377,7 +378,7 @@ select option,
   backdrop-filter: blur(18px);
 }
 
-.adv-badge .icon { font-size: 16px; color: var(--adv-turquesa); }
+.adv-badge .icon { font-size: 16px; color: var(--adv-turquesa-texto); }
 
 .adv-badge--fonasa {
   background: var(--adv-ambar);
@@ -391,7 +392,7 @@ select option,
   border-color: rgba(255, 255, 255, 0.18);
   color: #fff;
 }
-.adv-badge--dark .icon { color: var(--adv-turquesa-claro); }
+.adv-badge--dark .icon { color: var(--adv-turquesa-texto); }
 
 /* --- Cinta de aviso sobre el encabezado ---------------------------------- */
 
@@ -403,7 +404,7 @@ select option,
   padding: 10px 16px;
   text-align: center;
 }
-.adv-topbar a { color: var(--adv-turquesa-claro); font-weight: 600; text-decoration: none; }
+.adv-topbar a { color: var(--adv-turquesa); font-weight: 600; text-decoration: none; }
 .adv-topbar a:hover { text-decoration: underline; }
 .adv-topbar .sep { opacity: .35; margin: 0 10px; }
 @media (max-width: 767px) { .adv-topbar .adv-topbar__opt { display: none; } }
@@ -426,10 +427,10 @@ select option,
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
-  box-shadow: 0 10px 28px rgba(30, 127, 70, .36);
+  box-shadow: 0 10px 28px rgba(10, 34, 64, .36);
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.adv-whatsapp:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(30, 127, 70, .48); }
+.adv-whatsapp:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(10, 34, 64, .48); }
 .adv-whatsapp svg { width: 26px; height: 26px; flex-shrink: 0; }
 @media (max-width: 575px) {
   .adv-whatsapp { padding: 0; width: 58px; justify-content: center; right: 16px; bottom: 16px; }
@@ -443,6 +444,7 @@ select option,
 
 .adv-booking select {
   width: 100%;
+  box-sizing: border-box;
   height: 56px;
   border-radius: 999px;
   border: 1px solid var(--neutral-200);
@@ -452,7 +454,7 @@ select option,
   color: var(--primary);
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'><path d='M1 1L7 7L13 1' stroke='%23008F96' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'><path d='M1 1L7 7L13 1' stroke='%2300718f' stroke-width='2' stroke-linecap='round'/></svg>");
   background-repeat: no-repeat;
   background-position: right 22px center;
 }
@@ -471,7 +473,7 @@ select option,
   transition: all .2s ease;
 }
 .adv-chip:hover { border-color: var(--adv-turquesa); }
-.adv-chip.is-active { background: var(--adv-turquesa); border-color: var(--adv-turquesa); color: #fff; }
+.adv-chip.is-active { background: var(--adv-turquesa); border-color: var(--adv-turquesa); color: #0a2240; }
 
 .adv-note {
   display: flex;
@@ -481,7 +483,7 @@ select option,
   line-height: 1.5;
   color: var(--neutral-600);
 }
-.adv-note .icon { color: var(--adv-turquesa); font-size: 16px; margin-top: 2px; }
+.adv-note .icon { color: var(--adv-turquesa-texto); font-size: 16px; margin-top: 2px; }
 
 /* --- Valores y copago ----------------------------------------------------- */
 
@@ -529,7 +531,7 @@ select option,
   top: 0;
   z-index: 999;
   background: var(--adv-turquesa);
-  color: #fff;
+  color: #0a2240;
   padding: 12px 20px;
   border-radius: 0 0 12px 0;
   font-weight: 600;
@@ -564,14 +566,14 @@ textarea:focus-visible {
 }
 
 /* --- El violeta como acento del sistema ----------------------------------- */
-/* El turquesa sigue siendo la marca (es el logotipo). El violeta #A47CFB
+/* El turquesa sigue siendo la marca (es el logotipo). El violeta #5b1aff
    aparece de forma consistente en el botón secundario, en los antetítulos y
    en las secciones de tecnología, equipo y valores.                          */
 
 :root {
-  --adv-violeta: #A47CFB;
-  --adv-violeta-claro: #B99EF8;
-  --adv-violeta-oscuro: #7C53D6;
+  --adv-violeta: #5b1aff;
+  --adv-violeta-claro: #7a45ff;
+  --adv-violeta-oscuro: #5b1aff;
 }
 
 /* Botón secundario: está en todos los pares de llamada a la acción */
@@ -581,13 +583,13 @@ textarea:focus-visible {
               linear-gradient(0deg, #F3EEFE, #F7F3FF);
   box-shadow: 0px -3px 0px 0px #E2D6FB inset,
               0px 1px 0px 0px rgba(255, 255, 255, 0.70) inset,
-              0px 2.77px 2.21px 0px rgba(124, 83, 214, 0.14),
-              0px 3px 3px 0px rgba(124, 83, 214, 0.16);
+              0px 2.77px 2.21px 0px rgba(91, 26, 255, 0.14),
+              0px 3px 3px 0px rgba(91, 26, 255, 0.16);
 }
 .tf-btn-2:hover {
   color: #fff;
   background: linear-gradient(180deg, var(--adv-violeta-claro) 0%, var(--adv-violeta) 100%);
-  box-shadow: 0px 10px 24px rgba(164, 124, 251, .40);
+  box-shadow: 0px 10px 24px rgba(91, 26, 255, .40);
 }
 
 /* El punto de cada antetítulo */
@@ -599,9 +601,9 @@ textarea:focus-visible {
   border-radius: 40px;
   margin: 0 16px;
   background:
-    radial-gradient(52% 58% at 84% 14%, rgba(0, 163, 171, 0.42) 0%, rgba(0, 163, 171, 0) 64%),
-    radial-gradient(46% 52% at 12% 86%, rgba(0, 107, 112, 0.26) 0%, rgba(0, 107, 112, 0) 64%),
-    linear-gradient(140deg, #F2FAFA 0%, #E3F3F4 46%, #D3EBEC 100%);
+    radial-gradient(52% 58% at 84% 14%, rgba(0, 229, 255, 0.42) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(46% 52% at 12% 86%, rgba(0, 119, 168, 0.26) 0%, rgba(0, 119, 168, 0) 64%),
+    linear-gradient(140deg, #f5f7fa 0%, #e4eaf4 46%, #e4eaf4 100%);
 }
 
 /* Zona oscura: equipo, cifras, acreditaciones y testimonios */
@@ -611,8 +613,8 @@ textarea:focus-visible {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(42% 32% at 88% 6%, rgba(164, 124, 251, 0.34) 0%, rgba(164, 124, 251, 0) 66%),
-    radial-gradient(38% 30% at 8% 96%, rgba(164, 124, 251, 0.20) 0%, rgba(164, 124, 251, 0) 66%);
+    radial-gradient(42% 32% at 88% 6%, rgba(91, 26, 255, 0.34) 0%, rgba(91, 26, 255, 0) 66%),
+    radial-gradient(38% 30% at 8% 96%, rgba(91, 26, 255, 0.20) 0%, rgba(91, 26, 255, 0) 66%);
 }
 .box-black > * { position: relative; z-index: 1; }
 
@@ -621,9 +623,9 @@ textarea:focus-visible {
 /* Iconos de las tarjetas: una progresión con tres colores de la paleta,
    todos con el mismo peso para que no se peleen entre sí. */
 .process-slide .swiper-slide:nth-child(2) .process-card .icon {
-  background: linear-gradient(180deg, #A47CFB 0%, #7C53D6 100%);
-  box-shadow: 0 22px 37px rgba(124, 83, 214, .20),
-              0 14px 34px rgba(124, 83, 214, .24),
+  background: linear-gradient(180deg, #5b1aff 0%, #5b1aff 100%);
+  box-shadow: 0 22px 37px rgba(91, 26, 255, .20),
+              0 14px 34px rgba(91, 26, 255, .24),
               0 -3px 0 0 rgba(0, 0, 0, .06) inset,
               0 1px 0 0 rgba(255, 255, 255, .55) inset;
 }
@@ -653,15 +655,15 @@ textarea:focus-visible {
   --adv-celeste: #8DB9DF;
   --adv-azul: #3E689A;
   --adv-marino: #242F5A;
-  --adv-lima: #7DC242;
+  --adv-lima: #5b1aff;
 }
 
 /* Nosotros · turquesa, que es el color de la marca */
 .section-about-us {
   position: relative;
   background:
-    radial-gradient(36% 44% at 2% 6%, rgba(0, 163, 171, 0.20) 0%, rgba(0, 163, 171, 0) 66%),
-    radial-gradient(30% 38% at 98% 88%, rgba(207, 230, 231, 0.70) 0%, rgba(207, 230, 231, 0) 66%);
+    radial-gradient(36% 44% at 2% 6%, rgba(0, 229, 255, 0.20) 0%, rgba(0, 229, 255, 0) 66%),
+    radial-gradient(30% 38% at 98% 88%, rgba(228, 234, 244, 0.70) 0%, rgba(228, 234, 244, 0) 66%);
 }
 
 
@@ -670,16 +672,16 @@ textarea:focus-visible {
 
 /* Paginación de noticias */
 .wg-pagination .pagination-item.active,
-.wg-pagination .pagination-item:hover { color: var(--adv-violeta); }
+.wg-pagination .pagination-item:hover { color: var(--brand); }
 
 /* Redes: al pasar el cursor, violeta en vez de tinta */
 .tf-social .social-item:hover {
   background: linear-gradient(180deg, var(--adv-violeta-claro) 0%, var(--adv-violeta) 100%);
-  box-shadow: 0 10px 24px rgba(164, 124, 251, .40);
+  box-shadow: 0 10px 24px rgba(91, 26, 255, .40);
 }
 
 /* Acreditaciones: el borde se enciende en violeta */
-.awards-item:hover { border-color: rgba(164, 124, 251, .55); }
+.awards-item:hover { border-color: rgba(91, 26, 255, .55); }
 
 
 /* Indicadores de «Por qué Advance» */
@@ -699,10 +701,10 @@ textarea:focus-visible {
 .section-contact .contact-image {
   overflow: hidden;
   background:
-    radial-gradient(46% 54% at 84% 10%, rgba(0, 163, 171, 0.42) 0%, rgba(0, 163, 171, 0) 64%),
-    radial-gradient(40% 48% at 10% 88%, rgba(0, 163, 171, 0.52) 0%, rgba(0, 163, 171, 0) 64%),
+    radial-gradient(46% 54% at 84% 10%, rgba(0, 229, 255, 0.42) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(40% 48% at 10% 88%, rgba(0, 229, 255, 0.52) 0%, rgba(0, 229, 255, 0) 64%),
     radial-gradient(46% 52% at 100% 94%, rgba(62, 104, 154, 0.44) 0%, rgba(62, 104, 154, 0) 66%),
-    linear-gradient(140deg, #F2F8FB 0%, #E1EBF8 44%, #CFDEF2 100%);
+    linear-gradient(140deg, #f5f7fa 0%, #E1EBF8 44%, #CFDEF2 100%);
 }
 
 .section-contact .contact-image::after {
@@ -763,9 +765,6 @@ textarea:focus-visible {
 
 @media (max-width: 1199px) { .adv-tools__pill { transform: translateX(-50%) scale(.66); bottom: 5%; } }
 
-
-}
-
 /* La nota al pie de los valores necesita aire: pegada al bloque se lee como
    parte de la tarjeta. */
 .adv-nota-valores { margin-top: 56px; }
@@ -791,7 +790,7 @@ textarea:focus-visible {
 .tf-header.adv-fijo { padding-top: 12px; }
 .tf-header.adv-fijo .header-inner {
   background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 10px 30px rgba(11, 61, 66, .14);
+  box-shadow: 0 10px 30px rgba(10, 34, 64, .14);
 }
 
 @media (max-width: 991px) {
@@ -820,35 +819,35 @@ body::-webkit-scrollbar,
 
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
-::-webkit-scrollbar-track { background: rgba(207, 230, 231, .45); }
+::-webkit-scrollbar-track { background: rgba(228, 234, 244, .45); }
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
   border-radius: 99px;
   cursor: grab;
-  background-color: #008F96;
-  background-image: linear-gradient(180deg, #00A3AB 0%, #006B70 100%);
+  background-color: #00e5ff;
+  background-image: linear-gradient(180deg, #00e5ff 0%, #0077a8 100%);
   border: 4px solid transparent;
   background-clip: padding-box;
 }
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(180deg, #00B4BD 0%, #007C82 100%);
+  background-image: linear-gradient(180deg, #00e5ff 0%, #007C82 100%);
 }
 html::-webkit-scrollbar-thumb:active,
 body::-webkit-scrollbar-thumb:active,
 ::-webkit-scrollbar-thumb:active {
   cursor: grabbing;
-  background-image: linear-gradient(180deg, #008F96 0%, #0B3D42 100%);
+  background-image: linear-gradient(180deg, #00e5ff 0%, #0a2240 100%);
 }
 ::-webkit-scrollbar-corner { background: transparent; }
 
 @supports (scrollbar-color: auto) and (not selector(::-webkit-scrollbar)) {
   html {
     scrollbar-width: thin;
-    scrollbar-color: #008F96 rgba(207, 230, 231, .55);
+    scrollbar-color: #00e5ff rgba(228, 234, 244, .55);
   }
 }
 
@@ -884,14 +883,14 @@ body::-webkit-scrollbar-thumb:active,
 .adv-esq--id svg { bottom: 0; right: 0; }
 
 .adv-esq__base {
-  stroke: rgba(11, 61, 66, .13);
+  stroke: rgba(10, 34, 64, .13);
   stroke-width: 1.4;
   stroke-linecap: round;
 }
-.adv-esq__nodo { fill: rgba(0, 143, 150, .3); }
+.adv-esq__nodo { fill: rgba(0, 113, 143, .3); }
 
 .adv-esq__pulso {
-  stroke: var(--adv-turquesa);
+  stroke: var(--adv-turquesa-texto);
   stroke-width: 2.6;
   stroke-linecap: round;
   stroke-dasharray: 46 1000;
@@ -936,3 +935,37 @@ body::-webkit-scrollbar-thumb:active,
   /* En celular el template deja de montar la foto tan arriba. */
   .section-hero.v1.adv-hero--ficha .content-wrap { padding-bottom: 140px; }
 }
+
+/* ==========================================================================
+   LEGIBILIDAD TRAS EL CAMBIO A CIAN
+   El cian #00e5ff sobre blanco da 1,4:1: sirve de fondo, borde y acento, pero
+   no de texto. Por eso el texto sobre claro usa el celeste profundo (#00718f)
+   y el cian se reserva para fondos oscuros. Aqui van los pocos sitios donde el
+   template apagaba el texto mas de lo que se puede leer.
+   ========================================================================== */
+
+/* Numeros grandes y apagados del template: 72 px en gris casi blanco daban
+   1,1:1. Se suben hasta 3:1, el minimo para texto grande, conservando que el
+   segundo numero sea mas suave que el primero. */
+.process-card .number .text-neutral-400 { color: #5b6b80 !important; }
+.process-card .number .text-neutral-200 { color: #7a8aa3 !important; }
+.review-box .counter, .review-box .counter .number, .review-box .counter .adv-unit { color: #7a8aa3 !important; }
+
+/* El contador «1 / 3» de los testimonios va sobre fondo negro */
+.swiper-testimonial_wrap .group-slider .testimonials-pagination,
+.swiper-testimonial_wrap .group-slider .testimonials-pagination .swiper-pagination-total { color: #8394ab !important; }
+
+/* Un texto de marca dentro de un bloque oscuro va en cian, no en el celeste
+   profundo que es para fondo claro. La utilidad del template lleva !important. */
+.text-white .text-brand, .box-black .text-brand, .blockquote-wrap .text-brand, .pricing-item.style-black .text-brand { color: var(--brand) !important; }
+/* El segundo paso de «Como reservas» tiene la caja del icono en violeta. Con el
+   violeta de la paleta B (#5b1aff) el icono azul noche daba 2,3:1; sobre violeta
+   va blanco. */
+.process-slide .swiper-slide:nth-child(2) .process-card .icon,
+.process-slide .swiper-slide:nth-child(2) .process-card .icon * { color: #fff !important; }
+
+/* «Ver area» sobre una foto: llevaba blanco sobre un velo translucido, y sobre
+   una foto clara quedaba en gris claro con letra blanca (1,7:1). Con fondo
+   propio, la letra se lee sea cual sea la foto. */
+.featured-works-item .image .view-project { background: rgba(10, 34, 64, .86); color: #fff; }
+.featured-works-item .image .view-project * { color: inherit; }
