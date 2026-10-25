@@ -1,0 +1,1318 @@
+/* ==========================================================================
+   ADVANCE SANTA JUANA · ARQUITECTURA CROMÁTICA (2026)
+
+   Esta es la capa que manda sobre el color. Se carga la última, después de
+   styles.css (el maquetado del template) y de brand.css (los arreglos de
+   estructura: logotipo, barra fija, formulario, accesibilidad).
+
+   Por qué va aparte y no reemplaza a styles.css: ese archivo son 9.800 líneas
+   con la retícula, las animaciones y todos los componentes. Sustituirlo deja
+   el sitio sin maquetado. Aquí solo vive el color, que es lo que cambia.
+
+   Las clases de utilidad (.navbar, .card-especialidad, .btn-reservar…) están
+   puestas en el HTML y además emparejadas con la clase real del template, de
+   modo que cada regla funciona por las dos vías.
+
+   LAS TIPOGRAFÍAS NO SE TOCAN: el sitio sigue en Urbanist.
+   ========================================================================== */
+
+:root {
+  /* --- PALETA, CON SU PESO EN EL SITIO --- */
+  --color-blanco-frio:     #f5f7fa; /* 52% · fondo general */
+  --color-azul-noche:      #0a2240; /* 16% · barra, bloques oscuros, pie */
+  --color-cian-electrico:  #00e5ff; /* 15% · luz de marca, iconos, números */
+  --color-violeta-digital: #5b1aff; /* 11% · identidad secundaria y hover */
+  --color-text-tinta:      #0d1117; /*  4% · tipografía principal */
+  --color-lima-neon:       #bfff00; /*  2% · solo conversión: reservar hora */
+
+  /* --- SOPORTES --- */
+  --color-blanco-puro:     #ffffff;
+  --color-lineas-suaves:   rgba(13, 17, 23, 0.06);
+  --transicion-advance:    all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* El cian a plena potencia sobre fondo claro da un contraste de 1,5:1 y no
+     se puede leer. Uno de cada cuatro habitantes de la comuna tiene 60 años o
+     más, así que el cian sobre blanco se oscurece. A plena potencia solo donde
+     hay fondo oscuro detrás, que es donde brilla de verdad. */
+  --color-cian-texto:      #00718f; /* cian legible sobre claro (4,6:1) */
+  --color-cian-dato:       #0098bd; /* para cifras grandes (3,2:1) */
+}
+
+/* ==========================================================================
+   1. NÚCLEO
+   ========================================================================== */
+
+body {
+  background-color: var(--color-blanco-frio) !important;
+  color: var(--color-text-tinta) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading-title, .title {
+  color: var(--color-text-tinta);
+}
+
+p, li, label, .text, .description {
+  color: var(--color-text-tinta);
+}
+
+::selection { background: var(--color-cian-electrico); color: var(--color-text-tinta); }
+
+/* ==========================================================================
+   2. BLOQUES OSCUROS · 16%
+   .navbar está en el HTML sobre la cabecera del template (.tf-header).
+   ========================================================================== */
+
+.navbar,
+.tf-header.adv-fijo,
+.section-dark-bg,
+.footer,
+.adv-topbar,
+#como-llegar {
+  background-color: var(--color-azul-noche) !important;
+  border-color: rgba(0, 229, 255, 0.12) !important;
+}
+
+/* La cabecera flota sobre el hero: cristal oscuro en vez de bloque macizo */
+.navbar .header-inner,
+.tf-header .header-inner {
+  background-color: rgba(10, 34, 64, 0.88) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 229, 255, 0.14) !important;
+}
+
+/* Secciones que el template pinta oscuras */
+.section-team,
+.section-statistic,
+.section-awards,
+.section-testimonials {
+  background-color: var(--color-azul-noche) !important;
+}
+
+/* Inversión de textos dentro de lo oscuro, para que nada quede ilegible */
+.navbar *,
+.section-dark-bg *,
+.footer *,
+.adv-topbar *,
+.section-team *,
+.section-statistic *,
+.section-awards *,
+.section-testimonials * {
+  color: var(--color-blanco-frio) !important;
+}
+
+/* Dentro de lo oscuro el cian sí va a plena potencia */
+.footer .adv-destacado,
+.adv-topbar strong,
+.section-statistic .statistic-number,
+.section-dark-bg .advance-accent-text {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* ==========================================================================
+   3. IDENTIDAD: CIAN 15% Y VIOLETA 11%
+   ========================================================================== */
+
+/* Números de las áreas y antetítulos destacados sobre fondo claro */
+.specialty-number,
+.num,
+.advance-accent-text,
+.heading-sub,
+.features-item .number {
+  color: var(--color-cian-texto) !important;
+}
+
+/* Cifras grandes: al ser enormes aguantan un cian más vivo */
+.counter,
+.statistic-number,
+.adv-cifra {
+  color: var(--color-cian-dato) !important;
+}
+
+/* Iconos: acreditaciones, motivos de consulta, especialidades */
+.acreditaciones-icon,
+.features-item .icon,
+.services-item .icon,
+.iconbox .icon,
+.adv-badge .ic {
+  color: var(--color-cian-texto) !important;
+}
+.acreditaciones-card svg,
+.features-item .icon svg,
+.motivos-consulta svg {
+  fill: currentcolor;
+}
+
+/* Tramas y degradados tecnológicos.
+   Aquí solo los fondos de verdad. El degradado de los titulares se define en
+   un único sitio, el apartado 14 al final del archivo: estaba repetido en
+   tres, y el que ganaba no era el que uno creía, sino el de más
+   especificidad. */
+.bg-gradient-tech,
+.ficha-digital-glow {
+  background: linear-gradient(135deg, var(--color-cian-electrico) 0%, var(--color-violeta-digital) 100%) !important;
+}
+
+/* ==========================================================================
+   4. TARJETAS
+   .card-especialidad está en el HTML sobre las 10 áreas (.features-item).
+   ========================================================================== */
+
+.card-especialidad,
+.card-light,
+.team-card,
+.features-item,
+.services-item {
+  background-color: var(--color-blanco-puro) !important;
+  border: 1px solid var(--color-lineas-suaves) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(10, 34, 64, 0.03) !important;
+  transition: var(--transicion-advance) !important;
+}
+
+.card-especialidad:hover,
+.card-light:hover,
+.team-card:hover,
+.features-item:hover,
+.services-item:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(0, 229, 255, 0.35) !important;
+  box-shadow: 0 8px 30px rgba(10, 34, 64, 0.08) !important;
+}
+
+/* Tarjetas dentro de un bloque oscuro */
+.card-motivo-consulta,
+.card-dark,
+.section-team .team-item,
+.section-testimonials .testimonials-item {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(0, 229, 255, 0.16) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(10px);
+}
+
+/* ==========================================================================
+   5. BOTONES
+   .btn-reservar está en el HTML sobre los CTA principales (.tf-btn).
+   ========================================================================== */
+
+.btn-reservar,
+.btn-primary-advance,
+.tf-btn,
+input[type="submit"].btn-submit,
+button[type="submit"].tf-btn {
+  background-color: var(--color-lima-neon) !important;
+  background-image: none !important;
+  color: var(--color-text-tinta) !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 14px rgba(191, 255, 0, 0.25) !important;
+  transition: var(--transicion-advance) !important;
+  cursor: pointer;
+}
+.btn-reservar *,
+.tf-btn * {
+  color: var(--color-text-tinta) !important;
+}
+
+/* Encendido digital al pasar por encima */
+.btn-reservar:hover,
+.btn-primary-advance:hover,
+.tf-btn:hover,
+input[type="submit"].btn-submit:hover,
+button[type="submit"].tf-btn:hover {
+  background-color: var(--color-cian-electrico) !important;
+  color: var(--color-text-tinta) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.4) !important;
+}
+
+/* Secundario: contorno tecnológico */
+.btn-whatsapp,
+.btn-secondary-advance,
+.btn-ver-area,
+.tf-btn-2 {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--color-cian-texto) !important;
+  border: 2px solid var(--color-cian-texto) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
+  transition: var(--transicion-advance) !important;
+  cursor: pointer;
+}
+.btn-whatsapp *,
+.tf-btn-2 * { color: inherit !important; }
+
+.btn-whatsapp:hover,
+.btn-secondary-advance:hover,
+.btn-ver-area:hover,
+.tf-btn-2:hover {
+  background-color: var(--color-violeta-digital) !important;
+  border-color: var(--color-violeta-digital) !important;
+  color: var(--color-blanco-puro) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-whatsapp:hover *,
+.tf-btn-2:hover * { color: var(--color-blanco-puro) !important; }
+
+/* El botón flotante de WhatsApp, en azul noche con letras blancas. El verde
+   del servicio se quedaba fuera de la paleta y cantaba demasiado; el icono
+   basta para que se reconozca de qué es. */
+.adv-whatsapp {
+  background-color: var(--color-azul-noche) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(0, 229, 255, 0.28) !important;
+}
+.adv-whatsapp * { color: #ffffff !important; }
+.adv-whatsapp:hover {
+  background-color: var(--color-violeta-digital) !important;
+  border-color: var(--color-violeta-digital) !important;
+}
+
+/* Enlaces */
+.nav-link,
+.footer-link,
+.back-to-top,
+.adv-nav__btn {
+  transition: var(--transicion-advance) !important;
+}
+.nav-link:hover,
+.footer-link:hover,
+.item-link:hover,
+.link-underline:hover {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* ==========================================================================
+   6. FORMULARIOS, FONASA Y ACCESIBILIDAD
+   ========================================================================== */
+
+.form-control,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.adv-booking input,
+.adv-booking select,
+.adv-booking textarea {
+  background-color: var(--color-blanco-puro) !important;
+  border: 1.5px solid var(--color-lineas-suaves) !important;
+  color: var(--color-text-tinta) !important;
+  border-radius: 8px !important;
+  transition: var(--transicion-advance) !important;
+}
+
+.form-control:focus,
+.form-group input:focus,
+.form-group select:focus,
+.adv-booking input:focus,
+.adv-booking select:focus,
+.adv-booking textarea:focus {
+  outline: none !important;
+  border-color: var(--color-violeta-digital) !important;
+  box-shadow: 0 0 0 3px rgba(91, 26, 255, 0.12) !important;
+}
+
+/* Foco visible por teclado: no se quita, se hace evidente */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-violeta-digital) !important;
+  outline-offset: 2px !important;
+}
+
+/* FONASA Y COPAGO.
+   El lima NO se usa aquí. Está reservado a la conversión —reservar hora— y si
+   marcara también el bono dejaría de ser el 2% y dejaría de significar una
+   cosa sola. El bono va en violeta, que es la identidad secundaria: se
+   distingue igual de bien y no compite con el botón. */
+.badge-fonasa,
+.badge-seremi,
+.copago-highlight,
+.adv-badge--fonasa,
+.adv-badge.badge-fonasa,
+.adv-chip.badge-fonasa {
+  background-color: rgba(91, 26, 255, 0.10) !important;
+  color: #4a14d6 !important;
+  border: 1px solid rgba(91, 26, 255, 0.28) !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  display: inline-block;
+}
+.badge-fonasa *,
+.badge-seremi *,
+.copago-highlight *,
+.adv-badge--fonasa *,
+.adv-badge.badge-fonasa *,
+.adv-chip.badge-fonasa * { color: #4a14d6 !important; }
+
+/* Separador */
+.advance-divider {
+  height: 2px;
+  background-color: var(--color-lineas-suaves);
+  border: none;
+  margin: 2rem 0;
+}
+
+/* ==========================================================================
+   7. AJUSTES DE CONVIVENCIA
+   Lo que hubo que resolver al aplicar la paleta sobre el maquetado existente.
+   ========================================================================== */
+
+/* EL DEGRADADO DE LA MARCA: ver el apartado 14, al final del archivo.
+   Estuvo definido aquí también, con la misma regla pero más específica, y por
+   eso ganaba esta y no aquella. Vale la pena el recordatorio: dos reglas
+   idénticas no son inofensivas, porque cuando se cambia una el sitio no
+   cambia y no se ve el motivo. */
+
+/* Los botones son redondos: pastilla completa, como el borde del menú. */
+.btn-reservar,
+.btn-primary-advance,
+.tf-btn,
+.btn-whatsapp,
+.btn-secondary-advance,
+.btn-ver-area,
+.tf-btn-2,
+input[type="submit"].btn-submit,
+button[type="submit"].tf-btn {
+  border-radius: 999px !important;
+}
+
+/* LA CABECERA.
+   El template la dibuja más alta mientras no se hace scroll y la encoge al
+   fijarse. Queda rara: crece justo cuando está sobre el hero. Se deja la
+   altura compacta siempre, que es la que funciona. */
+.tf-header,
+.tf-header.adv-fijo { padding-top: 12px !important; }
+@media (max-width: 991px) {
+  .tf-header,
+  .tf-header.adv-fijo { padding-top: 10px !important; }
+}
+
+.header-inner { gap: 24px; }
+.header-inner .btn-reservar,
+.header-inner .tf-btn {
+  padding: 10px 22px !important;
+  letter-spacing: 0 !important;
+  font-weight: 600 !important;
+}
+
+/* Sobre el azul noche de la cabecera, el logotipo va en blanco */
+.navbar .adv-mark,
+.tf-header .adv-mark {
+  filter: brightness(0) invert(1) !important;
+  opacity: 0.97;
+}
+
+/* EL HERO.
+   Sin esto se quedaba con el turquesa de la paleta anterior y chocaba de
+   frente con la barra azul noche. Se mantiene claro —la figura recortada de
+   la doctora necesita fondo claro— pero construido con los colores nuevos:
+   el cian y el violeta como zonas de luz sobre el blanco frío. */
+.section-hero .hero-image {
+  background-image: none;
+  background-color: var(--color-blanco-frio) !important;
+  background:
+    radial-gradient(46% 50% at 80% 10%, rgba(0, 229, 255, 0.30) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(42% 48% at 14% 82%, rgba(0, 229, 255, 0.22) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(50% 54% at 100% 94%, rgba(91, 26, 255, 0.16) 0%, rgba(91, 26, 255, 0) 66%),
+    radial-gradient(44% 48% at 2% 2%, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 62%),
+    linear-gradient(140deg, #ffffff 0%, var(--color-blanco-frio) 44%, #e8eef6 74%, #dde6f2 100%) !important;
+}
+
+/* Titular y bajada del hero, en la tinta nueva */
+.section-hero .title,
+.section-hero .title * {
+  color: var(--color-azul-noche) !important;
+  -webkit-text-fill-color: var(--color-azul-noche) !important;
+  background: none !important;
+}
+.section-hero p { color: var(--color-text-tinta) !important; }
+
+/* Las escuadras animadas de las esquinas, al cian */
+.adv-esq__pulso { stroke: var(--color-cian-electrico) !important; }
+.adv-esq__nodo  { fill: var(--color-cian-electrico) !important; }
+
+/* LA CINTA SUPERIOR, POR DELANTE DEL HERO.
+   El hero empieza 18 px más arriba que la cabecera y lleva esquina redondeada
+   de 40 px. Como va después en el documento y está posicionado, se pintaba por
+   encima de la cinta: se veía una franja clara con una curva cortando el azul.
+   Subiéndole el nivel a la cinta, el hero queda donde tiene que quedar. */
+.adv-topbar {
+  position: relative;
+  z-index: 70;
+}
+
+/* Los distintivos del hero, en blanco */
+.adv-badge { background: var(--color-blanco-puro) !important; color: var(--color-text-tinta) !important; }
+.adv-badge .ic { color: var(--color-cian-texto) !important; }
+
+/* ==========================================================================
+   8. LEGIBILIDAD
+   Medido con assets/js/auditar-contraste.js sobre las ocho páginas. El umbral
+   es el de la norma WCAG: 4,5:1 para texto normal y 3:1 para texto grande.
+   No es un capricho: uno de cada cuatro habitantes de la comuna tiene 60 años
+   o más, y la web antigua ni siquiera dejaba agrandar la letra.
+   ========================================================================== */
+
+/* --- Texto gris sobre fondo claro: estaba en 3,8:1 --- */
+.text-secondary,
+p.text-secondary,
+.infor_sub,
+.coppy-rights,
+.adv-aviso-demo,
+.description {
+  color: #4f5d66 !important;
+}
+
+/* --- Grises decorativos: estaban en 2,2:1 y 1,2:1 --- */
+.text-neutral-400 { color: #5a6b75 !important; }
+.text-neutral-200 { color: #7d8c96 !important; }
+
+/* --- El celeste como texto, según lo que tenga detrás ---
+   Sobre claro hay que bajarlo; sobre oscuro hay que subirlo. Es el mismo
+   color de marca, en la versión que se puede leer en cada caso. */
+.heading-sub,
+.sub,
+.specialty-number,
+.num,
+.advance-accent-text {
+  color: #006d99 !important;
+}
+.section-team .heading-sub,
+.section-statistic .heading-sub,
+.section-awards .heading-sub,
+.section-testimonials .heading-sub,
+.section-dark-bg .heading-sub,
+.footer .heading-sub,
+.navbar .heading-sub,
+.section-team .sub,
+.section-statistic .sub,
+.section-awards .sub,
+.section-testimonials .sub,
+.footer .sub,
+.adv-topbar strong {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* --- Blanco sobre celeste medio: estaba en 3,3:1 --- */
+.adv-skip-link,
+.adv-chip.is-active {
+  background: #005f85 !important;
+  color: #ffffff !important;
+  border-color: #005f85 !important;
+}
+
+/* El color del texto sobre fondo oscuro NO se decide aquí: lo decide
+   fondos-oscuros.css, que se genera midiendo el fondo real de cada bloque.
+   Ver assets/js/generar-fondos.js y el porqué explicado ahí. */
+
+/* EL BLOQUE DE LA DIRECCIÓN.
+   Lleva .text-white en el HTML pero había perdido el fondo oscuro, así que
+   quedaba blanco sobre blanco. En vez de cambiarle el texto se le devuelve el
+   fondo, que es lo que el bloque pedía: una franja oscura con el mapa. */
+.col-left:has(.text-white) {
+  background: linear-gradient(135deg, var(--color-azul-noche) 0%, #13294d 100%);
+  border-radius: 20px;
+  padding: 48px 44px;
+}
+.col-left:has(.text-white) .title,
+.col-left:has(.text-white) .sub,
+.col-left:has(.text-white) .sub * { color: #ffffff !important; }
+.col-left:has(.text-white) .text-brand { color: var(--color-cian-electrico) !important; }
+.col-left:has(.text-white) .dot { background: var(--color-cian-electrico) !important; }
+
+/* --- Los bloques oscuros del template --- */
+/* La tarjeta de plan en negro */
+.pricing-item.style-black,
+.pricing-item.style-black .title,
+.pricing-item.style-black .price-number,
+.pricing-item.style-black h5,
+.pricing-item.style-black h6 { color: #ffffff !important; }
+.pricing-item.style-black .text,
+.pricing-item.style-black li,
+.pricing-item.style-black .price-per,
+.pricing-item.style-black .fw-semibold { color: #c3d0dd !important; }
+.pricing-item.style-black .icon,
+.pricing-item.style-black svg { color: var(--color-cian-electrico) !important; }
+
+/* El acordeón de especialidades cambia de fondo según esté abierto o cerrado,
+   así que su color no se fija aquí: lo resuelve fondos-oscuros.css cuando el
+   bloque está abierto, y el estado cerrado se queda en tinta sobre claro. */
+.accordion-action.active .accordion-title,
+.services-image-btn.active .accordion-title { color: #ffffff !important; }
+.accordion-action.active .text,
+.services-image-btn.active .text { color: #c3d0dd !important; }
+.accordion-action.active .num,
+.services-image-btn.active .num { color: var(--color-cian-electrico) !important; }
+.accordion-action.active .adv-chip,
+.services-image-btn.active .adv-chip {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.accordion-action.active .adv-chip * { color: var(--color-cian-electrico) !important; }
+
+/* --- Las pastillas de las áreas sobre fondo oscuro ---
+   Iban en violeta sobre violeta y no se leían. */
+.section-team .adv-chip,
+.section-statistic .adv-chip,
+.section-dark-bg .adv-chip,
+.section-team .badge-fonasa,
+.section-statistic .badge-fonasa,
+.section-dark-bg .badge-fonasa,
+.footer .badge-fonasa {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.section-team .adv-chip *,
+.section-dark-bg .adv-chip *,
+.footer .badge-fonasa * { color: var(--color-cian-electrico) !important; }
+
+/* --- La paginación activa, que iba violeta sobre azul noche --- */
+.pagination-item.active,
+.pagination-item.active * {
+  background: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+
+/* ==========================================================================
+   9. LOS RECUADROS DE ICONO
+   Un solo color, no una mezcla de celeste y violeta: sobre fondo blanco el
+   azul noche es el que mejor se sostiene y el que deja respirar al resto.
+   ========================================================================== */
+
+.features-item .icon,
+.services-item .icon,
+.iconbox .icon,
+.card-especialidad .icon,
+.box-icon .icon {
+  background: var(--color-azul-noche) !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(10, 34, 64, 0.18) !important;
+}
+.features-item .icon *,
+.services-item .icon *,
+.iconbox .icon *,
+.card-especialidad .icon *,
+.box-icon .icon * {
+  color: #ffffff !important;
+  fill: currentcolor !important;
+}
+
+/* --- Los grises, cuando les toca fondo oscuro ---
+   El mismo gris que se lee bien sobre blanco desaparece sobre el azul noche.
+   Ahí sube, no baja. */
+.section-team .text-neutral-400,
+.section-statistic .text-neutral-400,
+.section-awards .text-neutral-400,
+.section-testimonials .text-neutral-400,
+.section-dark-bg .text-neutral-400,
+.footer .text-neutral-400,
+.section-team .year,
+.section-awards .year,
+.section-testimonials .year,
+.section-dark-bg .year {
+  color: #9fb4c4 !important;
+}
+
+/* --- Texto en blanco que quedó sobre fondo claro ---
+   Son bloques que el template pintaba oscuros y ahora son claros. El blanco
+   sobre blanco da 1,07:1: no se ve nada. */
+.section-pricing .text-white,
+.section-pricing .title,
+.section-pricing li,
+.pricing-item .text-white,
+.pricing-item .title,
+.pricing-item li,
+.box-pricing .text-white,
+.box-pricing li,
+.section-services-single .text-white,
+.section-services-single li {
+  color: var(--color-text-tinta) !important;
+}
+
+/* ==========================================================================
+   10. EL HERO, CON EL CELESTE DE PROTAGONISTA
+   El celeste manda aquí: es la primera pantalla y es lo que tiene que quedar
+   en la cabeza. Se sube la presencia del cian en el fondo y el titular pasa
+   al degradado de marca, que arranca en celeste.
+   ========================================================================== */
+
+.section-hero .hero-image {
+  background:
+    radial-gradient(52% 56% at 78% 8%, rgba(0, 229, 255, 0.52) 0%, rgba(0, 229, 255, 0) 66%),
+    radial-gradient(46% 52% at 10% 84%, rgba(0, 229, 255, 0.38) 0%, rgba(0, 229, 255, 0) 64%),
+    radial-gradient(48% 52% at 100% 96%, rgba(91, 26, 255, 0.20) 0%, rgba(91, 26, 255, 0) 66%),
+    radial-gradient(40% 44% at 0% 0%, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(140deg, #ffffff 0%, #eaf6fb 40%, #d9eef7 72%, #cfe4f4 100%) !important;
+}
+
+/* EL TITULAR DEL HERO, CON JERARQUÍA.
+   Antes iba en Urbanist 400 a 96 px: todo del mismo peso y del mismo tamaño,
+   así que no había nada que mirara primero. Urbanist es variable de 100 a 900,
+   así que el peso está disponible y no se estaba usando.
+
+   La jerarquía se hace con dos cosas a la vez:
+   - Peso 800 y cuerpo más grande, con interlineado apretado (0,92) para que el
+     bloque se lea como una sola masa y no como dos frases sueltas.
+   - Dos tonos. «Tu salud,» entra en celeste y «en Santa Juana» cierra en
+     violeta, que es lo que de verdad hay que recordar: el lugar. */
+.section-hero .title {
+  /* 118 px rompía las líneas y empujaba los botones fuera de la primera
+     pantalla. A 84 el bloque entra en dos líneas y sigue mandando. */
+  font-size: clamp(38px, 5.3vw, 84px) !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.035em !important;
+  font-weight: 800 !important;
+}
+.section-hero .title span,
+.section-hero .title .title1,
+.section-hero .title .title2 span {
+  font-weight: 800 !important;
+  letter-spacing: -0.035em !important;
+}
+
+/* Primera línea: arranca en celeste */
+.section-hero .title .title1 {
+  background: linear-gradient(100deg, #0092c9 0%, #1f6ae0 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Segunda línea: cierra en violeta, que es el remate */
+.section-hero .title .title2 span {
+  background: linear-gradient(100deg, #2f5fe6 0%, var(--color-violeta-digital) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* La bajada baja de peso y de tamaño: si todo grita, nada se oye */
+.section-hero p.text {
+  font-size: clamp(16px, 1.25vw, 20px) !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  color: #4f5d66 !important;
+  max-width: 560px;
+}
+
+/* --- Los últimos de la tabla de valores y del acordeón ---
+   El template los pintaba en blanco porque iban sobre una caja oscura que ya
+   no lo es, y los grises decorativos se quedaban cortos. */
+.accordion-title,
+.price-number,
+.price-per,
+.pricing-wrap .text,
+.pricing-wrap .fw-semibold,
+.box-pricing .text,
+.box-pricing .fw-semibold {
+  color: var(--color-text-tinta) !important;
+}
+.text-neutral-300 { color: #5a6b75 !important; }
+/* Los tres de la tabla de planes: el template los dejaba en blanco o en un
+   gris muy claro, pensados para una caja oscura que ya no existe. */
+/* Solo en la tarjeta clara: en la negra el mismo texto va en claro. */
+.pricing-item:not(.style-black) .text.fw-semibold,
+.pricing-item:not(.style-black) .fw-semibold.text,
+.box-pricing:not(.style-black) .text.fw-semibold { color: var(--color-text-tinta) !important; }
+.pricing-item.style-black .text.fw-semibold,
+.pricing-item.style-black .fw-semibold.text { color: #c3d0dd !important; }
+.text-body-3.text-neutral-300,
+.pricing-wrap .text-neutral-400,
+.pricing-wrap .text-neutral-300 { color: #4f5d66 !important; }
+
+/* Las tarjetitas flotantes del hero */
+.adv-tarjeta small,
+.adv-tarjeta .text,
+small { color: #4f5d66 !important; }
+
+/* ==========================================================================
+   11. CÓMO FUNCIONA DE VERDAD EL FONDO EN ESTE TEMPLATE
+   Las secciones son OSCURAS y encima llevan cajas blancas. El texto que queda
+   fuera de esas cajas está sobre oscuro, no sobre claro. Las reglas anteriores
+   asumían lo contrario, y de ahí el texto negro sobre negro.
+   La regla es simple: lo que esté sobre la sección va claro; lo que esté
+   dentro de una caja blanca va oscuro.
+   ========================================================================== */
+
+/* No vale una regla general «las secciones son oscuras»: unas lo son y otras
+   no, y pintarlas todas de claro deja texto claro sobre fondo claro. Van una
+   por una, y cada una comprobada con el auditor.
+
+   Regla de oro: el texto se decide por el fondo que tiene DETRÁS, no por la
+   sección en la que vive. */
+
+/* La tarjeta de plan oscura */
+.pricing-item[style*="rgb(10, 34, 64)"],
+.pricing-item.pricing-dark,
+.box-pricing.is-dark {
+  color: #ffffff !important;
+}
+
+/* Bloques con fondo oscuro propio: se marcan con data-fondo="oscuro" desde el
+   HTML, que es la única forma fiable de saberlo. */
+[data-fondo="oscuro"],
+[data-fondo="oscuro"] .title,
+[data-fondo="oscuro"] h3,
+[data-fondo="oscuro"] h4,
+[data-fondo="oscuro"] h5,
+[data-fondo="oscuro"] h6 { color: #ffffff !important; }
+[data-fondo="oscuro"] p,
+[data-fondo="oscuro"] li,
+[data-fondo="oscuro"] .text,
+[data-fondo="oscuro"] .text-secondary { color: #c3d0dd !important; }
+[data-fondo="oscuro"] .adv-chip,
+[data-fondo="oscuro"] .badge-fonasa {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.45) !important;
+  color: var(--color-cian-electrico) !important;
+}
+[data-fondo="oscuro"] .adv-chip *,
+[data-fondo="oscuro"] .badge-fonasa * { color: var(--color-cian-electrico) !important; }
+
+/* ==========================================================================
+   12. DOS ESTILOS DE BOTÓN, NO CINCO
+   Había cuatro tratamientos distintos conviviendo en el hero. Se quedan dos:
+   el lleno de conversión y el de contorno. Lo demás deja de parecer botón.
+   ========================================================================== */
+
+/* Los sellos de confianza no son botones: pierden la pastilla y el borde */
+.adv-badges .adv-badge,
+.adv-badge,
+.adv-badge.badge-fonasa,
+.adv-badge--fonasa {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 4px 0 !important;
+  margin-right: 26px !important;
+  border-radius: 0 !important;
+  color: #3c4a55 !important;
+  font-weight: 600 !important;
+}
+.adv-badge *, .adv-badge.badge-fonasa * { color: #3c4a55 !important; }
+.adv-badge .ic,
+.adv-badge.badge-fonasa .ic { color: #0098c7 !important; }
+
+/* ==========================================================================
+   13. FUERA EL INDICADOR DE SCROLL
+   Es un gesto que se repite en todas partes y no aporta: quien llega a una
+   web sabe bajar.
+   ========================================================================== */
+.scroll-more,
+a.scroll-more { display: none !important; }
+
+/* ==========================================================================
+   14. EL DEGRADADO, UNO SOLO
+   Celeste a morado, y nada más. En claro arranca en un celeste profundo para
+   que se pueda leer; en oscuro va a plena potencia.
+   ========================================================================== */
+/* DEL CIAN AL LILA. Los dos extremos, lo mas claros que el fondo permite.
+   Sobre el blanco frio, el cian a plena potencia da 1,4:1 y no se lee, asi
+   que el extremo celeste se queda en #0092c4 (3,3:1) y el violeta se abre a
+   #8b5cf6 (3,9:1), que es lila y no el violeta electrico de antes, el que
+   hacia que el conjunto pareciera azul mas morado.
+   El azul del medio es inevitable: entre el cian y el lila el camino corto
+   pasa por el azul. Lo que si cambia es que ahora los dos extremos se
+   reconocen, que era el problema.
+   Sobre fondo oscuro no hace falta bajar nada y el par va a plena potencia;
+   de eso se encarga fondos-oscuros.css. */
+.text-gradient, .text-gradient-1, .text-gradient-2, .text-gradient-3,
+.heading-title.text-gradient-3,
+.section-hero .title .title1,
+.section-hero .title .title2 span {
+  background: linear-gradient(100deg, #0092c4 0%, #8b5cf6 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+/* Aquí había una lista de trece secciones a las que se les devolvía el cian a
+   plena potencia. Enumerar secciones por su nombre es precisamente lo que no
+   funciona: .section-about-us y .section-tools tienen fondo claro, y el cian
+   encima daba 1,4:1. Quien decide ahora es la medición, en fondos-oscuros.css,
+   que solo toca las secciones cuyo fondo es oscuro de verdad. */
+
+/* ==========================================================================
+   15. HOVER Y FLECHAS
+   El morado sobre fondo oscuro no se lee. Sobre oscuro, el hover va en celeste.
+   Y las flechas de los carruseles se ven siempre, no solo al pasar por encima.
+   ========================================================================== */
+.section-team .tf-btn-2:hover, .section-statistic .tf-btn-2:hover,
+.section-awards .tf-btn-2:hover, .section-testimonials .tf-btn-2:hover,
+.section-pricing .tf-btn-2:hover, .section-contact .tf-btn-2:hover,
+.section-faqs .tf-btn-2:hover, .section-features .tf-btn-2:hover,
+.pricing-item .tf-btn-2:hover,
+.section-team .btn-whatsapp:hover, .section-contact .btn-whatsapp:hover {
+  background-color: var(--color-cian-electrico) !important;
+  border-color: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+.section-team .tf-btn-2:hover *, .section-contact .tf-btn-2:hover *,
+.pricing-item .tf-btn-2:hover * { color: var(--color-azul-noche) !important; }
+
+/* Las flechas llevan disco OPACO, y no es un capricho.
+   Con el disco translúcido, el color de la flecha dependía de lo que hubiera
+   detrás: sobre claro quedaba cian sobre casi blanco, y en un sitio la flecha
+   salía directamente del color del fondo, o sea invisible. Un disco opaco
+   decide su propio fondo, así que la flecha se lee igual en cualquier sección
+   sin tener que saber dónde está puesta. Cian sobre azul noche: 11,9:1. */
+.nav-prev, .nav-next, .swiper-button-prev, .swiper-button-next,
+.nav-prev-swiper, .nav-next-swiper, .btn-slider,
+.slick-prev, .slick-next, .box-navigation-slider .nav {
+  opacity: 1 !important;
+  visibility: visible !important;
+  background: var(--color-azul-noche) !important;
+  border: 1px solid rgba(0, 229, 255, 0.55) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.nav-prev *, .nav-next *, .swiper-button-prev *, .swiper-button-next *,
+.nav-prev-swiper *, .nav-next-swiper *, .btn-slider *,
+.slick-prev *, .slick-next *, .box-navigation-slider .nav * {
+  color: inherit !important;
+}
+.nav-prev:hover, .nav-next:hover,
+.swiper-button-prev:hover, .swiper-button-next:hover,
+.nav-prev-swiper:hover, .nav-next-swiper:hover, .btn-slider:hover,
+.slick-prev:hover, .slick-next:hover {
+  background: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+.nav-prev:hover *, .nav-next:hover *,
+.swiper-button-prev:hover *, .swiper-button-next:hover *,
+.nav-prev-swiper:hover *, .nav-next-swiper:hover *, .btn-slider:hover *,
+.slick-prev:hover *, .slick-next:hover * { color: var(--color-azul-noche) !important; }
+
+/* ==========================================================================
+   16. LOS LOGOS DE ACREDITACIÓN
+   Estaban casi invisibles sobre el fondo claro.
+   ========================================================================== */
+.section-partner img,
+.infiniteslide img,
+.partner-item img {
+  filter: brightness(0.42) saturate(1.5) !important;
+  opacity: 0.95 !important;
+}
+
+/* La barra de desplazamiento, a juego */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-cian-texto) !important;
+  background-image: linear-gradient(180deg, var(--color-cian-dato) 0%, var(--color-azul-noche) 100%) !important;
+}
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  background: rgba(10, 34, 64, 0.07) !important;
+}
+
+/* =========================================================================
+   RESERVA TU HORA — el cierre de la página
+   =========================================================================
+   Dos arreglos que venían juntos.
+
+   1) El hueco. La columna de la izquierda se estiraba a la altura del
+      formulario (861 px) y llevaba justify-content: space-between, así que
+      repartía 143 px de aire entre el titular y los datos de contacto. Pasa a
+      flex-start: el contenido se queda arriba, pegado, como se leía antes de
+      que el formulario creciera.
+
+   2) El formulario, más bajo. Era lo que estiraba la columna. Se recorta el
+      titular a una línea y se aprietan las separaciones internas: de 861 px a
+      unos 690, que es la altura real del contenido de la izquierda. Las dos
+      columnas quedan parejas y el hueco desaparece por los dos lados.
+
+   Y el fondo oscuro que sugeriste. Funciona por una razón concreta: deja el
+   formulario como lo único blanco de la sección, así que el ojo va ahí. Es la
+   última llamada a la acción de la página; conviene que no compita con nada.
+   Los colores del texto sobre este fondo los decide fondos-oscuros.css, que
+   mide; aquí solo van los que esa medición no alcanza (enlaces e iconos).  */
+
+/* El fondo va en la seccion, no en el hijo .contact-image. Importa el porque:
+   ese hijo es un div absoluto, hermano del texto, no un ancestro suyo. Medir
+   el fondo de un parrafo consiste en subir por sus padres, y por ahi no se
+   pasa nunca; un degradado puesto ahi es invisible para generar-fondos.js y
+   la seccion se habria quedado con el texto en tinta sobre azul noche. */
+#reservar .section-contact {
+  border-radius: 40px;
+  overflow: hidden;
+  background:
+    radial-gradient(52% 58% at 86% 8%, rgba(0, 229, 255, 0.20) 0%, rgba(0, 229, 255, 0) 62%),
+    radial-gradient(44% 50% at 6% 92%, rgba(91, 26, 255, 0.28) 0%, rgba(91, 26, 255, 0) 64%),
+    linear-gradient(140deg, #0a2240 0%, #13294d 54%, #0b1c36 100%);
+}
+
+/* Al hijo le queda solo el grano, y suave: sobre fondo oscuro el grano fuerte
+   lo ensucia en vez de darle textura. */
+#reservar .section-contact .contact-image {
+  inset: 0 !important;
+  background: none !important;
+}
+#reservar .section-contact .contact-image::after { opacity: .1 !important; }
+
+/* 1) Fuera el hueco */
+#reservar .section-contact .col-left {
+  justify-content: flex-start !important;
+}
+
+/* El titular, con el degradado de marca a plena potencia: sobre oscuro no
+   hace falta oscurecer el celeste para que se lea. */
+#reservar .section-contact .heading-title.text-gradient-3 {
+  background: linear-gradient(100deg, var(--color-cian-electrico) 0%, #7a45ff 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+#reservar .section-contact .heading-sub { color: var(--color-cian-electrico) !important; }
+
+/* Los iconos de WhatsApp, correo y dirección.
+   Va la propiedad «background» entera y no «background-color»: el template
+   pinta esta caja con un degradado de un solo color, y un color de fondo no
+   puede tapar una imagen de fondo. Por eso seguían saliendo cuadrados casi
+   blancos con el icono cian encima, a 1,4:1, que es el caso que se ve en la
+   foto: la caja se nota perfectamente y el dibujo de dentro no. */
+#reservar .section-contact .col-left .contact-item .icon {
+  background: rgba(0, 229, 255, 0.14) !important;
+  border: 1px solid rgba(0, 229, 255, 0.4) !important;
+  color: var(--color-cian-electrico) !important;
+}
+#reservar .section-contact .col-left .contact-item .icon * {
+  color: inherit !important;
+  fill: currentcolor !important;
+}
+
+/* Los enlaces no los cubre la medición: viven dentro de .text y traen su
+   propio color del template. */
+#reservar .section-contact .col-left .contact-item .text a {
+  color: #e6edf6 !important;
+  text-decoration-color: rgba(0, 229, 255, 0.5);
+}
+#reservar .section-contact .col-left .contact-item .text a:hover {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* 2) El formulario, más compacto -----------------------------------------
+   El titular a 36 px ocupaba dos líneas y 96 px de alto él solo. */
+.adv-booking .heading {
+  font-size: 26px !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 18px !important;
+}
+
+/* Etiqueta y campo son una sola cosa: 20 px de separación los divorciaba */
+.adv-booking label { margin-bottom: 8px !important; }
+
+.adv-booking .mb-21 { margin-bottom: 15px !important; }
+.adv-booking .mb-18 { margin-bottom: 14px !important; }
+
+.adv-booking textarea {
+  min-height: 0 !important;
+  height: 74px !important;
+}
+
+.adv-booking .adv-chips { gap: 8px !important; }
+
+.adv-booking .adv-note {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+@media (min-width: 992px) {
+  #reservar .section-contact .form-contact { padding: 34px 32px !important; }
+}
+
+/* =========================================================================
+   17. LA NOTA DE LOS VALORES
+   =========================================================================
+   «Valores referenciales. El copago final depende del tramo FONASA…» quedaba
+   pegada a la caja de precios de arriba, sin un solo píxel entre medias. La
+   regla que le daba aire estaba escrita en brand.css con 56 px, pero perdía
+   contra otra más específica y el margen calculado acababa en cero.
+   Aquí gana, y de paso la nota se lee como lo que es: una aclaración, no la
+   última línea de la caja.                                                  */
+.adv-nota-valores {
+  margin-top: 48px !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+@media (max-width: 767px) {
+  .adv-nota-valores { margin-top: 32px !important; }
+}
+
+/* =========================================================================
+   18. EL BOTÓN «VER ÁREA» SOBRE LA FOTO
+   =========================================================================
+   Llevaba letra blanca sobre un velo translúcido, rgba(0,0,0,.2). Sobre una
+   foto oscura se lee; sobre una clara se queda en gris claro con letra blanca
+   encima, 1,7:1. Un velo no decide su propio fondo: lo hereda, y por eso unas
+   veces funciona y otras no.
+   Se le pone fondo propio en azul noche, casi opaco. Deja ver que hay foto
+   debajo y la letra se lee siempre, mire donde mire.                        */
+.featured-works-item .image .view-project,
+.tf-mouse.view-project {
+  background: rgba(10, 34, 64, 0.86) !important;
+  color: var(--color-blanco-frio) !important;
+  backdrop-filter: blur(2px);
+}
+.featured-works-item .image .view-project *,
+.tf-mouse.view-project * { color: inherit !important; }
+
+.featured-works-item .image .view-project:hover,
+.tf-mouse.view-project:hover {
+  background: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+.featured-works-item .image .view-project:hover *,
+.tf-mouse.view-project:hover * { color: var(--color-azul-noche) !important; }
+
+/* =========================================================================
+   19. LOS TITULARES, QUE QUEPAN
+   =========================================================================
+   En tableta, «Una comuna / que necesita / especialistas cerca» se quedaba a
+   72 px dentro de una columna de 337: la palabra «especialistas» sola mide
+   más que la caja, así que se salía por el lado. El template baja el tamaño
+   por escalones y entre un escalón y otro hay anchos donde no cabe.
+   Un tamaño fluido no tiene ese hueco: crece y mengua con el ancho real.
+   El escritorio no se toca; esto empieza donde empezaba el problema.        */
+@media (max-width: 1199px) {
+  .heading-title,
+  .section-hero .title {
+    font-size: clamp(28px, 6.4vw, 56px) !important;
+    line-height: 1.08 !important;
+  }
+}
+
+/* Y una red por debajo: ninguna palabra larga rompe su caja, caiga donde
+   caiga. Más vale una palabra partida que un titular saliéndose. */
+.heading-title, .title, .page-title, .accordion-title, .heading {
+  overflow-wrap: break-word;
+}
+
+/* =========================================================================
+   20. LAS FICHAS FLOTANTES DE «UN CENTRO MODERNO»
+   =========================================================================
+   El template las traía como seis cuadrados de color liso, sin dibujo
+   ninguno: marcadores de posición que nadie llegó a sustituir. Se veían como
+   lo que eran, seis recuadros sueltos alrededor del titular.
+   Ahora cada una lleva el icono de una de las cosas que esa misma sección
+   dice que el centro tiene: ficha digital, agenda, confirmación por
+   WhatsApp, resultados al correo, videollamada y teléfono. El adorno pasa a
+   contar lo mismo que el texto que rodea.                                   */
+.adv-tool-tile {
+  /* POSICION ABSOLUTA, Y ESTO NO ES UN DETALLE.
+     El template colocaba estas seis fichas con la regla «.section-tools > img»
+     —solo esa daba el position: absolute— y las medidas de cada una con
+     «.section-tools .img-N». Al cambiar las imagenes por <span> dejo de
+     cumplirse la primera: las seis perdieron el posicionamiento, cayeron al
+     flujo normal, se apilaron una debajo de otra contra el borde izquierdo y
+     empujaron el titular media pantalla hacia abajo.
+     Leccion: cambiar la etiqueta de un elemento rompe los selectores que la
+     nombran, y el template nombra «img» en un sitio y la clase en otro. */
+  position: absolute;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  border-radius: 22%;
+  background: linear-gradient(160deg, var(--color-azul-noche) 0%, #13294d 100%);
+  box-shadow: 0 14px 30px rgba(10, 34, 64, 0.18);
+}
+/* El icono se mide contra la ficha, no contra el texto de la página.
+   Con «font-size: 44%» salía a 7 px: un porcentaje en font-size se calcula
+   sobre el del padre, que aquí es el cuerpo a 16 px, y no sobre el tamaño de
+   la caja. Las unidades de contenedor sí miran la caja, que es lo que hace
+   falta porque el template le da a cada ficha un ancho distinto. */
+.adv-tool-tile { container-type: size; }
+.adv-tool-tile .icon {
+  color: var(--color-cian-electrico);
+  font-size: 42cqw;
+  line-height: 1;
+}
+
+@media (max-width: 991px) {
+  .adv-tool-tile { border-radius: 26%; }
+  .adv-tool-tile .icon { font-size: 46cqw; }
+}
+
+/* =========================================================================
+   21. EL HERO
+   ========================================================================= */
+
+/* 21.1 · QUE SE VEA REDONDO TAMBIÉN ARRIBA.
+   La tarjeta del hero siempre tuvo sus 40 px de radio en las cuatro
+   esquinas. Lo que pasaba es que la cabecera lleva margin-bottom: -116px
+   para que el hero se meta por debajo, y la cabecera es azul noche OPACO:
+   lo único que quedaba escondido ahí abajo era justo el redondeo de arriba.
+   Se quita ese tirón y la tarjeta empieza donde acaba la barra. De paso el
+   relleno de dentro baja de 196 a 96, porque esos 196 estaban puestos para
+   esquivar una cabecera que ya no se le echa encima; si no, el titular se
+   iría cien píxeles más abajo de donde estaba.
+   Así se arregla solo a cualquier alto de cabecera, que es mejor que dejar
+   escrito un número que habría que corregir cada vez que la barra cambie. */
+header.tf-header { margin-bottom: 0 !important; }
+
+@media (min-width: 992px) {
+  .adv-hero .content-wrap { padding-top: 96px !important; }
+}
+@media (max-width: 991px) {
+  .adv-hero .content-wrap { padding-top: 64px !important; }
+}
+
+/* 21.2 · FUERA EL LAVADO QUE SE LEÍA VERDE.
+   El fondo llevaba dos manchas de #00b4d8 al 46 % y al 62 % sobre una base
+   azul clara. Por separado ninguno es verde, pero al mezclarse dan un agua
+   turquesa que el ojo lee como verde: por eso no aparecía buscando códigos.
+   La tarjeta pasa a ser una superficie limpia, casi blanca, y el color se
+   concentra donde tiene que estar, detrás de la fotografía. */
+.section-hero .hero-image {
+  /* La base es el blanco frío de la marca, #f5f7fa, no el blanco puro: la
+     tarjeta se veía lavada porque estaba arrancando en #ffffff, que no es un
+     color de la paleta. */
+  background:
+    radial-gradient(56% 60% at 90% 20%, rgba(0, 229, 255, 0.58) 0%, rgba(0, 229, 255, 0) 60%),
+    radial-gradient(54% 58% at 78% 80%, rgba(91, 26, 255, 0.52) 0%, rgba(91, 26, 255, 0) 62%),
+    radial-gradient(38% 42% at 99% 52%, rgba(124, 58, 237, 0.42) 0%, rgba(124, 58, 237, 0) 58%),
+    linear-gradient(118deg, #f5f7fa 0%, #f5f7fa 48%, #eef2f9 100%) !important;
+}
+/* El grano sube: es lo que convierte tres manchas de color en una superficie
+   y no en un degradado de plantilla. En la referencia es justo eso lo que se
+   ve antes que el color. */
+.section-hero .hero-image::after { opacity: .52 !important; }
+
+/* 21.3 · EL VIOLETA, DETRÁS DE LA MUJER.
+   Era un halo blanco sobre fondo claro, o sea invisible. Ahora es el color
+   primario, y hace dos cosas a la vez: recorta la figura contra el fondo y
+   deja dicho cuál es el color de la marca sin tener que escribirlo. */
+.adv-hero__blob {
+  /* El disco violeta macizo detrás de la figura quedaba como un plato de
+     color pegado. El color ya lo pone la mancha de la tarjeta; aquí solo hace
+     falta un velo claro que despegue a la persona del fondo y no compita. */
+  background: radial-gradient(circle at 46% 38%,
+    rgba(255, 255, 255, 0.62) 0%,
+    rgba(255, 255, 255, 0.26) 46%,
+    rgba(255, 255, 255, 0) 72%) !important;
+}
+
+/* EL CORTE RECTO DE LA FOTO.
+   La fotografía llevaba clip-path: polygon(0 0, 100% 0, 100% 74%, 0 97%), un
+   recorte en diagonal pensado para la imagen del template. Sobre una persona
+   recortada lo que hace es cortarle la bata en seco y dejar dos filos rectos
+   a los lados. Fuera: la silueta ya viene recortada en el PNG. */
+.adv-hero__person { clip-path: none !important; }
+
+/* =========================================================================
+   22. EL ACORDEÓN DE ESPECIALIDADES, ABIERTO
+   =========================================================================
+   El panel abierto se pone azul noche. No lo pinta el bloque: lo pinta
+   «.accordion-action::before», un pseudo-elemento absoluto que, como su
+   contenedor posicionado es la tarjeta entera, la cubre toda. Cerrado se
+   desliza fuera con bottom: 110 %; abierto baja a 0.
+
+   El template ya ponía el titular en blanco al abrirse. Lo rompí yo: una
+   regla de este archivo fijaba «.accordion-title { color: tinta !important }»
+   sin mirar el estado, y el !important se come la del template. Resultado,
+   titular casi negro sobre azul noche.
+
+   Dos cosas que me llevo de aquí:
+   - Un !important sobre un color es una promesa de que ese elemento solo
+     vive en un fondo. Si tiene dos estados, hay que decir los dos.
+   - Y el fondo de un pseudo-elemento es fondo igual. El escáner no los
+     miraba, por eso daba cero teniendo esto a la vista.                     */
+
+.accordion-faq_item .accordion-action:not(.collapsed) .accordion-title,
+.accordion-faq_item .accordion-action:not(.collapsed) .accordion-title * {
+  color: var(--color-blanco-frio) !important;
+}
+.accordion-faq_item .accordion-action:not(.collapsed) .accordion-title .num {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* El cuerpo y la lista viven dentro del mismo velo azul */
+.accordion-faq_item .accordion-content .text,
+.accordion-faq_item .accordion-content p,
+.accordion-faq_item .accordion-content .text-neutral-300 {
+  color: #c3d0dd !important;
+}
+
+/* Las etiquetas, en cian translúcido: sobre azul noche se separan de la
+   tarjeta y se leen, que con el gris azulado quedaban a medio camino. */
+.accordion-faq_item .accordion-content .tags-item {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.42) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.accordion-faq_item .accordion-content .tags-item:hover {
+  background: var(--color-cian-electrico) !important;
+  border-color: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+
+/* =========================================================================
+   23. LAS CAPAS DECORATIVAS NO SE TOCAN
+   =========================================================================
+   El halo que hay detrás de la figura del hero es un círculo de 600 px. En
+   tableta se sale de la fotografía, se monta sobre la columna de texto y cae
+   justo encima de «Reservar hora». Y como no tenía pointer-events: none, no
+   solo lavaba el botón: SE COMÍA EL CLIC. El botón principal de la página no
+   se podía pulsar a ese ancho.
+
+   No lo habría encontrado mirando contraste ni desbordes, porque no era ni
+   una cosa ni la otra. Lo encontró la prueba de «texto tapado» del escáner,
+   que le pregunta al navegador qué hay de verdad en cada punto.
+
+   Regla que se queda: un adorno nunca recibe el ratón. Si no se puede pulsar,
+   no puede estorbar.                                                        */
+.adv-hero__blob,
+.adv-float,
+[class*="adv-float--"],
+.section-hero .hero-image,
+.section-hero .hero-image::after,
+.adv-tool-tile,
+.section-contact .contact-image {
+  pointer-events: none !important;
+}
+
+/* =========================================================================
+   24. LAS TRES COLUMNAS DE «QUÉ RESOLVEMOS» EN TABLETA
+   =========================================================================
+   «QUÉ RESOLVEMOS · INCLUYE · COBERTURA» van en una fila de tres. A 768 px
+   la última columna se queda en 84 px y la palabra COBERTURA necesita 90, así
+   que se partía a media palabra: «COBERTUR / A».
+   Partir una palabra es el último recurso que puse como red de seguridad en
+   el apartado 19; aquí lo que hay que arreglar es el ancho, no el corte. La
+   fila pasa a ocupar todo el ancho disponible y las columnas se reparten con
+   un mínimo, de modo que ninguna se queda sin sitio para su propia palabra. */
+@media (max-width: 991px) {
+  .bot { flex-wrap: wrap; }
+  .bot .grid-text { flex: 1 1 100%; gap: 20px; }
+  .bot .grid-text .item { flex: 1 1 30%; min-width: 132px; }
+}
+/* Estos rótulos no se parten nunca: son una sola palabra y partirla no
+   ayuda a nadie a leerla. */
+.grid-text .title,
+.grid-text .item > .title { overflow-wrap: normal !important; }
+
+/* Una imagen con alt vacío está declarada como decorativa por quien la puso.
+   Si es decorativa, tampoco debe recibir el ratón: las ilustraciones de las
+   tarjetas se solapan con los titulares de debajo y, aunque el dibujo sea
+   transparente justo ahí, su caja sigue interceptando el clic. Misma regla
+   que para el halo del hero, que se comía el botón de reservar. */
+img[alt=""] { pointer-events: none; }
