@@ -675,11 +675,14 @@ textarea:focus-visible {
 .wg-pagination .pagination-item.active,
 .wg-pagination .pagination-item:hover { color: var(--brand); }
 
-/* Redes: al pasar el cursor, violeta en vez de tinta */
+/* Botones de las tarjetas del equipo: al pasar el cursor, caja cian con el
+   icono en azul noche (el par del documento para fondo cian). */
 .tf-social .social-item:hover {
-  background: linear-gradient(180deg, var(--adv-violeta-claro) 0%, var(--adv-violeta) 100%);
-  box-shadow: 0 10px 24px rgba(91, 26, 255, .40);
+  background: #00e5ff;
+  box-shadow: 0 10px 24px rgba(0, 229, 255, .40);
 }
+.tf-social .social-item:hover .icon,
+.tf-social .social-item:hover .icon * { color: #0a2240 !important; }
 
 /* Acreditaciones: el borde se enciende en violeta */
 .awards-item:hover { border-color: rgba(0, 229, 255, .55); }
@@ -962,11 +965,7 @@ body::-webkit-scrollbar-thumb:active,
 /* Un texto de marca dentro de un bloque oscuro va en cian, no en el celeste
    profundo que es para fondo claro. La utilidad del template lleva !important. */
 .text-white .text-brand, .box-black .text-brand, .blockquote-wrap .text-brand, .pricing-item.style-black .text-brand { color: var(--brand) !important; }
-/* El segundo paso de «Como reservas» tiene la caja del icono en violeta. Con el
-   violeta de la paleta B (#5b1aff) el icono azul noche daba 2,3:1; sobre violeta
-   va blanco. */
-.process-slide .swiper-slide:nth-child(2) .process-card .icon,
-.process-slide .swiper-slide:nth-child(2) .process-card .icon * { color: #fff !important; }
+/* Las tres cajas de «Como reservas» son cian con icono azul noche (regla al final). */
 
 /* «Ver area» sobre una foto: llevaba blanco sobre un velo translucido, y sobre
    una foto clara quedaba en gris claro con letra blanca (1,7:1). Con fondo
