@@ -661,9 +661,10 @@ textarea:focus-visible {
 /* Nosotros · turquesa, que es el color de la marca */
 .section-about-us {
   position: relative;
-  background:
-    radial-gradient(36% 44% at 2% 6%, rgba(0, 229, 255, 0.20) 0%, rgba(0, 229, 255, 0) 66%),
-    radial-gradient(30% 38% at 98% 88%, rgba(228, 234, 244, 0.70) 0%, rgba(228, 234, 244, 0) 66%);
+  /* Sin manchas de color: el hero es una caja con su propio degradado y lo de abajo
+     queda en blanco frio libre (#f5f7fa). Las dos manchas que habia chocaban con el
+     borde de la caja. */
+  background: none;
 }
 
 
@@ -1121,3 +1122,5 @@ body::-webkit-scrollbar-thumb:active,
 
 /* Check de la tarjetita «Hora confirmada» (caja cian) */
 .adv-tarjeta .ic { color: #0a2240; }
+/* «Conoce el centro»: se queda la forma concava y el texto; solo sale la flecha. */
+.section-hero .scroll-more .icon { display: none !important; }
