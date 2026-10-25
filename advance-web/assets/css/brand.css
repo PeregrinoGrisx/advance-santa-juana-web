@@ -613,8 +613,8 @@ textarea:focus-visible {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(42% 32% at 88% 6%, rgba(91, 26, 255, 0.34) 0%, rgba(91, 26, 255, 0) 66%),
-    radial-gradient(38% 30% at 8% 96%, rgba(91, 26, 255, 0.20) 0%, rgba(91, 26, 255, 0) 66%);
+    radial-gradient(42% 32% at 88% 6%, rgba(0, 229, 255, 0.55) 0%, rgba(0, 229, 255, 0) 66%),
+    radial-gradient(38% 30% at 8% 96%, rgba(0, 229, 255, 0.38) 0%, rgba(0, 229, 255, 0) 66%);
 }
 .box-black > * { position: relative; z-index: 1; }
 
@@ -622,20 +622,6 @@ textarea:focus-visible {
 
 /* Iconos de las tarjetas: una progresión con tres colores de la paleta,
    todos con el mismo peso para que no se peleen entre sí. */
-.process-slide .swiper-slide:nth-child(2) .process-card .icon {
-  background: linear-gradient(180deg, #5b1aff 0%, #5b1aff 100%);
-  box-shadow: 0 22px 37px rgba(91, 26, 255, .20),
-              0 14px 34px rgba(91, 26, 255, .24),
-              0 -3px 0 0 rgba(0, 0, 0, .06) inset,
-              0 1px 0 0 rgba(255, 255, 255, .55) inset;
-}
-.process-slide .swiper-slide:nth-child(3) .process-card .icon {
-  background: linear-gradient(180deg, #0a2240 0%, #0a2240 100%);
-  box-shadow: 0 22px 37px rgba(91, 26, 255, .20),
-              0 14px 34px rgba(91, 26, 255, .24),
-              0 -3px 0 0 rgba(0, 0, 0, .06) inset,
-              0 1px 0 0 rgba(255, 255, 255, .55) inset;
-}
 
 /* Etiquetas de las especialidades */
 .list-tags .tags-item:nth-child(even):hover {
@@ -722,7 +708,8 @@ textarea:focus-visible {
 
 /* El icono del medio de cada columna de «Todo en un solo lugar» va en violeta
    profundo: mismo peso que el verde azulado, para que convivan sin pelearse. */
-.features-col > :nth-child(2) .icon { background-color: #5b1aff; }
+/* Los seis iconos de «Todo en un solo lugar» van en azul noche (el de la columna del medio
+   era violeta; Danilo los prefiere todos iguales). */
 
 /* --- El ámbar como color de FONASA ---------------------------------------- */
 /* Estaba suelto en una sola sección. Ahora marca siempre lo mismo: el bono. */
@@ -771,9 +758,11 @@ textarea:focus-visible {
 .adv-nota-valores { margin-top: 56px; }
 @media (max-width: 767px) { .adv-nota-valores { margin-top: 36px; } }
 
-/* Aviso de vista previa. Se quita de los HTML (span.adv-aviso-demo) y de aquí
-   cuando el contenido deje de ser de ejemplo. */
-.adv-aviso-demo { display: inline-block; margin-top: 6px; font-size: 12px; opacity: .72; }
+/* Credito del pie: sitio hecho por Punto Gris, con enlace a puntogris.cl.
+   (Antes aqui estaba el aviso de «vista previa»: el sitio ya es el oficial.) */
+.adv-credito { display: inline-block; margin-top: 6px; font-size: 13px; }
+.adv-credito a { color: #0a2240; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.adv-credito a:hover { color: #5b1aff; }
 
 /* --- Menú fijo ------------------------------------------------------------ */
 /* El template dejaba la cabecera quieta arriba del todo. Al hacer scroll se
@@ -1111,11 +1100,9 @@ body::-webkit-scrollbar-thumb:active,
    Sobre cian: azul noche. Sobre violeta: blanco. Sobre azul noche: cian o
    blanco frio. Sobre blanco frio: azul noche, tinta o violeta. El cian NUNCA
    va como texto sobre claro (1,4:1) ni el blanco sobre cian.
-   Las cajas de icono de «Como reservas» siguen esa progresion.
+   Las cajas de icono de «Como reservas» van las tres en cian, con el icono en azul noche.
    ========================================================================== */
-.process-slide .swiper-slide:nth-child(1) .process-card .icon { color: #0a2240 !important; }   /* caja cian */
-.process-slide .swiper-slide:nth-child(2) .process-card .icon { color: #ffffff !important; }   /* caja violeta */
-.process-slide .swiper-slide:nth-child(3) .process-card .icon { color: #00e5ff !important; }   /* caja azul noche */
+.process-slide .process-card .icon { color: #0a2240 !important; }   /* las tres cajas, cian con icono azul noche */   /* caja violeta */   /* caja azul noche */
 
 /* La caja grande con el corazon (cian): el corazon va en azul noche */
 .features-center .icon, .features-center i, .features-center svg { color: #0a2240 !important; fill: #0a2240; }
@@ -1124,3 +1111,35 @@ body::-webkit-scrollbar-thumb:active,
 .adv-tarjeta .ic { color: #0a2240; }
 /* «Conoce el centro»: se queda la forma concava y el texto; solo sale la flecha. */
 .section-hero .scroll-more .icon { display: none !important; }
+
+/* ==========================================================================
+   AJUSTES DE DANILO, 26-10
+   ========================================================================== */
+
+/* Botones «Reservar hora» de los precios: cian con letra azul noche. En la
+   tarjeta azul noche el boton azul noche casi no se distinguia del fondo; en
+   cian es el par del documento (cian sobre azul noche, azul noche sobre cian).
+   Al pasar el mouse: azul noche con letra blanca en la tarjeta clara, y blanco
+   frio con letra azul noche en la oscura (azul noche sobre azul noche no se ve). */
+.section-pricing .pricing-item .tf-btn {
+  background: #00e5ff !important;
+  color: #0a2240 !important;
+  box-shadow: 0 8px 22px rgba(0, 229, 255, .30) !important;
+}
+.section-pricing .pricing-item .tf-btn * { color: inherit !important; }
+.section-pricing .pricing-item .tf-btn:hover { background: #0a2240 !important; color: #ffffff !important; }
+.section-pricing .pricing-item.style-black .tf-btn:hover { background: #f5f7fa !important; color: #0a2240 !important; }
+
+/* Preguntas frecuentes: el boton +/- en violeta, con la cruz en blanco. */
+.accordion-asked .accordion-button span {
+  background: #5b1aff !important;
+  box-shadow: 0 6px 14px rgba(91, 26, 255, .30) !important;
+}
+.accordion-asked .accordion-button span::before,
+.accordion-asked .accordion-button span::after { background-color: #ffffff; }
+
+/* «Te esperamos en Villagran 199»: el titular y los datos de contacto estaban
+   en los extremos de la columna (space-between) y quedaba un hueco enorme en el
+   medio. Ahora van seguidos, arriba. */
+#reservar .section-contact .col-left { justify-content: flex-start !important; }
+#reservar .section-contact .col-left .heading-section { margin-bottom: 40px; }
