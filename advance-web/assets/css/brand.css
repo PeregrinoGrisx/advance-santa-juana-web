@@ -364,41 +364,35 @@ select option:hover,
 }
 .adv-booking select { accent-color: #5b1aff; }
 
-/* Desplegable propio (Chrome 135+): lista blanca con la opción marcada en
-   violeta y letra blanca. En navegadores sin soporte queda el nativo. */
-@supports (appearance: base-select) {
-  .adv-booking select:not([multiple]),
-  .adv-booking select:not([multiple])::picker(select) { appearance: base-select; }
-  .adv-booking select:not([multiple])::picker-icon { display: none; }
-  .adv-booking select:not([multiple])::picker(select) {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    width: anchor-size(width);
-    max-height: 340px;
-    overflow-y: auto;
-    margin-top: 8px;
-    padding: 8px;
-    border: 1px solid var(--neutral-200);
-    border-radius: 22px;
-    background: #ffffff;
-    box-shadow: 0 18px 40px rgba(10, 34, 64, .16);
-  }
-  .adv-booking select:not([multiple]) option {
-    display: block;
-    padding: 10px 14px;
-    border-radius: 12px;
-    font-size: 15.5px;
-    color: #0a2240;
-    background: transparent;
-  }
-  .adv-booking select:not([multiple]) option::checkmark { display: none; }
-  .adv-booking select:not([multiple]) option:hover,
-  .adv-booking select:not([multiple]) option:checked {
-    background: #5b1aff;
-    color: #ffffff;
-  }
+/* Desplegable propio (lo arma advance.js sobre el <select>, que queda oculto
+   para enviar el valor). Va dentro de la página, así que se mueve con el scroll
+   y se cierra solo; el nativo azul del sistema no se puede teñir. */
+.adv-sel { position: relative; }
+.adv-booking .adv-sel > select {
+  position: absolute; left: 0; bottom: 0; width: 100%; height: 1px;
+  opacity: 0; pointer-events: none;
 }
+.adv-sel__btn {
+  display: flex; align-items: center; width: 100%; box-sizing: border-box;
+  height: 56px; padding: 0 56px 0 22px; text-align: left;
+  border-radius: 999px; border: 1px solid var(--neutral-200); background-color: #fff;
+  font: inherit; font-size: 16px; color: var(--primary); cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'><path d='M1 1L7 7L13 1' stroke='%230a2240' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat; background-position: right 22px center;
+}
+.adv-sel__btn:focus-visible, .adv-sel.is-open .adv-sel__btn { outline: none; border-color: var(--adv-turquesa); }
+.adv-sel__list {
+  display: none; position: absolute; z-index: 40; left: 0; right: 0; top: calc(100% + 8px);
+  max-height: 330px; overflow-y: auto; margin: 0; padding: 8px; list-style: none;
+  background: #fff; border: 1px solid var(--neutral-200); border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(10, 34, 64, .16);
+}
+.adv-sel.is-open .adv-sel__list { display: block; }
+.adv-sel__opt {
+  padding: 10px 14px; border-radius: 12px; font-size: 15.5px; color: #0a2240; cursor: pointer;
+}
+.adv-sel__opt[aria-selected="true"] { background: #efeaff; color: #5b1aff; font-weight: 600; }
+.adv-sel__opt:hover, .adv-sel__opt.is-active { background: #5b1aff; color: #ffffff; }
 
 /* --- Distintivos (SEREMI · FONASA · online) ------------------------------ */
 
@@ -1210,4 +1204,15 @@ body::-webkit-scrollbar-thumb:active,
 @media (min-width: 992px) {
   #reservar .section-contact .col-left { justify-content: center !important; }
   #reservar .section-contact .col-left .heading-section { margin-bottom: 56px; }
+}
+/* Foto de «Especialidades»: era una tira de 416×240 pegada abajo y quedaba
+   pequeña junto a la tarjeta azul. Ahora es vertical y ocupa el alto libre de
+   la columna; el lado derecho no cambia. */
+.section-services .services-image {
+  width: 100%;
+  max-width: 440px;
+  height: 560px;
+}
+@media (max-width: 991px) {
+  .section-services .services-image { height: 380px; max-width: 100%; }
 }
