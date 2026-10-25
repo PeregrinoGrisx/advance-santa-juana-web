@@ -353,6 +353,53 @@ select option,
   color: var(--primary);
 }
 
+/* La opción marcada del desplegable: violeta con letra blanca (el azul del
+   sistema no es de la paleta). */
+select option:checked,
+select option:hover,
+.adv-booking select option:checked,
+.adv-booking select option:hover {
+  background: #5b1aff linear-gradient(#5b1aff, #5b1aff);
+  color: #ffffff;
+}
+.adv-booking select { accent-color: #5b1aff; }
+
+/* Desplegable propio (Chrome 135+): lista blanca con la opción marcada en
+   violeta y letra blanca. En navegadores sin soporte queda el nativo. */
+@supports (appearance: base-select) {
+  .adv-booking select:not([multiple]),
+  .adv-booking select:not([multiple])::picker(select) { appearance: base-select; }
+  .adv-booking select:not([multiple])::picker-icon { display: none; }
+  .adv-booking select:not([multiple])::picker(select) {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: anchor-size(width);
+    max-height: 340px;
+    overflow-y: auto;
+    margin-top: 8px;
+    padding: 8px;
+    border: 1px solid var(--neutral-200);
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(10, 34, 64, .16);
+  }
+  .adv-booking select:not([multiple]) option {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 15.5px;
+    color: #0a2240;
+    background: transparent;
+  }
+  .adv-booking select:not([multiple]) option::checkmark { display: none; }
+  .adv-booking select:not([multiple]) option:hover,
+  .adv-booking select:not([multiple]) option:checked {
+    background: #5b1aff;
+    color: #ffffff;
+  }
+}
+
 /* --- Distintivos (SEREMI · FONASA · online) ------------------------------ */
 
 .adv-badges {
@@ -640,8 +687,10 @@ textarea:focus-visible {
 /* Otros hover sobre azul noche: cian, no violeta (el violeta ahí no se lee) */
 .team-item .name:hover { color: #00e5ff; }
 .group-slider .group-btn-slider .btn-slider:hover .icon { color: #00e5ff; }
-.tf-social-1 a:hover,
-.tf-social-1 a:hover .icon { color: #00e5ff; }
+/* Botones de redes del pie: pastilla blanca, así que el texto se enciende en
+   violeta; el círculo sigue azul noche y su icono se queda en blanco. */
+.tf-social-1 a:hover { color: #5b1aff; }
+.tf-social-1 a:hover .icon { color: #ffffff; }
 
 /* Paginación y puntos de los deslizadores */
 .pagi-dot span.active { background-color: var(--adv-violeta); }
