@@ -1117,6 +1117,16 @@ body::-webkit-scrollbar-track,
    WhatsApp, resultados al correo, videollamada y teléfono. El adorno pasa a
    contar lo mismo que el texto que rodea.                                   */
 .adv-tool-tile {
+  /* POSICION ABSOLUTA, Y ESTO NO ES UN DETALLE.
+     El template colocaba estas seis fichas con la regla «.section-tools > img»
+     —solo esa daba el position: absolute— y las medidas de cada una con
+     «.section-tools .img-N». Al cambiar las imagenes por <span> dejo de
+     cumplirse la primera: las seis perdieron el posicionamiento, cayeron al
+     flujo normal, se apilaron una debajo de otra contra el borde izquierdo y
+     empujaron el titular media pantalla hacia abajo.
+     Leccion: cambiar la etiqueta de un elemento rompe los selectores que la
+     nombran, y el template nombra «img» en un sitio y la clase en otro. */
+  position: absolute;
   display: flex !important;
   align-items: center;
   justify-content: center;
@@ -1173,20 +1183,136 @@ header.tf-header { margin-bottom: 0 !important; }
    La tarjeta pasa a ser una superficie limpia, casi blanca, y el color se
    concentra donde tiene que estar, detrás de la fotografía. */
 .section-hero .hero-image {
+  /* La base es el blanco frío de la marca, #f5f7fa, no el blanco puro: la
+     tarjeta se veía lavada porque estaba arrancando en #ffffff, que no es un
+     color de la paleta. */
   background:
-    linear-gradient(150deg, #ffffff 0%, #f7f9fc 50%, #edf1f8 100%) !important;
+    radial-gradient(56% 60% at 90% 20%, rgba(0, 229, 255, 0.58) 0%, rgba(0, 229, 255, 0) 60%),
+    radial-gradient(54% 58% at 78% 80%, rgba(91, 26, 255, 0.52) 0%, rgba(91, 26, 255, 0) 62%),
+    radial-gradient(38% 42% at 99% 52%, rgba(124, 58, 237, 0.42) 0%, rgba(124, 58, 237, 0) 58%),
+    linear-gradient(118deg, #f5f7fa 0%, #f5f7fa 48%, #eef2f9 100%) !important;
 }
-/* El grano, más discreto: sobre un fondo casi blanco se notaba de más */
-.section-hero .hero-image::after { opacity: .22 !important; }
+/* El grano sube: es lo que convierte tres manchas de color en una superficie
+   y no en un degradado de plantilla. En la referencia es justo eso lo que se
+   ve antes que el color. */
+.section-hero .hero-image::after { opacity: .52 !important; }
 
 /* 21.3 · EL VIOLETA, DETRÁS DE LA MUJER.
    Era un halo blanco sobre fondo claro, o sea invisible. Ahora es el color
    primario, y hace dos cosas a la vez: recorta la figura contra el fondo y
    deja dicho cuál es el color de la marca sin tener que escribirlo. */
 .adv-hero__blob {
-  background: radial-gradient(circle at 46% 40%,
-    rgba(91, 26, 255, 0.52) 0%,
-    rgba(91, 26, 255, 0.30) 42%,
-    rgba(91, 26, 255, 0.10) 60%,
-    rgba(91, 26, 255, 0) 73%) !important;
+  /* El disco violeta macizo detrás de la figura quedaba como un plato de
+     color pegado. El color ya lo pone la mancha de la tarjeta; aquí solo hace
+     falta un velo claro que despegue a la persona del fondo y no compita. */
+  background: radial-gradient(circle at 46% 38%,
+    rgba(255, 255, 255, 0.62) 0%,
+    rgba(255, 255, 255, 0.26) 46%,
+    rgba(255, 255, 255, 0) 72%) !important;
 }
+
+/* EL CORTE RECTO DE LA FOTO.
+   La fotografía llevaba clip-path: polygon(0 0, 100% 0, 100% 74%, 0 97%), un
+   recorte en diagonal pensado para la imagen del template. Sobre una persona
+   recortada lo que hace es cortarle la bata en seco y dejar dos filos rectos
+   a los lados. Fuera: la silueta ya viene recortada en el PNG. */
+.adv-hero__person { clip-path: none !important; }
+
+/* =========================================================================
+   22. EL ACORDEÓN DE ESPECIALIDADES, ABIERTO
+   =========================================================================
+   El panel abierto se pone azul noche. No lo pinta el bloque: lo pinta
+   «.accordion-action::before», un pseudo-elemento absoluto que, como su
+   contenedor posicionado es la tarjeta entera, la cubre toda. Cerrado se
+   desliza fuera con bottom: 110 %; abierto baja a 0.
+
+   El template ya ponía el titular en blanco al abrirse. Lo rompí yo: una
+   regla de este archivo fijaba «.accordion-title { color: tinta !important }»
+   sin mirar el estado, y el !important se come la del template. Resultado,
+   titular casi negro sobre azul noche.
+
+   Dos cosas que me llevo de aquí:
+   - Un !important sobre un color es una promesa de que ese elemento solo
+     vive en un fondo. Si tiene dos estados, hay que decir los dos.
+   - Y el fondo de un pseudo-elemento es fondo igual. El escáner no los
+     miraba, por eso daba cero teniendo esto a la vista.                     */
+
+.accordion-faq_item .accordion-action:not(.collapsed) .accordion-title,
+.accordion-faq_item .accordion-action:not(.collapsed) .accordion-title * {
+  color: var(--color-blanco-frio) !important;
+}
+.accordion-faq_item .accordion-action:not(.collapsed) .accordion-title .num {
+  color: var(--color-cian-electrico) !important;
+}
+
+/* El cuerpo y la lista viven dentro del mismo velo azul */
+.accordion-faq_item .accordion-content .text,
+.accordion-faq_item .accordion-content p,
+.accordion-faq_item .accordion-content .text-neutral-300 {
+  color: #c3d0dd !important;
+}
+
+/* Las etiquetas, en cian translúcido: sobre azul noche se separan de la
+   tarjeta y se leen, que con el gris azulado quedaban a medio camino. */
+.accordion-faq_item .accordion-content .tags-item {
+  background: rgba(0, 229, 255, 0.12) !important;
+  border: 1px solid rgba(0, 229, 255, 0.42) !important;
+  color: var(--color-cian-electrico) !important;
+}
+.accordion-faq_item .accordion-content .tags-item:hover {
+  background: var(--color-cian-electrico) !important;
+  border-color: var(--color-cian-electrico) !important;
+  color: var(--color-azul-noche) !important;
+}
+
+/* =========================================================================
+   23. LAS CAPAS DECORATIVAS NO SE TOCAN
+   =========================================================================
+   El halo que hay detrás de la figura del hero es un círculo de 600 px. En
+   tableta se sale de la fotografía, se monta sobre la columna de texto y cae
+   justo encima de «Reservar hora». Y como no tenía pointer-events: none, no
+   solo lavaba el botón: SE COMÍA EL CLIC. El botón principal de la página no
+   se podía pulsar a ese ancho.
+
+   No lo habría encontrado mirando contraste ni desbordes, porque no era ni
+   una cosa ni la otra. Lo encontró la prueba de «texto tapado» del escáner,
+   que le pregunta al navegador qué hay de verdad en cada punto.
+
+   Regla que se queda: un adorno nunca recibe el ratón. Si no se puede pulsar,
+   no puede estorbar.                                                        */
+.adv-hero__blob,
+.adv-float,
+[class*="adv-float--"],
+.section-hero .hero-image,
+.section-hero .hero-image::after,
+.adv-tool-tile,
+.section-contact .contact-image {
+  pointer-events: none !important;
+}
+
+/* =========================================================================
+   24. LAS TRES COLUMNAS DE «QUÉ RESOLVEMOS» EN TABLETA
+   =========================================================================
+   «QUÉ RESOLVEMOS · INCLUYE · COBERTURA» van en una fila de tres. A 768 px
+   la última columna se queda en 84 px y la palabra COBERTURA necesita 90, así
+   que se partía a media palabra: «COBERTUR / A».
+   Partir una palabra es el último recurso que puse como red de seguridad en
+   el apartado 19; aquí lo que hay que arreglar es el ancho, no el corte. La
+   fila pasa a ocupar todo el ancho disponible y las columnas se reparten con
+   un mínimo, de modo que ninguna se queda sin sitio para su propia palabra. */
+@media (max-width: 991px) {
+  .bot { flex-wrap: wrap; }
+  .bot .grid-text { flex: 1 1 100%; gap: 20px; }
+  .bot .grid-text .item { flex: 1 1 30%; min-width: 132px; }
+}
+/* Estos rótulos no se parten nunca: son una sola palabra y partirla no
+   ayuda a nadie a leerla. */
+.grid-text .title,
+.grid-text .item > .title { overflow-wrap: normal !important; }
+
+/* Una imagen con alt vacío está declarada como decorativa por quien la puso.
+   Si es decorativa, tampoco debe recibir el ratón: las ilustraciones de las
+   tarjetas se solapan con los titulares de debajo y, aunque el dibujo sea
+   transparente justo ahí, su caja sigue interceptando el clic. Misma regla
+   que para el halo del hero, que se comía el botón de reservar. */
+img[alt=""] { pointer-events: none; }

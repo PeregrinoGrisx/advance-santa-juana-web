@@ -133,11 +133,64 @@
       b: p.reduce((a, c) => a + c[2], 0) / n, a: 1 };
   };
 
+  /* EL FONDO DE UN ::before TAMBIÉN ES FONDO.
+     Esto costó una lámina entera. El acordeón de especialidades se pone azul
+     noche al abrirse, y no lo pinta ningún elemento: lo pinta un
+     «.accordion-action::before» absoluto que, como su contenedor posicionado
+     es la tarjeta entera, la cubre toda y se queda detrás del texto. Al
+     recorrer solo elementos de verdad, el escáner veía la tarjeta blanca que
+     hay debajo y daba por bueno un titular casi negro sobre azul noche.
+     Solo cuenta si de verdad tapa: posicionado, opaco y del tamaño del
+     contenedor. Un adorno pequeño no es el fondo de nadie. */
+  /* Mira los pseudo de un elemento y decide si alguno tapa una caja dada.
+     Se compara contra `caja` y no contra el dueño porque un pseudo absoluto
+     se mide respecto a su bloque contenedor, que es el ancestro posicionado;
+     en el acordeón el dueño es la cabecera y el bloque contenedor es la
+     tarjeta entera, que es justo lo que acaba tapado. */
+  const pseudoTapa = (dueno, caja) => {
+    for (const p of ['::before', '::after']) {
+      const cs = getComputedStyle(dueno, p);
+      if (cs.content === 'none' || cs.position === 'static') continue;
+      if (parseFloat(cs.opacity) < 0.85) continue;
+      /* Fuera de la vista: el truco del template para esconderlo es
+         desplazarlo con bottom/top por encima del 100 %. */
+      const desplazado = ['bottom', 'top', 'left', 'right'].some((lado) => {
+        const v = cs[lado];
+        if (v.endsWith('%')) return Math.abs(parseFloat(v)) >= 100;
+        const n = parseFloat(v);
+        return isFinite(n) && Math.abs(n) >= caja.clientHeight * 0.9 && caja.clientHeight > 0;
+      });
+      if (desplazado) continue;
+      const w = parseFloat(cs.width), h = parseFloat(cs.height);
+      if (!isFinite(w) || !isFinite(h)) continue;
+      if (w < caja.clientWidth * 0.8 || h < caja.clientHeight * 0.8) continue;
+      const c = deGradiente(cs.backgroundImage) || aRGB(cs.backgroundColor);
+      if (c && c.a >= 0.85) return c;
+    }
+    return null;
+  };
+
+  /* El pseudo del propio bloque, o el de alguno de los que lleva dentro y se
+     miden contra él. Se limita a los primeros niveles: más abajo ya no hay
+     nada que pueda tapar el bloque entero, y recorrer todo es caro. */
+  const pseudoQueTapa = (el) => {
+    const propio = pseudoTapa(el, el);
+    if (propio) return propio;
+    if (getComputedStyle(el).position === 'static') return null;
+    for (const hijo of el.querySelectorAll(':scope > *, :scope > * > *')) {
+      const c = pseudoTapa(hijo, el);
+      if (c) return c;
+    }
+    return null;
+  };
+
   const fondoReal = (el) => {
     const capas = []; let n = el;
     while (n && n !== document.documentElement) {
       const cs = getComputedStyle(n);
       if (recortadoAlTexto(cs)) { n = n.parentElement; continue; }
+      const ps = pseudoQueTapa(n);
+      if (ps) { capas.push(ps); break; }
       const gr = deGradiente(cs.backgroundImage);
       if (gr) { capas.push(gr); break; }
       const bg = aRGB(cs.backgroundColor);
@@ -446,6 +499,61 @@
         + String(fuera[0].className).trim().split(/\s+/).slice(0, 2).join('.')) : 'sin culpable claro',
     });
   }
+
+  /* ================= TEXTO TAPADO =================
+     La comprobación que faltaba, y la que habría cazado el estropicio de la
+     sección de tecnología: seis fichas que perdieron su posición, se apilaron
+     unas sobre otras contra el borde y empujaron el titular media pantalla.
+     Aquello no era ni un problema de contraste ni un desborde, así que las
+     otras pruebas lo daban por bueno mientras la sección estaba rota a la
+     vista de cualquiera.
+
+     Se pregunta al navegador qué hay de verdad en el punto donde cae cada
+     texto. Si lo que contesta no es ese texto ni nadie de su familia, es que
+     tiene algo encima. */
+  const vistoT = new Set();
+  todos.forEach((el) => {
+    const propio = [...el.childNodes]
+      .filter((n) => n.nodeType === 3 && n.textContent.trim())
+      .map((n) => n.textContent.trim()).join(' ');
+    if (!propio) return;
+    const r = el.getBoundingClientRect();
+    /* Solo lo que está dentro de la ventana: fuera de ella elementFromPoint
+       no contesta nada útil. */
+    if (r.top < 0 || r.bottom > window.innerHeight || r.left < 0 || r.right > window.innerWidth) return;
+    if (r.width < 24 || r.height < 10) return;
+
+    /* Seis puntos, en dos alturas. Uno solo no vale: el centro de una línea
+       larga puede caer en el hueco entre dos palabras. Y dos alturas hacen
+       falta porque una ilustración que roza el titular por arriba tapa su
+       caja sin tapar la letra —el dibujo es transparente justo ahí—, y eso
+       daba avisos de texto tapado en sitios que se leen perfectamente.
+       Si está tapado de verdad, lo está a las dos alturas. */
+    const puntos = [];
+    [0.3, 0.72].forEach((fy) => [0.2, 0.5, 0.8].forEach((fx) => {
+      puntos.push([r.left + r.width * fx, r.top + r.height * fy]);
+    }));
+    const tapado = puntos.every(([x, y]) => {
+      const enc = document.elementFromPoint(x, y);
+      if (!enc) return false;
+      return !(enc === el || el.contains(enc) || enc.contains(el));
+    });
+    if (!tapado) return;
+    const enc = document.elementFromPoint(puntos[4][0], puntos[4][1]);
+    /* Una cabecera fija encima del contenido al hacer scroll no es un fallo
+       de maquetación: es lo que hace una cabecera fija. */
+    const cs = enc ? getComputedStyle(enc) : null;
+    if (cs && (cs.position === 'fixed' || cs.position === 'sticky')) return;
+    if (enc && enc.closest('header, .tf-header, [class*="sticky"], [class*="fixed"]')) return;
+    const clave = el.tagName + String(el.className).slice(0, 30) + propio.slice(0, 20);
+    if (vistoT.has(clave)) return;
+    vistoT.add(clave);
+    anota('TAPADO', el, {
+      padre: enc ? (enc.tagName.toLowerCase() + '.'
+        + String(enc.className).trim().split(/\s+/).slice(0, 2).join('.')) : '?',
+      eje: 'tiene algo encima',
+    });
+  });
 
   /* ================= 5. ICONOS QUE NO SE VEN ================= */
   const vistoI = new Set();

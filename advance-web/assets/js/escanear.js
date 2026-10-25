@@ -64,6 +64,20 @@ async function main() {
   for (const pg of PAGINAS) {
     await cmd('Page.navigate', { url: BASE + '/' + pg });
     await esperar(6000);
+    /* NADA EN MOVIMIENTO MIENTRAS SE MIDE.
+       Los puntos de paginación cambian de color con una transición, y al
+       recorrer la página el escáner los cazaba a medio camino: colores que
+       no están en ninguna hoja de estilos ni en la paleta, inventados por el
+       navegador al interpolar. Daban avisos de verde que no existían.
+       Con las transiciones paradas, lo que se mide es el color de verdad. */
+    await cmd('Runtime.evaluate', { expression: `
+      (() => {
+        const s = document.createElement('style');
+        s.textContent = '*, *::before, *::after { transition: none !important; animation: none !important; }';
+        document.head.appendChild(s);
+      })();
+    ` });
+    await esperar(300);
     /* ABRIR TODO ANTES DE MIRAR.
        Dos motivos, y los dos han escondido fallos reales:
        - Las animaciones de entrada dejan medio sitio a opacidad 0.
@@ -84,13 +98,37 @@ async function main() {
          que no existían. Lo del móvil se mira con el ancho del móvil. */
     ` });
     await esperar(1200);
-    const r = await cmd('Runtime.evaluate', { expression: SONDA, returnByValue: true });
-    if (r.exceptionDetails) {
+    /* SE RECORRE LA PÁGINA, no se mira solo el primer pantallazo.
+       La prueba de «texto tapado» le pregunta al navegador qué hay en un
+       punto de la pantalla, y eso solo contesta de lo que está a la vista.
+       Mirando una sola vez, el escáner revisaba la primera pantalla de ocho
+       páginas y daba el resto por bueno sin haberlo visto. */
+    const alto = (await cmd('Runtime.evaluate', { expression: 'document.documentElement.scrollHeight', returnByValue: true })).result.value || 0;
+    const pasos = Math.min(14, Math.max(1, Math.ceil(alto / (MOVIL ? 700 : 820))));
+    let fallos = [];
+    const vistos = new Set();
+    let falloSonda = null;
+
+    for (let i = 0; i < pasos; i++) {
+      await cmd('Runtime.evaluate', { expression: `window.scrollTo(0, ${i} * ${MOVIL ? 700 : 820});` });
+      await esperar(i === 0 ? 300 : 420);
+      /* Al desplazar, las animaciones de entrada vuelven a esconder bloques */
+      await cmd('Runtime.evaluate', { expression: "document.querySelectorAll('.effectFade').forEach(e=>{e.style.opacity=1;e.style.visibility='visible';e.style.transform='none';});" });
+      await esperar(180);
+      const r = await cmd('Runtime.evaluate', { expression: SONDA, returnByValue: true });
+      if (r.exceptionDetails) { falloSonda = r.exceptionDetails; break; }
+      (r.result.value || []).forEach((f) => {
+        const clave = f.tipo + f.donde + (f.texto || '') + (f.prop || '') + (f.color || '') + (f.regla || '');
+        if (vistos.has(clave)) return;
+        vistos.add(clave);
+        fallos.push(f);
+      });
+    }
+    if (falloSonda) {
       console.log('\n== ' + pg + ' == ERROR EN LA SONDA');
-      console.log(JSON.stringify(r.exceptionDetails).slice(0, 600));
+      console.log(JSON.stringify(falloSonda).slice(0, 600));
       continue;
     }
-    let fallos = r.result.value || [];
     if (SOLO) fallos = fallos.filter((f) => f.tipo === SOLO);
     total += fallos.length;
     fallos.forEach((f) => { cuenta[f.tipo] = (cuenta[f.tipo] || 0) + 1; });
@@ -102,8 +140,10 @@ async function main() {
       console.log('  -- ' + t + ' (' + porTipo[t].length + ')');
       porTipo[t].slice(0, 14).forEach((f) => {
         const extra = t === 'VERDE' ? `${f.prop}=${f.color} tono ${f.tono}`
-          : t === 'DESBORDE' ? `${f.eje} ${f.px !== undefined ? f.px + 'px fuera de ' + f.padre : f.contenido + ' en ' + f.caja}`
-            : `${f.ratio}:1 (min ${f.minimo}) ${f.color || ''} sobre ${f.fondo || ''}`;
+          : t === 'TAPADO' ? `lo tapa ${f.padre}`
+            : t === 'SCROLL-LATERAL' ? `${f.px}px de mas, por ${f.padre}`
+              : t === 'DESBORDE' ? `${f.eje} ${f.px !== undefined ? f.px + 'px fuera de ' + f.padre : f.contenido + ' en ' + f.caja}`
+                : `${f.ratio}:1 (min ${f.minimo}) ${f.color || ''} sobre ${f.fondo || ''}`;
         console.log('     ' + f.donde.padEnd(42).slice(0, 42) + ' ' + extra
           + (f.texto ? '  «' + f.texto + '»' : '') + (f.regla ? '  [' + f.regla + ']' : ''));
       });

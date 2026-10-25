@@ -72,6 +72,42 @@
     /text/.test(cs.webkitBackgroundClip || cs.backgroundClip || '')
     || cs.webkitTextFillColor === 'rgba(0, 0, 0, 0)';
 
+  /* El fondo de un ::before también es fondo. Misma cuenta que hace
+     escaner-sonda.js, y conviene que sean la misma: el acordeón de la portada
+     se pone azul noche con un pseudo-elemento absoluto que cubre la tarjeta
+     entera, y midiendo solo elementos de verdad esto daba «blanco sobre
+     blanco» en un sitio donde el fondo es azul noche. */
+  const pseudoTapa = (dueno, caja) => {
+    for (const p of ['::before', '::after']) {
+      const cs = getComputedStyle(dueno, p);
+      if (cs.content === 'none' || cs.position === 'static') continue;
+      if (parseFloat(cs.opacity) < 0.85) continue;
+      const desplazado = ['bottom', 'top', 'left', 'right'].some((lado) => {
+        const v = cs[lado];
+        if (v.endsWith('%')) return Math.abs(parseFloat(v)) >= 100;
+        const n = parseFloat(v);
+        return isFinite(n) && caja.clientHeight > 0 && Math.abs(n) >= caja.clientHeight * 0.9;
+      });
+      if (desplazado) continue;
+      const w = parseFloat(cs.width), h = parseFloat(cs.height);
+      if (!isFinite(w) || !isFinite(h)) continue;
+      if (w < caja.clientWidth * 0.8 || h < caja.clientHeight * 0.8) continue;
+      const c = deGradiente(cs.backgroundImage) || aRGB(cs.backgroundColor);
+      if (c && c.a >= 0.85) return c;
+    }
+    return null;
+  };
+  const pseudoQueTapa = (el) => {
+    const propio = pseudoTapa(el, el);
+    if (propio) return propio;
+    if (getComputedStyle(el).position === 'static') return null;
+    for (const hijo of el.querySelectorAll(':scope > *, :scope > * > *')) {
+      const c = pseudoTapa(hijo, el);
+      if (c) return c;
+    }
+    return null;
+  };
+
   /* El fondo real: se suben los padres acumulando capas translúcidas */
   const fondoReal = (el) => {
     const capas = [];
@@ -79,6 +115,8 @@
     while (n && n !== document.documentElement) {
       const cs = getComputedStyle(n);
       if (recortadoAlTexto(cs)) { n = n.parentElement; continue; }
+      const ps = pseudoQueTapa(n);
+      if (ps) { capas.push(ps); break; }
       const grad = deGradiente(cs.backgroundImage);
       if (grad) { capas.push(grad); break; }
       const bg = aRGB(cs.backgroundColor);
