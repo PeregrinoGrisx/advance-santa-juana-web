@@ -48,6 +48,19 @@ Revisar con el equipo los consejos del post 05 y reemplazar la profesional
 recortada (`fotos/medica-recorte.webp`, imagen de banco) por alguien del centro.
 Sus PNG quedan en `serie-c/png/`.
 
+## Serie D · «Editorial» (`serie-d/`)
+
+Estilo revista: fondo blanco, cabecera con número («N.º 03»), titulares grandes
+que combinan letra gruesa y fina en cursiva, líneas finas, fotos de esquinas
+rectas y un índice de especialidades numerado. Es la más sobria de las cinco.
+
+## Serie E · «Bento» (`serie-e/`)
+
+Grilla de bloques redondeados de distintos tamaños y colores (como las
+presentaciones de Apple), con las fotos en **duotono azul** de la marca
+(`fotos/duotono/`). Al cambiar una foto hay que regenerar su duotono con los
+colores `#012A47`, `#2F7DB3` y `#D6EEFB`.
+
 ## La marca que se usa
 
 - **Logotipo:** archivos maestros del kit oficial (`logos/`), sin redibujar ni
