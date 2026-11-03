@@ -43,4 +43,4 @@ for html in sorted(CARPETA.glob("*.html")):
         tamaño = png.stat().st_size if png.exists() else -1
         time.sleep(1)
     shutil.rmtree(perfil, ignore_errors=True)
-    print("✓" if png.exists() else "✗", png.name)
+    print("listo:" if png.exists() else "FALLO:", png.name)
