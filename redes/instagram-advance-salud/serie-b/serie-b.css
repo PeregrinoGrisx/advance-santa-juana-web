@@ -1,0 +1,26 @@
+/* Serie B · «Arcos». Misma marca que la serie A (estilos.css), otro lenguaje:
+   fotos en arcos y círculos, especialidades como lista de chequeo y una franja
+   de contacto fija abajo. */
+
+.arco { position: absolute; overflow: hidden; border-radius: 999px 999px 36px 36px; }
+.arco img, .circulo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.arco-borde { position: absolute; border: 8px solid var(--lima); border-radius: 999px 999px 36px 36px; }
+.circulo { position: absolute; overflow: hidden; border-radius: 50%; }
+
+/* Franja de contacto: igual en todos los posts */
+.franja { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; background: var(--azul);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 70px; }
+.franja .logo { width: 330px; }
+.franja .contacto { text-align: right; }
+.franja .contacto .rotulo { font-family: "DM Sans", Arial, sans-serif; font-size: 26px; font-weight: 700; color: var(--celeste); }
+.franja .contacto .fono { font-size: 50px; font-weight: 900; letter-spacing: -0.01em; line-height: 1.05; }
+.franja .contacto .dir { font-family: "DM Sans", Arial, sans-serif; font-size: 22px; font-weight: 600; color: #DCEFFB; }
+
+.chip { display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; font-weight: 800; white-space: nowrap; }
+
+/* Lista de chequeo de cada especialidad */
+.lista { display: grid; gap: 22px; }
+.lista li { list-style: none; display: grid; grid-template-columns: 48px 1fr; gap: 18px; align-items: start;
+  font-family: "DM Sans", Arial, sans-serif; font-size: 31px; font-weight: 600; line-height: 1.25; color: var(--noche); }
+.lista .check { width: 48px; height: 48px; border-radius: 50%; background: var(--lima); display: grid; place-items: center; margin-top: -4px; }
+.lista .check svg { width: 30px; height: 30px; }

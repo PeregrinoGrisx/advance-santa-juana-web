@@ -12,6 +12,23 @@ Formato vertical 1080 × 1350 (4:5), el que más espacio ocupa en el feed.
 
 Cada post tiene su `.html` editable y su `.png` exportado en `png/`.
 
+## Serie B · «Arcos» (`serie-b/`)
+
+La misma marca con otro lenguaje visual, para alternar en el feed o elegir una:
+
+- Fotos enmarcadas en **arcos y círculos**, con un borde verde lima desplazado.
+- Especialidades como **lista de chequeo**, con el contenido de los volantes
+  oficiales (por ejemplo «Limpieza, destartraje y tapaduras»), una frase
+  manuscrita encima («vuelve a moverte», «cerca de ti») y el horario de los
+  volantes: lunes a viernes de 08:00 a 20:00. Toma de muestras va sin horario,
+  porque su volante lo tiene en blanco.
+- **Franja azul de contacto** fija abajo, igual en los seis posts.
+- «Agenda tu consulta» muestra seis especialidades en tarjetas de colores, y
+  «Bienestar para tu familia» los tres valores del manual: Confianza, Cercanía y
+  Cuidado integral.
+
+Sus PNG quedan en `serie-b/png/`.
+
 ## La marca que se usa
 
 - **Logotipo:** archivos maestros del kit oficial (`logos/`), sin redibujar ni
@@ -46,10 +63,11 @@ Cada post tiene su `.html` editable y su `.png` exportado en `png/`.
 ## Editar y exportar
 
 1. Abre el `.html` en un editor de texto y cambia los textos.
-2. Exporta todo a `png/`:
+2. Exporta todas las series (cada una a su carpeta `png/`), o solo una:
 
    ```bash
    python redes/instagram-advance-salud/exportar.py
+   python redes/instagram-advance-salud/exportar.py serie-b
    ```
 
 ## Textos sugeridos para publicar
