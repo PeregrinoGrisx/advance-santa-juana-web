@@ -29,6 +29,25 @@ La misma marca con otro lenguaje visual, para alternar en el feed o elegir una:
 
 Sus PNG quedan en `serie-b/png/`.
 
+## Serie C · «Clínica» (`serie-c/`)
+
+Inspirada en las plantillas healthcare de Envato Elements (búsqueda «medical
+instagram»), dibujada desde cero con la marca de Advance Salud: no usa ningún
+archivo de Envato.
+
+- Profesional recortada sobre un círculo azul con borde punteado, cruces médicas
+  en lima y celeste, y fondo de puntos.
+- Tarjetas blancas tipo app con íconos, insignias de horario y FONASA, y botón
+  «Agenda tu hora» con flecha.
+- Barra de contacto con íconos (teléfono, dirección y horario) en todos los posts.
+- Seis formatos distintos: portada con profesional, grilla de 9 servicios,
+  «¿Por qué elegirnos?», especialidad con corte diagonal, consejos antes de la
+  toma de muestras y «Tu hora en 3 pasos» con un celular y un chat de ejemplo.
+
+Revisar con el equipo los consejos del post 05 y reemplazar la profesional
+recortada (`fotos/medica-recorte.webp`, imagen de banco) por alguien del centro.
+Sus PNG quedan en `serie-c/png/`.
+
 ## La marca que se usa
 
 - **Logotipo:** archivos maestros del kit oficial (`logos/`), sin redibujar ni
