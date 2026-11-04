@@ -1,83 +1,47 @@
 /* ---------------------------------------------------------------------------
    Advance · Centro de salud Santa Juana
    Capa de marca sobre el template base. Punto Gris — puntogris.cl
-   Paleta B: cian #00e5ff como color de marca, azul noche #0a2240 y violeta #5b1aff\n   secundario. Antes era el turquesa del logotipo (#008F96); se cambió el 26-10-2026.
+   Colores del Manual de Marca de Advance Salud (Merken Digital): azul principal #044B7E,
+   celeste #6DB9E6, lima #9FD412, turquesa #48A9A6 y azul noche #012A47.
 --------------------------------------------------------------------------- */
 
 :root {
-  --adv-turquesa: #00e5ff;
-  --adv-turquesa-texto: #5b1aff;   /* texto de marca sobre claro: violeta (el cian da 1,4:1) */
-  --adv-turquesa-claro: #00e5ff;
-  --adv-teal-profundo: #0a2240;
-  --adv-tinta: #0a2240;      /* fondos oscuros */
-  --adv-tinta-900: #0d1117;
-  --adv-agua: #e4eaf4;
+  --adv-turquesa: #6DB9E6;           /* celeste del manual: rellenos y brillos */
+  --adv-turquesa-texto: #044B7E;     /* texto de marca sobre claro: azul principal */
+  --adv-turquesa-claro: #6DB9E6;
+  --adv-teal-profundo: #012A47;
+  --adv-tinta: #012A47;              /* fondos oscuros */
+  --adv-tinta-900: #012A47;
+  --adv-agua: #E6EDF2;
   --adv-nieve: #f5f7fa;
-  --adv-ambar: #FFB020;      /* ambar FONASA, el del documento */
-  --adv-naranja: #FFB020;
-  --adv-celeste: #00e5ff;
-  --adv-azul: #5b1aff;
-  --adv-marino: #0a2240;
-  --adv-verde: #0a2240;      /* confirmaciones */
-  --adv-whatsapp: #0a2240;
+  --adv-ambar: #9FD412;              /* lima del manual (antes ámbar FONASA) */
+  --adv-naranja: #9FD412;
+  --adv-celeste: #6DB9E6;
+  --adv-azul: #044B7E;
+  --adv-marino: #012A47;
+  --adv-verde: #012A47;              /* confirmaciones */
+  --adv-whatsapp: #012A47;
 }
 
 /* --- Logotipo ------------------------------------------------------------ */
-/* El logotipo original es vertical (isotipo sobre la palabra). Para barras y
-   pies se recorta por sprite en una versión horizontal, sin redibujarlo.     */
+/* Logotipo horizontal del Manual de Marca (archivos maestros de la diseñadora,
+   recortados sin redibujar). Versión a color sobre claro; sobre el fondo
+   oscuro del menú del celular se usa la versión para fondo oscuro. */
 
 .adv-logo {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
   text-decoration: none;
 }
 
-.adv-mark {
+.adv-logo__img {
   display: block;
-  flex-shrink: 0;
-  background-image: url(../images/logo/advance-logo.png);
-  background-repeat: no-repeat;
+  width: 196px;
+  height: auto;
 }
-
-.adv-mark--iso {
-  --k: 0.096;
-  width: calc(319px * var(--k));
-  height: calc(314px * var(--k));
-  background-size: calc(1726px * var(--k)) calc(924px * var(--k));
-  background-position: calc(-721px * var(--k)) calc(-20px * var(--k));
-}
-
-.adv-mark--word {
-  --k: 0.068;
-  width: calc(1687px * var(--k));
-  height: calc(311px * var(--k));
-  background-size: calc(1726px * var(--k)) calc(924px * var(--k));
-  background-position: calc(-18px * var(--k)) calc(-413px * var(--k));
-}
-
-.adv-mark--tag {
-  --k: 0.07;
-  width: calc(1567px * var(--k));
-  height: calc(109px * var(--k));
-  background-size: calc(1726px * var(--k)) calc(924px * var(--k));
-  background-position: calc(-78px * var(--k)) calc(-796px * var(--k));
-}
-
-.adv-logo__text { display: flex; flex-direction: column; gap: 4px; }
-
-/* Sobre fondos oscuros el logotipo va en blanco */
-.adv-logo--light .adv-mark { filter: brightness(0) invert(1); }
-
-.adv-logo--lg { gap: 16px; }
-.adv-logo--lg .adv-mark--iso  { --k: 0.19; }
-.adv-logo--lg .adv-mark--word { --k: 0.115; }
-.adv-logo--lg .adv-mark--tag  { --k: 0.1; }
 
 @media (max-width: 575px) {
-  .adv-mark--iso  { --k: 0.082; }
-  .adv-mark--word { --k: 0.05; }
-  .adv-mark--tag  { --k: 0.053; }
+  .adv-logo__img { width: 158px; }
 }
 
 /* --- Encabezado ---------------------------------------------------------- */
@@ -99,13 +63,13 @@
    turquesa. El turquesa es el del logotipo y evita que el violeta quede solo. */
 .section-hero .hero-image {
   background-image: none;
-  background-color: #D7E6F6;
+  background-color: #DBEEF9;
   background:
-    radial-gradient(46% 50% at 80% 12%, rgba(0, 229, 255, 0.46) 0%, rgba(0, 229, 255, 0) 64%),
-    radial-gradient(40% 46% at 18% 80%, rgba(0, 229, 255, 0.62) 0%, rgba(0, 229, 255, 0) 64%),
-    radial-gradient(50% 54% at 100% 92%, rgba(0, 229, 255, 0.46) 0%, rgba(0, 229, 255, 0) 66%),
+    radial-gradient(46% 50% at 80% 12%, rgba(109,185,230, 0.46) 0%, rgba(109,185,230, 0) 64%),
+    radial-gradient(40% 46% at 18% 80%, rgba(109,185,230, 0.62) 0%, rgba(109,185,230, 0) 64%),
+    radial-gradient(50% 54% at 100% 92%, rgba(109,185,230, 0.46) 0%, rgba(109,185,230, 0) 66%),
     radial-gradient(42% 46% at 2% 2%, rgba(255, 255, 255, 0.90) 0%, rgba(255, 255, 255, 0) 62%),
-    linear-gradient(140deg, #EAF3FA 0%, #D7E6F6 42%, #C6DBF1 72%, #B4CFEC 100%);
+    linear-gradient(140deg, #F0F8FD 0%, #DBEEF9 42%, #C8E4F6 72%, #AFD9F1 100%);
 }
 
 /* Grano fino, como en la referencia */
@@ -195,7 +159,7 @@
   display: block;
   /* el corte en diagonal: la figura parece salir de la pantalla */
   clip-path: polygon(0 0, 100% 0, 100% 74%, 0 97%);
-  filter: drop-shadow(0 26px 40px rgba(10, 34, 64, 0.22));
+  filter: drop-shadow(0 26px 40px rgba(1,42,71, 0.22));
 }
 
 /* --- Piezas flotantes ----------------------------------------------------- */
@@ -205,23 +169,23 @@
 .adv-float--tri {
   width: 74px; height: 64px;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-  background: linear-gradient(180deg, #00e5ff 0%, #5b1aff 100%);
-  box-shadow: 0 14px 26px rgba(0, 229, 255, .34);
+  background: linear-gradient(180deg, #6DB9E6 0%, #044B7E 100%);
+  box-shadow: 0 14px 26px rgba(109,185,230, .34);
 }
 .adv-float--tri-2 {
   width: 56px; height: 48px;
   clip-path: polygon(50% 100%, 100% 0%, 0% 0%);
-  background: linear-gradient(180deg, #b3f7ff 0%, #00e5ff 100%);
-  box-shadow: 0 14px 26px rgba(0, 229, 255, .28);
+  background: linear-gradient(180deg, #C5E3F5 0%, #6DB9E6 100%);
+  box-shadow: 0 14px 26px rgba(109,185,230, .28);
 }
 .adv-float--dot {
   width: 96px; height: 96px; border-radius: 50%;
-  background: radial-gradient(circle at 34% 30%, rgba(255,255,255,.75), rgba(141,185,223,.55) 46%, rgba(62,104,154,.45) 100%);
+  background: radial-gradient(circle at 34% 30%, rgba(255,255,255,.75), rgba(109,185,230,.55) 46%, rgba(4,75,126,.45) 100%);
   backdrop-filter: blur(6px);
 }
 .adv-float--ring {
   width: 120px; height: 120px; border-radius: 50%;
-  border: 2px dashed rgba(10, 34, 64, .22);
+  border: 2px dashed rgba(1,42,71, .22);
 }
 
 .adv-float--a { top: 4%;  right: 2%; }
@@ -240,7 +204,7 @@
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(16px);
-  box-shadow: 0 16px 34px rgba(10, 34, 64, .16);
+  box-shadow: 0 16px 34px rgba(1,42,71, .16);
   font-size: 13px;
   font-weight: 600;
   color: var(--adv-tinta);
@@ -249,10 +213,10 @@
 .adv-tarjeta small { display: block; font-size: 11px; font-weight: 500; color: var(--neutral-500); }
 .adv-tarjeta .ic {
   width: 30px; height: 30px; border-radius: 10px; flex-shrink: 0;
-  display: grid; place-items: center; color: #0a2240; font-size: 13px;
-  background: #00e5ff;
+  display: grid; place-items: center; color: #012A47; font-size: 13px;
+  background: #6DB9E6;
 }
-.adv-tarjeta .ic.ambar { background: linear-gradient(180deg, #FFD27A, #FFB020); color: #0d1117; }
+.adv-tarjeta .ic.ambar { background: linear-gradient(180deg, #C5E571, #9FD412); color: #012A47; }
 .adv-tarjeta--1 { top: 16%; left: -6%; }
 .adv-tarjeta--2 { bottom: 20%; right: -8%; }
 
@@ -294,7 +258,7 @@
    efecto, pero partiendo de un 30 % de opacidad en vez de cero.             */
 
 .text-gradient-2 {
-  background: linear-gradient(360deg, rgba(10, 34, 64, 0.32) 0%, #0a2240 100%);
+  background: linear-gradient(360deg, rgba(1,42,71, 0.32) 0%, #012A47 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -340,7 +304,7 @@
   background-image: none;
   background:
     radial-gradient(62% 70% at 50% -10%, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0) 70%),
-    linear-gradient(152deg, #f5f7fa 0%, #cdf6fd 40%, #80f2ff 74%, #bda3ff 100%);
+    linear-gradient(152deg, #f5f7fa 0%, #D6EBF8 40%, #A7D5F0 74%, #6DB9E6 100%);
 }
 
 /* --- Formularios ---------------------------------------------------------- */
@@ -359,10 +323,10 @@ select option:checked,
 select option:hover,
 .adv-booking select option:checked,
 .adv-booking select option:hover {
-  background: #5b1aff linear-gradient(#5b1aff, #5b1aff);
+  background: #044B7E linear-gradient(#044B7E, #044B7E);
   color: #ffffff;
 }
-.adv-booking select { accent-color: #5b1aff; }
+.adv-booking select { accent-color: #044B7E; }
 
 /* Desplegable propio (lo arma advance.js sobre el <select>, que queda oculto
    para enviar el valor). Va dentro de la página, así que se mueve con el scroll
@@ -385,14 +349,14 @@ select option:hover,
   display: none; position: absolute; z-index: 40; left: 0; right: 0; top: calc(100% + 8px);
   max-height: 330px; overflow-y: auto; margin: 0; padding: 8px; list-style: none;
   background: #fff; border: 1px solid var(--neutral-200); border-radius: 22px;
-  box-shadow: 0 18px 40px rgba(10, 34, 64, .16);
+  box-shadow: 0 18px 40px rgba(1,42,71, .16);
 }
 .adv-sel.is-open .adv-sel__list { display: block; }
 .adv-sel__opt {
-  padding: 10px 14px; border-radius: 12px; font-size: 15.5px; color: #0a2240; cursor: pointer;
+  padding: 10px 14px; border-radius: 12px; font-size: 15.5px; color: #012A47; cursor: pointer;
 }
-.adv-sel__opt[aria-selected="true"] { background: #efeaff; color: #5b1aff; font-weight: 600; }
-.adv-sel__opt:hover, .adv-sel__opt.is-active { background: #5b1aff; color: #ffffff; }
+.adv-sel__opt[aria-selected="true"] { background: #EDF7FC; color: #044B7E; font-weight: 600; }
+.adv-sel__opt:hover, .adv-sel__opt.is-active { background: #044B7E; color: #ffffff; }
 
 /* --- Distintivos (SEREMI · FONASA · online) ------------------------------ */
 
@@ -424,9 +388,9 @@ select option:hover,
 .adv-badge--fonasa {
   background: var(--adv-ambar);
   border-color: var(--adv-ambar);
-  color: #3B2A06;
+  color: #012A47;
 }
-.adv-badge--fonasa .icon { color: #3B2A06; }
+.adv-badge--fonasa .icon { color: #012A47; }
 
 .adv-badge--dark {
   background: rgba(255, 255, 255, 0.08);
@@ -468,10 +432,10 @@ select option:hover,
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
-  box-shadow: 0 10px 28px rgba(10, 34, 64, .36);
+  box-shadow: 0 10px 28px rgba(1,42,71, .36);
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.adv-whatsapp:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(10, 34, 64, .48); }
+.adv-whatsapp:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(1,42,71, .48); }
 .adv-whatsapp svg { width: 26px; height: 26px; flex-shrink: 0; }
 @media (max-width: 575px) {
   .adv-whatsapp { padding: 0; width: 58px; justify-content: center; right: 16px; bottom: 16px; }
@@ -514,7 +478,7 @@ select option:hover,
   transition: all .2s ease;
 }
 .adv-chip:hover { border-color: var(--adv-turquesa); }
-.adv-chip.is-active { background: var(--adv-turquesa); border-color: var(--adv-turquesa); color: #0a2240; }
+.adv-chip.is-active { background: var(--adv-turquesa); border-color: var(--adv-turquesa); color: #012A47; }
 
 .adv-note {
   display: flex;
@@ -534,8 +498,8 @@ select option:hover,
   gap: 8px;
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(242, 179, 61, .18);
-  color: #7A5505;
+  background: rgba(159,212,18, .18);
+  color: #044B7E;
   font-size: 13px;
   font-weight: 700;
 }
@@ -572,7 +536,7 @@ select option:hover,
   top: 0;
   z-index: 999;
   background: var(--adv-turquesa);
-  color: #0a2240;
+  color: #012A47;
   padding: 12px 20px;
   border-radius: 0 0 12px 0;
   font-weight: 600;
@@ -607,30 +571,30 @@ textarea:focus-visible {
 }
 
 /* --- El violeta como acento del sistema ----------------------------------- */
-/* El turquesa sigue siendo la marca (es el logotipo). El violeta #5b1aff
+/* El turquesa sigue siendo la marca (es el logotipo). El violeta #044B7E
    aparece de forma consistente en el botón secundario, en los antetítulos y
    en las secciones de tecnología, equipo y valores.                          */
 
 :root {
-  --adv-violeta: #5b1aff;
-  --adv-violeta-claro: #7a45ff;
-  --adv-violeta-oscuro: #5b1aff;
+  --adv-violeta: #044B7E;
+  --adv-violeta-claro: #366F98;
+  --adv-violeta-oscuro: #044B7E;
 }
 
 /* Botón secundario: está en todos los pares de llamada a la acción */
 .tf-btn-2 {
   color: var(--adv-violeta-oscuro);
   background: radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 100%),
-              linear-gradient(0deg, #F3EEFE, #F7F3FF);
-  box-shadow: 0px -3px 0px 0px #E2D6FB inset,
+              linear-gradient(0deg, #F0F8FD, #F5FAFD);
+  box-shadow: 0px -3px 0px 0px #D0E9F7 inset,
               0px 1px 0px 0px rgba(255, 255, 255, 0.70) inset,
-              0px 2.77px 2.21px 0px rgba(91, 26, 255, 0.14),
-              0px 3px 3px 0px rgba(91, 26, 255, 0.16);
+              0px 2.77px 2.21px 0px rgba(4,75,126, 0.14),
+              0px 3px 3px 0px rgba(4,75,126, 0.16);
 }
 .tf-btn-2:hover {
   color: #fff;
   background: linear-gradient(180deg, var(--adv-violeta-claro) 0%, var(--adv-violeta) 100%);
-  box-shadow: 0px 10px 24px rgba(91, 26, 255, .40);
+  box-shadow: 0px 10px 24px rgba(4,75,126, .40);
 }
 
 /* El punto de cada antetítulo */
@@ -642,9 +606,9 @@ textarea:focus-visible {
   border-radius: 40px;
   margin: 0 16px;
   background:
-    radial-gradient(52% 58% at 84% 14%, rgba(0, 229, 255, 0.42) 0%, rgba(0, 229, 255, 0) 64%),
-    radial-gradient(46% 52% at 12% 86%, rgba(0, 119, 168, 0.26) 0%, rgba(0, 119, 168, 0) 64%),
-    linear-gradient(140deg, #f5f7fa 0%, #e4eaf4 46%, #e4eaf4 100%);
+    radial-gradient(52% 58% at 84% 14%, rgba(109,185,230, 0.42) 0%, rgba(109,185,230, 0) 64%),
+    radial-gradient(46% 52% at 12% 86%, rgba(4,75,126, 0.26) 0%, rgba(4,75,126, 0) 64%),
+    linear-gradient(140deg, #f5f7fa 0%, #E6EDF2 46%, #E6EDF2 100%);
 }
 
 /* Zona oscura: equipo, cifras, acreditaciones y testimonios */
@@ -654,8 +618,8 @@ textarea:focus-visible {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(42% 32% at 88% 6%, rgba(0, 229, 255, 0.55) 0%, rgba(0, 229, 255, 0) 66%),
-    radial-gradient(38% 30% at 8% 96%, rgba(0, 229, 255, 0.38) 0%, rgba(0, 229, 255, 0) 66%);
+    radial-gradient(42% 32% at 88% 6%, rgba(109,185,230, 0.55) 0%, rgba(109,185,230, 0) 66%),
+    radial-gradient(38% 30% at 8% 96%, rgba(109,185,230, 0.38) 0%, rgba(109,185,230, 0) 66%);
 }
 .box-black > * { position: relative; z-index: 1; }
 
@@ -667,23 +631,23 @@ textarea:focus-visible {
 /* Etiquetas de las especialidades */
 .list-tags .tags-item:hover,
 .list-tags .tags-item:nth-child(even):hover {
-  border-color: #00e5ff;
-  color: #00e5ff;
+  border-color: #6DB9E6;
+  color: #6DB9E6;
 }
 
 /* Isotipo del centro de «Todo en un solo lugar»: caja azul noche con los
    cuatro círculos en cian (el blanco/azul sobre cian se veía raro). */
 .features-center {
-  background: linear-gradient(180deg, #0a2240 0%, #0a2240 100%),
+  background: linear-gradient(180deg, #012A47 0%, #012A47 100%),
               radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 /* Otros hover sobre azul noche: cian, no violeta (el violeta ahí no se lee) */
-.team-item .name:hover { color: #00e5ff; }
-.group-slider .group-btn-slider .btn-slider:hover .icon { color: #00e5ff; }
+.team-item .name:hover { color: #6DB9E6; }
+.group-slider .group-btn-slider .btn-slider:hover .icon { color: #6DB9E6; }
 /* Botones de redes del pie: pastilla blanca, así que el texto se enciende en
    violeta; el círculo sigue azul noche y su icono se queda en blanco. */
-.tf-social-1 a:hover { color: #5b1aff; }
+.tf-social-1 a:hover { color: #044B7E; }
 .tf-social-1 a:hover .icon { color: #ffffff; }
 
 /* Paginación y puntos de los deslizadores */
@@ -695,10 +659,10 @@ textarea:focus-visible {
    El turquesa del logotipo sigue mandando; el violeta es el segundo color.   */
 
 :root {
-  --adv-celeste: #00e5ff;
-  --adv-azul: #5b1aff;
-  --adv-marino: #0a2240;
-  --adv-lima: #5b1aff;
+  --adv-celeste: #6DB9E6;
+  --adv-azul: #044B7E;
+  --adv-marino: #012A47;
+  --adv-lima: #044B7E;
 }
 
 /* Nosotros · turquesa, que es el color de la marca */
@@ -721,14 +685,14 @@ textarea:focus-visible {
 /* Botones de las tarjetas del equipo: al pasar el cursor, caja cian con el
    icono en azul noche (el par del documento para fondo cian). */
 .tf-social .social-item:hover {
-  background: #00e5ff;
-  box-shadow: 0 10px 24px rgba(0, 229, 255, .40);
+  background: #6DB9E6;
+  box-shadow: 0 10px 24px rgba(109,185,230, .40);
 }
 .tf-social .social-item:hover .icon,
-.tf-social .social-item:hover .icon * { color: #0a2240 !important; }
+.tf-social .social-item:hover .icon * { color: #012A47 !important; }
 
 /* Acreditaciones: el borde se enciende en violeta */
-.awards-item:hover { border-color: rgba(0, 229, 255, .55); }
+.awards-item:hover { border-color: rgba(109,185,230, .55); }
 
 
 /* Indicadores de «Por qué Advance» */
@@ -748,10 +712,10 @@ textarea:focus-visible {
 .section-contact .contact-image {
   overflow: hidden;
   background:
-    radial-gradient(46% 54% at 84% 10%, rgba(0, 229, 255, 0.42) 0%, rgba(0, 229, 255, 0) 64%),
-    radial-gradient(40% 48% at 10% 88%, rgba(0, 229, 255, 0.52) 0%, rgba(0, 229, 255, 0) 64%),
-    radial-gradient(46% 52% at 100% 94%, rgba(0, 229, 255, 0.46) 0%, rgba(0, 229, 255, 0) 66%),
-    linear-gradient(140deg, #f5f7fa 0%, #E1EBF8 44%, #CFDEF2 100%);
+    radial-gradient(46% 54% at 84% 10%, rgba(109,185,230, 0.42) 0%, rgba(109,185,230, 0) 64%),
+    radial-gradient(40% 48% at 10% 88%, rgba(109,185,230, 0.52) 0%, rgba(109,185,230, 0) 64%),
+    radial-gradient(46% 52% at 100% 94%, rgba(109,185,230, 0.46) 0%, rgba(109,185,230, 0) 66%),
+    linear-gradient(140deg, #f5f7fa 0%, #E9F5FB 44%, #D0E9F7 100%);
 }
 
 .section-contact .contact-image::after {
@@ -777,8 +741,8 @@ textarea:focus-visible {
 .adv-topbar strong { color: var(--adv-ambar); }
 
 .section-pricing .price-per {
-  color: #7A5505;
-  background: rgba(242, 179, 61, .20);
+  color: #044B7E;
+  background: rgba(159,212,18, .20);
   border-radius: 999px;
   padding: 4px 12px;
   font-size: 13px;
@@ -786,8 +750,8 @@ textarea:focus-visible {
   align-self: center;
 }
 .section-pricing .pricing-item.style-black .price-per {
-  color: #FFD27A;
-  background: rgba(242, 179, 61, .16);
+  color: #C5E571;
+  background: rgba(159,212,18, .16);
 }
 
 /* --- Hero: las líneas animadas van detrás del contenido ------------------- */
@@ -821,8 +785,8 @@ textarea:focus-visible {
 /* Credito del pie: sitio hecho por Punto Gris, con enlace a puntogris.cl.
    (Antes aqui estaba el aviso de «vista previa»: el sitio ya es el oficial.) */
 .adv-credito { display: inline-block; margin-top: 6px; font-size: 13px; }
-.adv-credito a { color: #0a2240; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-.adv-credito a:hover { color: #5b1aff; }
+.adv-credito a { color: #012A47; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.adv-credito a:hover { color: #044B7E; }
 
 /* --- Menú fijo ------------------------------------------------------------ */
 /* El template dejaba la cabecera quieta arriba del todo. Al hacer scroll se
@@ -840,7 +804,7 @@ textarea:focus-visible {
 .tf-header.adv-fijo { padding-top: 12px; }
 .tf-header.adv-fijo .header-inner {
   background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 10px 30px rgba(10, 34, 64, .14);
+  box-shadow: 0 10px 30px rgba(1,42,71, .14);
 }
 
 @media (max-width: 991px) {
@@ -869,35 +833,35 @@ body::-webkit-scrollbar,
 
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
-::-webkit-scrollbar-track { background: rgba(228, 234, 244, .45); }
+::-webkit-scrollbar-track { background: rgba(230,237,242, .45); }
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
   border-radius: 99px;
   cursor: grab;
-  background-color: #00e5ff;
-  background-image: linear-gradient(180deg, #00e5ff 0%, #5b1aff 100%);
+  background-color: #6DB9E6;
+  background-image: linear-gradient(180deg, #6DB9E6 0%, #044B7E 100%);
   border: 4px solid transparent;
   background-clip: padding-box;
 }
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(180deg, #00e5ff 0%, #007C82 100%);
+  background-image: linear-gradient(180deg, #6DB9E6 0%, #044B7E 100%);
 }
 html::-webkit-scrollbar-thumb:active,
 body::-webkit-scrollbar-thumb:active,
 ::-webkit-scrollbar-thumb:active {
   cursor: grabbing;
-  background-image: linear-gradient(180deg, #00e5ff 0%, #0a2240 100%);
+  background-image: linear-gradient(180deg, #6DB9E6 0%, #012A47 100%);
 }
 ::-webkit-scrollbar-corner { background: transparent; }
 
 @supports (scrollbar-color: auto) and (not selector(::-webkit-scrollbar)) {
   html {
     scrollbar-width: thin;
-    scrollbar-color: #00e5ff rgba(228, 234, 244, .55);
+    scrollbar-color: #6DB9E6 rgba(230,237,242, .55);
   }
 }
 
@@ -933,11 +897,11 @@ body::-webkit-scrollbar-thumb:active,
 .adv-esq--id svg { bottom: 0; right: 0; }
 
 .adv-esq__base {
-  stroke: rgba(10, 34, 64, .13);
+  stroke: rgba(1,42,71, .13);
   stroke-width: 1.4;
   stroke-linecap: round;
 }
-.adv-esq__nodo { fill: rgba(0, 113, 143, .3); }
+.adv-esq__nodo { fill: rgba(4,75,126, .3); }
 
 .adv-esq__pulso {
   stroke: var(--adv-turquesa-texto);
@@ -988,8 +952,8 @@ body::-webkit-scrollbar-thumb:active,
 
 /* ==========================================================================
    LEGIBILIDAD TRAS EL CAMBIO A CIAN
-   El cian #00e5ff sobre blanco da 1,4:1: sirve de fondo, borde y acento, pero
-   no de texto. Por eso el texto sobre claro usa el celeste profundo (#00718f)
+   El cian #6DB9E6 sobre blanco da 1,4:1: sirve de fondo, borde y acento, pero
+   no de texto. Por eso el texto sobre claro usa el celeste profundo (#044B7E)
    y el cian se reserva para fondos oscuros. Aqui van los pocos sitios donde el
    template apagaba el texto mas de lo que se puede leer.
    ========================================================================== */
@@ -997,13 +961,13 @@ body::-webkit-scrollbar-thumb:active,
 /* Numeros grandes y apagados del template: 72 px en gris casi blanco daban
    1,1:1. Se suben hasta 3:1, el minimo para texto grande, conservando que el
    segundo numero sea mas suave que el primero. */
-.process-card .number .text-neutral-400 { color: #5b6b80 !important; }
-.process-card .number .text-neutral-200 { color: #7a8aa3 !important; }
-.review-box .counter, .review-box .counter .number, .review-box .counter .adv-unit { color: #7a8aa3 !important; }
+.process-card .number .text-neutral-400 { color: #4D6A7E !important; }
+.process-card .number .text-neutral-200 { color: #677F91 !important; }
+.review-box .counter, .review-box .counter .number, .review-box .counter .adv-unit { color: #677F91 !important; }
 
 /* El contador «1 / 3» de los testimonios va sobre fondo negro */
 .swiper-testimonial_wrap .group-slider .testimonials-pagination,
-.swiper-testimonial_wrap .group-slider .testimonials-pagination .swiper-pagination-total { color: #8394ab !important; }
+.swiper-testimonial_wrap .group-slider .testimonials-pagination .swiper-pagination-total { color: #8D9FAC !important; }
 
 /* Un texto de marca dentro de un bloque oscuro va en cian, no en el celeste
    profundo que es para fondo claro. La utilidad del template lleva !important. */
@@ -1013,7 +977,7 @@ body::-webkit-scrollbar-thumb:active,
 /* «Ver area» sobre una foto: llevaba blanco sobre un velo translucido, y sobre
    una foto clara quedaba en gris claro con letra blanca (1,7:1). Con fondo
    propio, la letra se lee sea cual sea la foto. */
-.featured-works-item .image .view-project { background: rgba(10, 34, 64, .86); color: #fff; }
+.featured-works-item .image .view-project { background: rgba(1,42,71, .86); color: #fff; }
 .featured-works-item .image .view-project * { color: inherit; }
 
 /* ==========================================================================
@@ -1027,11 +991,11 @@ body::-webkit-scrollbar-thumb:active,
    que rodeaban a la doctora, que ya salieron con la caja nueva. Lo que no se
    pidio, no se toca. */
 
-/* --- Titular: negrita y degradado del cian al lila ------------------------
-   Cada linea hace su propio recorrido, de celeste a lila, como en la
+/* --- Titular: negrita y degradado del azul principal al turquesa ------------------------
+   Cada linea hace su propio recorrido, de azul a turquesa, como en la
    referencia. Los extremos estan en los tonos mas claros que el fondo
-   permite: #0092c4 (3,3:1) y #8b5cf6 (3,9:1) sobre el blanco frio; el cian
-   puro #00e5ff daria 1,4:1 y no se podria leer. */
+   permite: #044B7E y #33838A (turquesa del manual oscurecido hacia el azul noche) sobre el blanco frio; el celeste
+   puro #6DB9E6 daria 1,4:1 y no se podria leer. */
 .section-hero.adv-hero .title {
   font-size: clamp(38px, 5.3vw, 84px) !important;
   line-height: .98 !important;
@@ -1041,7 +1005,7 @@ body::-webkit-scrollbar-thumb:active,
 .section-hero.adv-hero .title .title1,
 .section-hero.adv-hero .title .title2 span {
   font-weight: 800 !important;
-  background: linear-gradient(100deg, #0092c4 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(100deg, #044B7E 0%, #33838A 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
@@ -1062,29 +1026,29 @@ body::-webkit-scrollbar-thumb:active,
   transition: background-color .2s ease, border-color .2s ease, color .2s ease;
 }
 .section-hero.adv-hero .bot-btns .tf-btn {
-  background: #5b1aff !important;
-  border-color: #5b1aff;
+  background: #044B7E !important;
+  border-color: #044B7E;
   color: #fff !important;
-  box-shadow: 0 10px 26px rgba(91, 26, 255, .35) !important;
+  box-shadow: 0 10px 26px rgba(4,75,126, .35) !important;
 }
 .section-hero.adv-hero .bot-btns .tf-btn:hover {
-  background: #0a2240 !important;
-  border-color: #0a2240;
+  background: #012A47 !important;
+  border-color: #012A47;
   color: #fff !important;
 }
-/* Medido sobre el degradado real del fondo (celeste #76d2fa en el peor punto),
-   #00718f daba 3,3:1; con #0a2240 da 5,3:1. */
+/* Medido sobre el degradado real del fondo (celeste #6DB9E6 en el peor punto),
+   #044B7E daba 3,3:1; con #012A47 da 5,3:1. */
 .section-hero.adv-hero .bot-btns .tf-btn-2 {
   background: transparent !important;
-  border-color: #0a2240;
-  color: #0a2240 !important;
+  border-color: #012A47;
+  color: #012A47 !important;
   box-shadow: none !important;
 }
 /* Al pasar el mouse: violeta con letra blanca (6,4:1). En cian se perdia contra el
    degradado celeste del fondo, igual que le pasaba al boton principal. */
 .section-hero.adv-hero .bot-btns .tf-btn-2:hover {
-  background: #5b1aff !important;
-  border-color: #5b1aff;
+  background: #044B7E !important;
+  border-color: #044B7E;
   color: #fff !important;
 }
 .section-hero.adv-hero .bot-btns .tf-btn *,
@@ -1104,10 +1068,10 @@ body::-webkit-scrollbar-thumb:active,
   border-radius: 0;
   font-size: 14.5px;
   font-weight: 500;
-  color: #2c3f5c !important;
+  color: #1F445D !important;
 }
 .section-hero.adv-hero .adv-badge .icon,
-.section-hero.adv-hero .adv-badge--fonasa .icon { color: #0a2240 !important; font-size: 15px; }
+.section-hero.adv-hero .adv-badge--fonasa .icon { color: #012A47 !important; font-size: 15px; }
 @media (max-width: 991px) { .section-hero.adv-hero .adv-badges { justify-content: center; } }
 
 /* --- La doctora: sin halo, dentro de una caja redonda azul noche -----------
@@ -1126,7 +1090,7 @@ body::-webkit-scrollbar-thumb:active,
   height: 80%;
   aspect-ratio: auto;
   border-radius: 110px 110px 110px 28px;
-  background: #0a2240 !important;
+  background: #012A47 !important;
   /* 1,5 px hacia dentro: por el antialias, la caja asomaba como un hilo oscuro por la
      curva de abajo, alrededor de la bata. */
   clip-path: inset(1.5px round 108px 108px 108px 26px);
@@ -1158,13 +1122,13 @@ body::-webkit-scrollbar-thumb:active,
    va como texto sobre claro (1,4:1) ni el blanco sobre cian.
    Las cajas de icono de «Como reservas» van las tres en cian, con el icono en azul noche.
    ========================================================================== */
-.process-slide .process-card .icon { color: #0a2240 !important; }   /* las tres cajas, cian con icono azul noche */   /* caja violeta */   /* caja azul noche */
+.process-slide .process-card .icon { color: #012A47 !important; }   /* las tres cajas, cian con icono azul noche */   /* caja violeta */   /* caja azul noche */
 
 /* La caja grande con el corazon (cian): el corazon va en azul noche */
-.features-center .icon, .features-center i, .features-center svg { color: #0a2240 !important; fill: #0a2240; }
+.features-center .icon, .features-center i, .features-center svg { color: #012A47 !important; fill: #012A47; }
 
 /* Check de la tarjetita «Hora confirmada» (caja cian) */
-.adv-tarjeta .ic { color: #0a2240; }
+.adv-tarjeta .ic { color: #012A47; }
 /* «Conoce el centro»: se queda la forma concava y el texto; solo sale la flecha. */
 .section-hero .scroll-more .icon { display: none !important; }
 
@@ -1178,18 +1142,18 @@ body::-webkit-scrollbar-thumb:active,
    Al pasar el mouse: azul noche con letra blanca en la tarjeta clara, y blanco
    frio con letra azul noche en la oscura (azul noche sobre azul noche no se ve). */
 .section-pricing .pricing-item .tf-btn {
-  background: #00e5ff !important;
-  color: #0a2240 !important;
-  box-shadow: 0 8px 22px rgba(0, 229, 255, .30) !important;
+  background: #6DB9E6 !important;
+  color: #012A47 !important;
+  box-shadow: 0 8px 22px rgba(109,185,230, .30) !important;
 }
 .section-pricing .pricing-item .tf-btn * { color: inherit !important; }
-.section-pricing .pricing-item .tf-btn:hover { background: #0a2240 !important; color: #ffffff !important; }
-.section-pricing .pricing-item.style-black .tf-btn:hover { background: #f5f7fa !important; color: #0a2240 !important; }
+.section-pricing .pricing-item .tf-btn:hover { background: #012A47 !important; color: #ffffff !important; }
+.section-pricing .pricing-item.style-black .tf-btn:hover { background: #f5f7fa !important; color: #012A47 !important; }
 
 /* Preguntas frecuentes: el boton +/- en violeta, con la cruz en blanco. */
 .accordion-asked .accordion-button span {
-  background: #5b1aff !important;
-  box-shadow: 0 6px 14px rgba(91, 26, 255, .30) !important;
+  background: #044B7E !important;
+  box-shadow: 0 6px 14px rgba(4,75,126, .30) !important;
 }
 .accordion-asked .accordion-button span::before,
 .accordion-asked .accordion-button span::after { background-color: #ffffff; }
@@ -1260,3 +1224,29 @@ body::-webkit-scrollbar-thumb:active,
 /* «Un centro moderno» y «Quién te va a atender» estaban pegadas: se separan. */
 .section-tools { margin-bottom: 40px; }
 @media (max-width: 767px) { .section-tools { margin-bottom: 24px; } }
+
+/* ===========================================================================
+   MARCA ADVANCE SALUD (Manual de Marca, Merken Digital) — ajustes de capa
+   Pares de color: sobre celeste y lima va azul noche #012A47; sobre azul
+   principal #044B7E y azul noche va blanco o celeste. Solo cambian colores y logo.
+   =========================================================================== */
+
+/* Tamaño de los isotipos (ahora son PNG del manual, no SVG a medida) */
+footer .footer-content .footer-logo img { width: 86px; height: 86px; }
+.features-center img { width: 144px; height: auto; }
+
+/* Capas sobre los bloques azul noche: el azul noche solo no separa la tarjeta
+   del fondo, así que las tarjetas y los bordes suben un paso hacia el azul
+   principal (mitad de camino entre #012A47 y #044B7E). */
+:root { --adv-capa: #033A63; }
+.team-item,
+.awards-item:hover {
+  background:
+    linear-gradient(0deg, var(--adv-capa), var(--adv-capa)),
+    radial-gradient(62.56% 62.56% at 28.14% -10.42%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.awards-item { border-color: var(--adv-capa); }
+
+/* Lima: el tercer color del isotipo, en los acentos pequeños */
+.heading-section .heading-sub::before { background-color: #9FD412; }
+.adv-chip.is-active { background: #9FD412; border-color: #9FD412; color: #012A47; }
