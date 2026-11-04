@@ -1250,3 +1250,12 @@ footer .footer-content .footer-logo img { width: 86px; height: 86px; }
 /* Lima: el tercer color del isotipo, en los acentos pequeños */
 .heading-section .heading-sub::before { background-color: #9FD412; }
 .adv-chip.is-active { background: #9FD412; border-color: #9FD412; color: #012A47; }
+
+/* Noticias: las fotos de la lista tenían anchos y altos distintos y se veía
+   desordenado. Todas pasan a ser mosaicos iguales (3:2), recortadas al centro. */
+.article-blog .blog-image { display: block; overflow: hidden; }
+.article-blog .blog-image img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3 / 2; }
+@media (min-width: 426px) {
+  .article-blog.style-horizontal .blog-image { flex: 0 0 300px; width: 300px; max-width: 300px; }
+  .article-blog.style-horizontal .blog-image img { height: 200px; aspect-ratio: auto; }
+}
