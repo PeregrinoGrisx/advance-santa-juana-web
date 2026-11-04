@@ -1259,3 +1259,11 @@ footer .footer-content .footer-logo img { width: 86px; height: 86px; }
   .article-blog.style-horizontal .blog-image { flex: 0 0 300px; width: 300px; max-width: 300px; }
   .article-blog.style-horizontal .blog-image img { height: 200px; aspect-ratio: auto; }
 }
+
+/* «Cómo llegar»: la tarjeta de Dirección (dos líneas) quedaba más alta que las
+   otras dos. En escritorio las tres miden lo mismo. */
+@media (min-width: 768px) {
+  .section-contact .row > .col-md-4 { display: flex; }
+  .section-contact .row > .col-md-4 > .overflow-hidden { display: flex; width: 100%; }
+  .section-contact .row > .col-md-4 .box-contact-item { width: 100%; }
+}
