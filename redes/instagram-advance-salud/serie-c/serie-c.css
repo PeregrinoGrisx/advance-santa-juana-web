@@ -1,0 +1,27 @@
+/* Serie C · «Clínica». Lenguaje de las plantillas healthcare de Envato con la marca
+   de Advance Salud: profesional recortado sobre un círculo, cruces médicas,
+   tarjetas blancas tipo app, insignias y una barra de contacto con íconos. */
+
+.fondo-claro { background-color: #EEF6FC; background-image: radial-gradient(rgba(4, 75, 126, .13) 2.4px, transparent 2.4px); background-size: 34px 34px; }
+.fondo-azul { background-color: var(--azul); background-image: radial-gradient(rgba(255, 255, 255, .09) 2.4px, transparent 2.4px); background-size: 34px 34px; }
+.fondo-noche { background-color: var(--noche); background-image: radial-gradient(rgba(255, 255, 255, .07) 2.4px, transparent 2.4px); background-size: 34px 34px; }
+
+.cruz { position: absolute; }
+.tarjeta { background: #fff; border-radius: 28px; box-shadow: 0 18px 40px rgba(1, 42, 71, .14); }
+.kicker { display: inline-flex; align-items: center; gap: 12px; height: 54px; padding: 0 24px; border-radius: 999px;
+  font-family: "DM Sans", Arial, sans-serif; font-size: 25px; font-weight: 700; letter-spacing: .02em; }
+.boton { display: inline-flex; align-items: center; gap: 16px; height: 84px; padding: 0 16px 0 40px; border-radius: 999px;
+  font-size: 34px; font-weight: 900; }
+.boton .flecha { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; }
+.boton .flecha svg { width: 32px; height: 32px; }
+
+/* Barra de contacto inferior */
+.barra { position: absolute; left: 0; right: 0; bottom: 0; height: 118px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 60px; font-family: "DM Sans", Arial, sans-serif; font-size: 27px; font-weight: 700; }
+.barra .dato { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.barra .dato .ico { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; }
+.barra .dato .ico svg { width: 28px; height: 28px; }
+.barra--azul { background: var(--azul); color: #fff; }
+.barra--azul .ico { background: var(--lima); }
+.barra--blanca { background: #fff; color: var(--azul); }
+.barra--blanca .ico { background: var(--azul); }

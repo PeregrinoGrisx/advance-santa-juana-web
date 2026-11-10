@@ -1,0 +1,29 @@
+/* Posts de Instagram · Advance Salud | Santa Juana
+   Colores y tipografías del Manual de Marca de Advance Salud (Merken Digital).
+   Lienzo 1080 × 1350 (vertical 4:5). */
+
+:root {
+  --azul: #044B7E;     /* color principal */
+  --lima: #9FD412;     /* color secundario */
+  --celeste: #6DB9E6;  /* color secundario */
+  --agua: #48A9A6;     /* color de apoyo */
+  --noche: #012A47;    /* color de apoyo */
+  --blanco: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #888; }
+body { font-family: "Nunito Sans", "DM Sans", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+
+.post { position: relative; width: 1080px; height: 1350px; overflow: hidden; color: var(--blanco); }
+.abs { position: absolute; }
+
+/* Palabra destacada: «Common Rejection» según el manual. Si no está instalada,
+   se usa Satisfy, la más parecida de Google Fonts. */
+.script { font-family: "Common Rejection", "Satisfy", cursive; font-weight: 400; letter-spacing: 0; }
+
+.titulo { font-weight: 900; letter-spacing: -0.02em; line-height: 0.98; }
+.icono { display: grid; place-items: center; border-radius: 50%; flex: none; }
+.icono svg { width: 56%; height: 56%; }
+.pildora { display: inline-flex; align-items: center; border-radius: 999px; font-weight: 800; line-height: 1; white-space: nowrap; }
+.dm { font-family: "DM Sans", "Nunito Sans", Arial, sans-serif; }

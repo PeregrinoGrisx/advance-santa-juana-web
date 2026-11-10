@@ -1,0 +1,12 @@
+/* Paleta de Advance · Centro de salud Santa Juana. Sin rojo. */
+:root {
+  --advance-turquesa: #008F96;  /* Turquesa Advance */
+  --advance-teal: #006B70;  /* Teal profundo */
+  --advance-tinta: #0B3D42;  /* Tinta petróleo */
+  --advance-tinta-900: #072227;  /* Tinta 900 */
+  --advance-gris: #4A6169;  /* Gris texto */
+  --advance-agua: #CFE6E7;  /* Agua */
+  --advance-nieve: #EDF5F5;  /* Nieve */
+  --advance-ambar: #F2B33D;  /* Ámbar FONASA */
+  --advance-verde: #1E7F46;  /* Verde WhatsApp */
+}
