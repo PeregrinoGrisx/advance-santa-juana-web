@@ -20,12 +20,12 @@
 #valores div.pricing-item.style-black :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.blockquote-wrap :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.box-black :is(p, li, .text, .text-secondary):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *) {
-  color: #c3d0dd;
+  color: #C0D2DF;
 }
 #valores div.pricing-item.style-black :is(.sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.blockquote-wrap :is(.sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.box-black :is(.sub, .num, .specialty-number):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *) {
-  color: #00e5ff;
+  color: #6DB9E6;
 }
 
 /* El titulillo .heading-sub no es texto suelto: el template lo dibuja como
@@ -37,8 +37,8 @@
 #valores div.pricing-item.style-black .heading-sub:not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.blockquote-wrap .heading-sub:not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.box-black .heading-sub:not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *) {
-  background: rgba(0, 229, 255, 0.12) !important;
-  color: #00e5ff;
+  background: rgba(109,185,230, 0.12) !important;
+  color: #6DB9E6;
 }
 
 /* El degradado de marca, en su registro oscuro.
@@ -47,14 +47,14 @@
    tramo distinto. Sobre claro hay que bajar el celeste o no se lee; sobre
    oscuro pasa al reves: el celeste luce a plena potencia y el que se apaga es
    el morado, que sobre azul noche se hunde (2,7:1). Asi que aqui el celeste
-   sube a #00e5ff y el morado se aclara a #8f6bff, que da 3,8:1.
+   sube a #6DB9E6 y el morado se aclara a #6DB9E6, que da 3,8:1.
 
    Un degradado solo es tan legible como su extremo mas flojo: en ese extremo
    tambien hay letras. */
 #valores div.pricing-item.style-black :is(.text-gradient, .text-gradient-1, .text-gradient-2, .text-gradient-3):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.blockquote-wrap :is(.text-gradient, .text-gradient-1, .text-gradient-2, .text-gradient-3):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.box-black :is(.text-gradient, .text-gradient-1, .text-gradient-2, .text-gradient-3):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *) {
-  background: linear-gradient(100deg, #00e5ff 0%, #8f6bff 100%) !important;
+  background: linear-gradient(100deg, #6DB9E6 0%, #6DB9E6 100%) !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
@@ -63,7 +63,7 @@
 #valores div.pricing-item.style-black :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.blockquote-wrap :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *),
 #wrapper div.box-black :is(.adv-chip, .badge-fonasa):not(:is(.box-white, .card-especialidad, .features-item, .services-item, .widget-box, .form-contact, .adv-booking, .box-contact-item, .pricing-item:not(.style-black), .card-light) *) {
-  background: rgba(0, 229, 255, 0.12);
-  border: 1px solid rgba(0, 229, 255, 0.45);
-  color: #00e5ff;
+  background: rgba(109,185,230, 0.12);
+  border: 1px solid rgba(109,185,230, 0.45);
+  color: #6DB9E6;
 }
